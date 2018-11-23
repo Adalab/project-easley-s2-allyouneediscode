@@ -1,0 +1,41 @@
+@mixin Text-Style-2 {
+    font-family: 'Merriweather', serif;
+    font-size: 19.2px;
+    font-weight: 900;
+    text-align: center;
+    color: $color-dull-orange;
+  }
+  
+  @mixin Text-Style-3 {
+    font-family: 'OpenSans', sans-serif;
+    font-size: 12.8px;
+    text-align: center;
+    color: $color-dark-green-blue;
+  }
+  
+  @mixin Text-Style-4 {
+    font-family: 'FontAwesome5Pro';
+    font-size: 28px;
+    text-align: center;
+    color: $color-dull-orange;
+  }
+  
+  @mixin Text-Style-5 {
+    font-family: 'OpenSans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: $color-white;
+  }
+  
+  @mixin Text-Style-6 {
+    font-family: 'ComicSansMS';
+    font-size: 16px;
+    color: $color-gunmetal;
+  }
+  
+  @mixin Text-Style {
+    font-family: 'FontAwesome5Pro';
+    font-size: 18px;
+    color: $color-dull-orange;
+  }

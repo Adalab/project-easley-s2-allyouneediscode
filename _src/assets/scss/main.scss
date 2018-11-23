@@ -1,6 +1,6 @@
-@import 'core/settings';
+@import 'core/variables';
+@import 'core/mixins';
 
-body {
-	background: url('../images/logo-adalab-80px.png') center center no-repeat $color-white;
-	height: 100vh;
-}
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,900%7COpen+Sans');
+
+
