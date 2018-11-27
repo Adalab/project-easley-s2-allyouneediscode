@@ -87,7 +87,9 @@
                 <label for="occupation">puesto</label>
                 <input id="occupation" type="text" name="occupation">
 
-                <!--add image button goes here-->
+                <label for="upload-image">añadir imagen</label>
+                <input id="upload-image" type="file" name="upload-image">
+                <div class="upload-image__container"></div>
                 
                 <label for="email">email</label>
                 <input id="email" type="email" name="email">
@@ -101,7 +103,22 @@
                 <label for="github">github</label>
                 <input id="github" type="text" name="github">
 
-                
+                <p>habilidades</p>
+
+                <label for="skills-html">
+                    <input class="option-button" id="skills-html" type="radio" value="skills-html" name="skills">
+                    <p class="main__design--skills-html">HTML</p>
+                </label>
+
+                <label for="skills-css">
+                    <input class="option-button" id="skills-css" type="radio" value="skills-css" name="skills">
+                    <p class="main__design--skills-css">CSS</p>
+                </label>
+
+                <label for="skills-react">
+                    <input class="option-button" id="skills-react" type="radio" value="skills-react" name="skills">
+                    <p class="main__design--skills-react">react</p>
+                </label>
             </div>
         </fieldset>
 
