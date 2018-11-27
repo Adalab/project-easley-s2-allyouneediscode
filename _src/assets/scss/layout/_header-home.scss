@@ -1,10 +1,12 @@
 .page__header{
     background-color: $color-white-three;
     margin: 0 auto;
-    max-width: 268px;
+    max-width: 268px;  
+    text-align: center; 
 }
 
 .header__logo{
  height: 64px;
  width: 250px;
+ margin-top: 94px;
 }

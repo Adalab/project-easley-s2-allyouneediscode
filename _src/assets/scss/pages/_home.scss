@@ -4,13 +4,18 @@
     max-width: 268px;
     min-height: 100%;
     text-align: center;
+    
 }
 
 .main__title-2{
     @include Text-Style-2();
+    margin-top: 35.4px;
+    margin-bottom: 4px;
 }
 .main__text{
     @include Text-Style-3();
+    margin-top: 0;
+    margin-bottom: 13.8px;
 }
 .main__icons{
     background-color: $color-white-three;
@@ -56,7 +61,6 @@
     margin: 38px 0 30px; 
     padding: 10px 20px;
     @include Text-Style-5;
-    
-
-
+    margin-bottom: 30px;
 }
+
