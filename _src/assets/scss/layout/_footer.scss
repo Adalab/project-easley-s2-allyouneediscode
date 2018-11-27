@@ -1,9 +1,13 @@
+.page__footer{
+    background-color: $color-white;
+    position:absolute;
+}
 .footer__container{
     background-color: $color-white;
     width: 100vw;
     margin: 10 auto 0;
-    position: fixed;
-    bottom: 0;
+    // position: fixed;
+    // bottom: 0;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -21,6 +25,7 @@
     color: $color-brownish-grey;
     opacity: 0.5;
     width: 198px;
+
     
     @media all and (min-width: 768px){
         margin-left: 40px; 

@@ -25,3 +25,7 @@ body{
         color: $color-dull-orange;
     }
 }
+html {
+    min-height: 100%;
+    position: relative;
+}
