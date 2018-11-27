@@ -2,6 +2,8 @@
     background-color: $color-white-three;
     margin: 0 auto;
     max-width: 268px;
+    min-height: 100%;
+    text-align: center;
 }
 
 .main__title-2{
@@ -11,12 +13,29 @@
     @include Text-Style-3();
 }
 .main__icons{
-    background-color: blue;
+    background-color: $color-white-three;
     list-style: none;
     font-family: 'OpenSans', sans-serif;
     font-size: 16px;
-    align: center;
+    text-align: center;
     color: $color-gunmetal;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    // justify-content: space-between;
+    padding: 15px 0 10px;
+    width: 268px;
+    border-radius: 4px;
+    margin: 0;
+    border: 1.6px solid $color-dull-orange-o;
+}
+
+.icon:nth-last-child(1) {
+    margin-right: 20px;
+}
+
+.icon:first-child {
+    margin-left: 20px;
 }
 
 .icon__design{
@@ -26,9 +45,19 @@
 
 }
 .icon__share{
+    overflow: hidden;
 
 }
 
 .main__button{
+    width: 129px;
+    height: 42px;
+    border-radius: 21px;
+    background-color: $color-dirty-blue;
+    margin: 38px 0 30px; 
+    padding: 10px 20px;
+    @include Text-Style-5;
+    
+
 
 }
