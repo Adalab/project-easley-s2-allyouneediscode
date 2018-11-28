@@ -3,31 +3,47 @@
     padding-bottom: 30px;
 }
 
+.preview__container {
+    width: 240px;
+    margin: auto;
+}
+
 .preview__reset {
-    width: 75px;
-    height: 30px;
+    padding: 5px 10px;
     border: 1px solid $color-white;
     border-radius: 15px;
     background-color: $color-silver;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
 
+.preview__reset-text {
+    margin-left: 5px;
     text-transform: uppercase;
     @include Text-Style-Main();
     font-size: 12px;
 }
 
 .preview__card {
-    width: 240px;
+    width: 100%;
     height: 367px;
     margin: 0px auto;
     border: 1px solid black;
     background-color: $color-white;
 }
 
-.preview__name {
-    padding: 23px auto 5px 15px;
-    margin: 0;
+.preview__texts {
+    margin: 23px auto 10px 15px;
+}
 
+.preview__name {
     @include Text-Style-3();
     font-size: 18px;
+    margin: 0px;
+    margin-bottom: 5px;
+}
 
+.preview__occupation {
+    @include Text-Style-Main();
+    margin: 0px;
 }

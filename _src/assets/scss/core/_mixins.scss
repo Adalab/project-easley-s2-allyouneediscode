@@ -9,7 +9,6 @@
   @mixin Text-Style-3 {
     font-family: 'OpenSans', sans-serif;
     font-size: 12px;
-    text-align: center;
     color: $color-dark-green-blue;
   }
   
@@ -35,7 +34,7 @@
   }
 
   @mixin Text-Style-Main {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'OpenSans', sans-serif;
     color: $color-gunmetal;
   }
   
