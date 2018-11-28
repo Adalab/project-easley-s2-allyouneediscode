@@ -1,3 +1,6 @@
 'use strict';
 
-console.log('>> Ready :)');
+/* campo de escritura */
+
+const fillNameSelector = document.querySelector('#full.name');
+const cardNameSelector = document.querySelector('');
