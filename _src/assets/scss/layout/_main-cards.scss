@@ -15,6 +15,7 @@
     background-color: $color-silver;
     margin-top: 10px;
     margin-bottom: 20px;
+    color: $color-gunmetal;
 }
 
 .preview__reset-text {
@@ -22,18 +23,31 @@
     text-transform: uppercase;
     @include Text-Style-Main();
     font-size: 12px;
+    line-height: 20px;
 }
 
 .preview__card {
     width: 100%;
     height: 367px;
-    margin: 0px auto;
-    border: 1px solid black;
+    padding-top: 20px;
     background-color: $color-white;
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
+    border-radius: 2px;
+}
+
+.preview__title {
+    display: flex;
+    margin: 0 auto 10px 0;
+}
+
+.preview__decoration-rectangle {
+    height: 42px;
+    width: 5px;
+    background-color: $color-hospital-green;
 }
 
 .preview__texts {
-    margin: 23px auto 10px 15px;
+    margin-left: 15px;
 }
 
 .preview__name {
@@ -57,9 +71,8 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    width: 240px;
+    width: 100%;
     height: 200px;
-    margin: 10 0;
 }
 
 //////The conatiner class in each UL is to give each of them display: flex and some other common elements in just one place///
@@ -73,39 +86,35 @@
 
 .preview__social-icons {
     padding: 10px 0;
-
 }
 
-.icon {
-    width: 32px;
-    height: 32px;
-    border: 2px solid $color-hospital-green;
-    border-radius: 16px;
-    text-align: center;
+.social-icon {
     display: flex; 
     justify-content: center;
     align-items: center;
+    width: 32px;
+    height: 32px;
     margin-right: 10px;
+    border: 2px solid $color-hospital-green;
+    border-radius: 16px;
+    color: $color-dark-green-blue;
 }
 
-
-li:first-child {
+.social-icon:first-child {
     margin-left: 20px;
 }
-
-li:last-child {
-    margin-right: 62px;
-}
-
 
 .preview__skills-icons {
     padding: 10px 0;
     margin-bottom: 10px;
 }
 
-
 .skills__container {
-    border-top: solid $color-dirty-blue;
+    border-top: 2px solid rgba(67,135,146, 0.2);
+}
+
+.preview__skills-icons:first-child {
+    margin-left: 15px;
 }
 
 .skill {
@@ -113,7 +122,9 @@ li:last-child {
     font-size: 13px;
     font-family: 'OpenSans', sans-serif;
     color: $color-white;
-    margin-right: 15px;
+    text-transform: uppercase;
+    margin-right: 10px;
+    line-height: 18px;
 
 ////I applied 10px less for the icons to look similar to the design///////
     padding: 0 5px;
