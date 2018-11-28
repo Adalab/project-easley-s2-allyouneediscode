@@ -3,10 +3,19 @@
     margin: 0 auto;
     max-width: 268px;  
     text-align: center; 
+    @media all and (min-width: 768px){
+        max-width: 419px;
+    }
 }
 
 .header__logo{
  height: 64px;
  width: 250px;
  margin-top: 94px;
+
+ @media all and (min-width: 768px){
+     height: 107px;
+     width: 419px;
+     margin-top: 348px;
+ }
 }
