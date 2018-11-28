@@ -1,0 +1,40 @@
+.page__footer{
+    background-color: $color-white;
+}
+.footer__container{
+    background-color: $color-white;
+    width: 100vw;
+    margin: 10 auto 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    @media all and (min-width: 768px){
+        flex-flow: row;
+        justify-content: space-between; 
+    }
+    
+}
+.footer__text{
+    font-family: 'OpenSans', sans-serif;
+    font-size: 14px;
+    line-height: 1.43;
+    color: $color-brownish-grey;
+    opacity: 0.5;
+    width: 198px;
+
+    
+    @media all and (min-width: 768px){
+        margin-left: 40px; 
+    }
+    
+}
+.footer__logo{
+    width: 103px;
+    height: 40px;
+    margin-bottom: 20px;
+    @media all and (min-width: 768px){
+        margin: 10px 40px 10px 0; 
+    }
+    
+}
