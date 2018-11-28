@@ -1,0 +1,33 @@
+.main__preview {
+    background-image: linear-gradient(to bottom, $color-silver, $color-pale-grey);
+    padding-bottom: 30px;
+}
+
+.preview__reset {
+    width: 75px;
+    height: 30px;
+    border: 1px solid $color-white;
+    border-radius: 15px;
+    background-color: $color-silver;
+
+    text-transform: uppercase;
+    @include Text-Style-Main();
+    font-size: 12px;
+}
+
+.preview__card {
+    width: 240px;
+    height: 367px;
+    margin: 0px auto;
+    border: 1px solid black;
+    background-color: $color-white;
+}
+
+.preview__name {
+    padding: 23px auto 5px 15px;
+    margin: 0;
+
+    @include Text-Style-3();
+    font-size: 18px;
+
+}
