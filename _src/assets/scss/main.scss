@@ -2,17 +2,23 @@
 @import 'core/mixins';
 @import 'core/functions';
 @import 'core/common';
+
 @import 'components/buttons';
 @import 'components/forms';
 @import 'components/hero';
 @import 'components/typography';
+
 @import 'layout/header-home';
 @import 'layout/header-cards';
 @import 'layout/footer';
 @import 'layout/grid';
+@import 'layout/main-cards';
+
 @import 'pages/cards';
 @import 'pages/home';
 
+
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,900%7COpen+Sans');
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,900%7COpen+Sans');
 
 

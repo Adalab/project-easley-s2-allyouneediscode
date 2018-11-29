@@ -1,8 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
 body{
     margin: 0;
     background-color: $color-white-three;
-    box-sizing: border-box;
 }
+
 .page{
     display: grid;
     grid-template-columns: 1fr;
@@ -16,27 +20,22 @@ body{
     margin: 0;
 }
 
-.button{
-
-}
-
 .icon{
     width: 60px;
     height: 49px;
+
     span {
         width: 60px;
         height: 26px;
         color: $color-dull-orange;
+        
         @media all and (min-width: 768px){
             width: 75px;
         }
     }
+    
     @media all and (min-width: 768px){
         width: 75px;
         height: 61px;
     }
 }
-// html {
-//     min-height: 100%;
-//     position: relative;
-// }

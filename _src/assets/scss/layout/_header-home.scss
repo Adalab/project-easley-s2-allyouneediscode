@@ -1,21 +1,20 @@
-.page__header{
-    background-color: $color-white-three;
+.page__header {
     margin: 0 auto;
-    max-width: 268px;  
-    text-align: center; 
+    max-width: 268px;
+
     @media all and (min-width: 768px){
         max-width: 419px;
     }
 }
 
-.header__logo{
- height: 64px;
- width: 250px;
- margin-top: 94px;
+.header__logo {
+    min-height: 64px;
+    width: 250px;
+    height: 94px;
 
- @media all and (min-width: 768px){
-     height: 107px;
-     width: 419px;
-     margin-top: 348px;
- }
+    @media all and (min-width: 768px){
+        min-height: 107px;
+        width: 419px;
+        height: 348px;
+    }
 }

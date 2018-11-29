@@ -1,6 +1,6 @@
 @mixin Text-Style-2 {
     font-family: 'Merriweather', serif;
-    font-size: 19.2px;
+    font-size: 19px;
     font-weight: 900;
     text-align: center;
     color: $color-dull-orange;
@@ -8,8 +8,7 @@
   
   @mixin Text-Style-3 {
     font-family: 'OpenSans', sans-serif;
-    font-size: 12.8px;
-    text-align: center;
+    font-size: 12px;
     color: $color-dark-green-blue;
   }
   
@@ -31,6 +30,11 @@
   @mixin Text-Style-6 {
     font-family: 'ComicSansMS';
     font-size: 16px;
+    color: $color-gunmetal;
+  }
+
+  @mixin Text-Style-Main {
+    font-family: 'OpenSans', sans-serif;
     color: $color-gunmetal;
   }
   
