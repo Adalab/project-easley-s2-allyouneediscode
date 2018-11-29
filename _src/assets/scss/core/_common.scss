@@ -4,8 +4,8 @@
 body{
     margin: 0;
     background-color: $color-white-three;
-    box-sizing: border-box;
 }
+
 .page{
     display: grid;
     grid-template-columns: 1fr;
@@ -17,10 +17,6 @@ body{
     height: 0px;
     overflow: hidden;
     margin: 0;
-}
-
-.button{
-
 }
 
 .icon{
