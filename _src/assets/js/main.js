@@ -65,16 +65,46 @@ fillLinkedInSelector.addEventListener('keyup', function(e){
 //////////Github field//////
 
 
-const fillGithubSelector = document.querySelector('#linkedin');
+const fillGithubSelector = document.querySelector('#github');
 const cardGithubSelector = document.querySelector('.icon__github');
 
 fillGithubSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget;
 
-    // cardGithubSelector.innerHTML = writer.value;   Lo estamos buscando////
+    cardGithubSelector.innerHTML = `<span class="i fab fa-github-alt"><a href="${writer.value}"></a></span>`;   
 });
 
 
+
+
+const htmlCheckbox = document.querySelector('#skills-html');
+const htmlLabel = document.querySelector('.skill_html');
+
+const cssCheckbox = document.querySelector('#skills-css');
+const cssLabel = document.querySelector('.skill_css');
+
+const reactCheckbox = document.querySelector('#skills-react');
+const reactLabel = document.querySelector('.skill_react');
+
+function handleSkillsHtml () {
+    htmlLabel.classList.toggle('hidden');
+};
+
+function handleSkillsCss () {
+    cssLabel.classList.toggle('hidden');
+};
+
+function handleSkillsReact () {
+    reactLabel.classList.toggle('hidden');
+};
+
+
+
+htmlCheckbox.addEventListener('click',handleSkillsHtml);
+
+cssCheckbox.addEventListener('click',handleSkillsCss);
+
+reactCheckbox.addEventListener('click',handleSkillsReact);
 
 
 
