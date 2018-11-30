@@ -71,7 +71,7 @@ const cardGithubSelector = document.querySelector('.icon__github');
 fillGithubSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget;
 
-    cardGithubSelector.innerHTML = `<span class="i fab fa-github-alt"><a href="${writer.value}"></a></span>`;   
+    cardGithubSelector.innerHTML = `<a href="${writer.value}"><span class="i fab fa-github-alt"></span></a>`;   
 });
 
 
