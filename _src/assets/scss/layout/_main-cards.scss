@@ -48,11 +48,12 @@
 
 .preview__texts {
     margin-left: 15px;
+    font-family: 'ComicSansMS';
 }
 
 .preview__name {
     // @include Text-Style-3(); Lo quito, porque este mixin tiene unos estilos diferentes a los que le tocan. Y luego, fuera de él está el font-size otra vez, con los pixels que tocan. Me imagino que es una confusión.
-    font-family: 'ComicSansMS';
+
     font-weight: 700;
     font-size: 18px;
     line-height: 20px;
@@ -62,8 +63,9 @@
 }
 
 .preview__occupation {
-    @include Text-Style-6();
     margin: 0px;
+    font-size: 16px;
+    color: $color-gunmetal;
 }
 
 .preview__image {
