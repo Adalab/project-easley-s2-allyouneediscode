@@ -131,6 +131,22 @@
     border-radius: 4px;
 }
 
+//hidden upload image fieldset
+
+.main__fill--container {
+}
+
+.upload-image {
+    display: none;
+}
+
+.fake__check-upload-image {
+    width: 30px;
+    height: 30px;
+    border: 1px solid $color-hospital-green;
+}
+
+
 
 
 

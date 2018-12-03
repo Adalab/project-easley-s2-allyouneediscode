@@ -22,8 +22,12 @@ fillOccupationSelector.addEventListener('keyup', function(e){
     cardOccupationSelector.innerHTML = writer.value;
 });
 
-
 ////////////Here should go imagen de perfil//////////
+
+const fakeUploadImage = document.querySelector('.fake__upload-image');
+const uploadImage = document.querySelector('.upload-image');
+const fakeCheckUploadImage = document.querySelector ('.fake__check-upload-image');
+const previewImage = document.querySelector('.preview__image');
 
 //////////email field/////////////
 
@@ -33,9 +37,8 @@ const cardEmailSelector = document.querySelector('.icon__mail');
 fillEmailSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget;
 
-    // cardEmailSelector.innerHTML = writer.value;   Lo estamos buscando////
+    cardEmailSelector.innerHTML = `<a href="${writer.value}"><span class="far fa-envelope"></span></a>`;    
 });
-
 
 
 /////////////phone  number field////////
@@ -46,7 +49,7 @@ const cardPhoneSelector = document.querySelector('.icon__phone');
 fillPhoneSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget;
 
-    // cardPhoneSelector.innerHTML = writer.value;   Lo estamos buscando////
+    cardPhoneSelector.innerHTML = `<a href="${writer.value}"><span class="fas fa-mobile-alt"></span></a>`;    
 });
 
 
@@ -58,12 +61,11 @@ const cardLinkedInSelector = document.querySelector('.icon__linkedin');
 fillLinkedInSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget;
 
-    // cardLinkedInSelector.innerHTML = writer.value;   Lo estamos buscando////
+    cardLinkedInSelector.innerHTML = `<a href="${writer.value}"><span class="fab fa-linkedin-in"></span></a>`;   
 });
 
 
 //////////Github field//////
-
 
 const fillGithubSelector = document.querySelector('#github');
 const cardGithubSelector = document.querySelector('.icon__github');
@@ -71,11 +73,8 @@ const cardGithubSelector = document.querySelector('.icon__github');
 fillGithubSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget;
 
-    cardGithubSelector.innerHTML = `<a href="${writer.value}"><span class="i fab fa-github-alt"></span></a>`;   
+    cardGithubSelector.innerHTML = `<a href="${writer.value}"><span class="fab fa-github-alt"></span></a>`;   
 });
-
-
-
 
 const htmlCheckbox = document.querySelector('#skills-html');
 const htmlLabel = document.querySelector('.skill_html');
@@ -98,39 +97,11 @@ function handleSkillsReact () {
     reactLabel.classList.toggle('hidden');
 };
 
-
-
 htmlCheckbox.addEventListener('click',handleSkillsHtml);
 
 cssCheckbox.addEventListener('click',handleSkillsCss);
 
 reactCheckbox.addEventListener('click',handleSkillsReact);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* desplegable */
 

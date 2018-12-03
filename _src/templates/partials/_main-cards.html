@@ -89,9 +89,12 @@
                 <label for="occupation">puesto</label>
                 <input id="occupation" type="text" name="occupation" field="occupation">
 
-                <label for="upload-image">añadir imagen</label>
-                <input id="upload-image" type="file" name="upload-image">
-                <div class="upload-image__container"></div>
+                <label class="upload-image" for="upload-image">añadir imagen</label>
+                <input class="upload-image" id="upload-image" type="file" name="upload-image">
+                <div class="upload-image__container">
+                    <button class="fake__upload-image">Añadir imagen</button>
+                    <div class="fake__check-upload-image"></div>
+                </div>
                 
                 <label for="email">email</label>
                 <input id="email" type="email" name="email">
