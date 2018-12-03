@@ -29,6 +29,21 @@ const uploadImage = document.querySelector('.upload-image');
 const fakeCheckUploadImage = document.querySelector ('.fake__check-upload-image');
 const previewImage = document.querySelector('.preview__image');
 
+//hacemos click en FakeUploadImage 
+
+//FakeUploadImage activa UploadImage
+
+//UploadImage se pinta en previewImage
+
+//se activa la imagen del fakeCheckUploadImage
+
+
+
+
+
+
+
+
 //////////email field/////////////
 
 const fillEmailSelector = document.querySelector('#email');
