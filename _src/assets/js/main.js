@@ -22,26 +22,39 @@ fillOccupationSelector.addEventListener('keyup', function(e){
     cardOccupationSelector.innerHTML = writer.value;
 });
 
+
 ////////////Here should go imagen de perfil//////////
 
 const fakeUploadImage = document.querySelector('.fake__upload-image');
 const uploadImage = document.querySelector('.upload-image');
 const fakeCheckUploadImage = document.querySelector ('.fake__check-upload-image');
 const previewImage = document.querySelector('.preview__image');
-
-//hacemos click en FakeUploadImage 
+const fr = new FileReader();
 
 //FakeUploadImage activa UploadImage
+const uploadClick = () => {
+    uploadImage.click();
+}
+
+//hacemos click en FakeUploadImage 
+fakeUploadImage.addEventListener('click', uploadClick);
+
+//Añadimos listeners a los botones
+uploadImage.addEventListener('click', getImage);
+
+//se obtiene la imagen del fakeCheckUploadImage
+const getImage = (e) => {
+    const myFile = e.currentTarget.files[0];
+    fr.addEventListener('load', writeImage);
+    fr.readAsDataURL(myFile);
+}
 
 //UploadImage se pinta en previewImage
+const writeImage= () => {
+    previewImage.src= fr.result;
+}
 
-//se activa la imagen del fakeCheckUploadImage
-
-
-
-
-
-
+//still doesn't work!
 
 
 //////////email field/////////////
