@@ -6,10 +6,69 @@
 const cardTextSelector = document.querySelector('.preview__texts');
 const cardNameSelector = document.querySelector('.preview__name');
 const cardOccupationSelector = document.querySelector ('.preview__occupation');
-const checkboxFontSelector = document.querySelectorAll('.option-button');
+
+const decoRectangleSelector = document.querySelector('.preview__decoration-rectangle');
+const socialIconSelector = document.querySelectorAll('.social-icon');
+const skillIconSelector = document.querySelectorAll('.skill');
+
+console.log(socialIconSelector);
+
+const checkboxPaletteGreen = document.querySelector('#color-green');
+const checkboxPaletteRed = document.querySelector('#color-red');
+const checkboxPaletteGrey = document.querySelector('#color-grey');
+
+
 const checkboxUbuntuSelector = document.querySelector('#font-ubuntu');
 const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
 const checkboxMontserratSelector = document.querySelector('#font-montserrat');
+
+//Cuando 'click' en checkbox, cambiar clase a las variables con una clase específica de la paleta de colores
+
+function choosePalette(event) {
+
+    const checkboxElement = event.currentTarget;
+
+    if ((this.value) === 'green-palette') {
+        cardNameSelector.classList.add('preview__name--green');
+        decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
+        socialIconSelector[0,1,2,3].classList.add('social-icon');
+        skillIconSelector[0,1,2,3].classList.add('skill--green');
+        
+        cardNameSelector.classList.remove('preview__name--red', 'preview__name--grey');
+        decoRectangleSelector.classList.remove('preview__decoration-rectangle--red', 'preview__decoration-rectangle--grey' );
+        socialIconSelector[0,1,2,3].classList.remove('social-icon--red', 'social-icon--grey');
+        skillIconSelector[0,1,2,3].classList.remove('skill--red', 'skill--grey');
+    }
+
+    else if ((this.value) === 'red-palette') {
+        cardNameSelector.classList.add('preview__name--red');
+        decoRectangleSelector.classList.add('preview__decoration-rectangle--red');
+        socialIconSelector[0,1,2,3].classList.add('social-icon--red');
+        skillIconSelector[0,1,2,3].classList.add('skill--red');
+        
+        cardNameSelector.classList.remove('preview__name--green', 'preview__name--grey');
+        decoRectangleSelector.classList.remove('preview__decoration-rectangle--green', 'preview__decoration-rectangle--grey' );
+        socialIconSelector[0,1,2,3].classList.remove('social-icon--green', 'social-icon--grey');
+        skillIconSelector[0,1,2,3].classList.remove('skill--green', 'skill--grey');
+    }
+    
+    else if  ((this.value) === 'grey-palette') {
+        cardNameSelector.classList.add('preview__name--grey');
+        decoRectangleSelector.classList.add('preview__decoration-rectangle--grey');
+        socialIconSelector[0,1,2,3].classList.add('social-icon--grey');
+        skillIconSelector[0,1,2,3].classList.add('skill--grey');
+        
+        cardNameSelector.classList.remove('preview__name--green', 'preview__name--red');
+        decoRectangleSelector.classList.remove('preview__decoration-rectangle--green', 'preview__decoration-rectangle--red' );
+        socialIconSelector[0,1,2,3].classList.remove('social-icon--green', 'social-icon--red');
+        skillIconSelector[0,1,2,3].classList.remove('skill--green', 'skill--red');
+    }
+}
+
+checkboxPaletteGreen.addEventListener('click', choosePalette);
+checkboxPaletteRed.addEventListener('click', choosePalette);
+checkboxPaletteGrey.addEventListener('click', choosePalette);
+
 
 //Cuando 'click' en checkbox, cambiar clase a las variables con una clase específica de la tipografía
 
