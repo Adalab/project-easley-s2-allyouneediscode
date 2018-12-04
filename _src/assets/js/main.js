@@ -31,37 +31,61 @@ function choosePalette(event) {
     if ((this.value) === 'green-palette') {
         cardNameSelector.classList.add('preview__name--green');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
-        socialIconSelector[0,1,2,3].classList.add('social-icon');
-        skillIconSelector[0,1,2,3].classList.add('skill--green');
+        for (let i=0; i<socialIconSelector.length; i++){
+        socialIconSelector[i].classList.add('social-icon--green');
+        }
+        for (let i=0; i<skillIconSelector.length; i++){
+        skillIconSelector[i].classList.add('skill--green');
+        }
         
         cardNameSelector.classList.remove('preview__name--red', 'preview__name--grey');
         decoRectangleSelector.classList.remove('preview__decoration-rectangle--red', 'preview__decoration-rectangle--grey' );
-        socialIconSelector[0,1,2,3].classList.remove('social-icon--red', 'social-icon--grey');
-        skillIconSelector[0,1,2,3].classList.remove('skill--red', 'skill--grey');
+        for (let i=0; i<socialIconSelector.length; i++){
+        socialIconSelector[i].classList.remove('social-icon--red', 'social-icon--grey');
+        }
+        for (let i=0; i<skillIconSelector.length; i++){
+        skillIconSelector[i].classList.remove('skill--red', 'skill--grey');
+        }
     }
 
     else if ((this.value) === 'red-palette') {
         cardNameSelector.classList.add('preview__name--red');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--red');
-        socialIconSelector[0,1,2,3].classList.add('social-icon--red');
-        skillIconSelector[0,1,2,3].classList.add('skill--red');
+        for (let i=0; i<socialIconSelector.length; i++){
+        socialIconSelector[i].classList.add('social-icon--red');
+        }
+        for (let i=0; i<skillIconSelector.length; i++){
+        skillIconSelector[i].classList.add('skill--red');
+        }
         
         cardNameSelector.classList.remove('preview__name--green', 'preview__name--grey');
         decoRectangleSelector.classList.remove('preview__decoration-rectangle--green', 'preview__decoration-rectangle--grey' );
-        socialIconSelector[0,1,2,3].classList.remove('social-icon--green', 'social-icon--grey');
-        skillIconSelector[0,1,2,3].classList.remove('skill--green', 'skill--grey');
+        for (let i=0; i<socialIconSelector.length; i++){
+        socialIconSelector[i].classList.remove('social-icon--green', 'social-icon--grey');
+        }
+        for (let i=0; i<skillIconSelector.length; i++){
+        skillIconSelector[i].classList.remove('skill--green', 'skill--grey');
+        }
     }
     
     else if  ((this.value) === 'grey-palette') {
         cardNameSelector.classList.add('preview__name--grey');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--grey');
-        socialIconSelector[0,1,2,3].classList.add('social-icon--grey');
-        skillIconSelector[0,1,2,3].classList.add('skill--grey');
+        for (let i=0; i<socialIconSelector.length; i++){
+        socialIconSelector[i].classList.add('social-icon--grey');
+        }
+        for (let i=0; i<skillIconSelector.length; i++){
+        skillIconSelector[i].classList.add('skill--grey');
+        }
         
         cardNameSelector.classList.remove('preview__name--green', 'preview__name--red');
         decoRectangleSelector.classList.remove('preview__decoration-rectangle--green', 'preview__decoration-rectangle--red' );
-        socialIconSelector[0,1,2,3].classList.remove('social-icon--green', 'social-icon--red');
-        skillIconSelector[0,1,2,3].classList.remove('skill--green', 'skill--red');
+        for (let i=0; i<socialIconSelector.length; i++){
+        socialIconSelector[i].classList.remove('social-icon--green', 'social-icon--red');
+        }
+        for (let i=0; i<skillIconSelector.length; i++){
+        skillIconSelector[i].classList.remove('skill--green', 'skill--red');
+        }
     }
 }
 
