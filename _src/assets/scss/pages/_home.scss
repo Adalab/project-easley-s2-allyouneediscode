@@ -1,9 +1,14 @@
 .page__home {
     display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-end;
-    background-color: red;
+    flex-flow: column nowrap;
+    align-items: center;
     height: 100%;
+    margin-top: 94px;
+
+    @media all and (min-width: 768px){
+        justify-content: flex-end;
+        margin-top: 0px;
+    }
 }
 
 .home__main {
@@ -12,6 +17,7 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    height: 50%;
 }
 
 .main__title-2 {
@@ -25,7 +31,7 @@
     }
 }
 
-.main__text{
+.main__text {
     @include Text-Style-3();
     margin-top: 0;
     margin-bottom: 14px;
@@ -38,8 +44,7 @@
     }
 }
 
-.main__icons{
-    background-color: $color-white-three;
+.main__icons {
     list-style: none;
     font-family: 'OpenSans', sans-serif;
     font-size: 14px;
@@ -50,10 +55,13 @@
     justify-content: space-between;
     padding: 15px 0 10px;
     width: 268px;
+    height: 74px;
     border-radius: 4px;
     margin: 0;
     border: 1.6px solid $color-dull-orange-o;
-    @media all and (min-width: 768px){
+    background-color: $color-white-three;
+
+    @media all and (min-width: 768px) {
         font-size: 16px;
         width: 325px;
         border-radius: 5px;
@@ -68,15 +76,15 @@
     margin-left: 20px;
 }
 
-.icon__design{
+.icon__design {
 flex-direction: column;
 }
 
-.icon__share{
+.icon__share {
     width: 61px;
 }
 
-.main__button{
+.main__button {
     width: 129px;
     height: 42px;
     border-radius: 21px;
@@ -86,7 +94,8 @@ flex-direction: column;
     @include Text-Style-5;
     border: none;
     text-transform: uppercase;
-    @media all and (min-width: 768px){
-        //margin: 186px 0 59px;  
+
+    @media all and (min-width: 768px) {
+        margin-bottom: 59px;
     }
 }
