@@ -284,25 +284,24 @@
 
 
   //Revisar para mejorar
-input[type=text] {
+
+.input-container{
     border: 1px solid $color-hospital-green;
-}
-input[type=number] {
-    border: 1px solid $color-hospital-green;
-}
-input[type=email] {
-    border: 1px solid $color-hospital-green;
+    height: 30px;
+    margin-top: 6px;
+    margin-bottom: 20px;
 }
 .main__fill--container{
     font-size:14px;
     // @mixin Text-Style-3; 
     font-family: 'OpenSans', sans-serif;
     color: $color-dark-green-blue;
-}
-::placeholder { color: $color-pinkish-grey; }
-
-.main__fill--container{
     display: flex;
     flex-direction: column;
     width: 281px;
+    margin-top:25px;
 }
+::placeholder { color: $color-pinkish-grey; }
+
+
+
