@@ -23,7 +23,7 @@ fillOccupationSelector.addEventListener('keyup', function(e){
 });
 
 
-////////////Here should go imagen de perfil//////////
+////////////Here goes imagen de perfil//////////
 
 const fakeUploadImage = document.querySelector('.fake__upload-image');
 const uploadImage = document.querySelector('.upload-image');
@@ -39,69 +39,67 @@ const uploadClick = () => {
 //hacemos click en FakeUploadImage 
 fakeUploadImage.addEventListener('click', uploadClick);
 
-//Añadimos listeners a los botones
-uploadImage.addEventListener('click', getImage);
-
 //se obtiene la imagen del fakeCheckUploadImage
-const getImage = (e) => {
-    const myFile = e.currentTarget.files[0];
+function getImage(event) {
+    const myFile = event.currentTarget.files[0];
     fr.addEventListener('load', writeImage);
     fr.readAsDataURL(myFile);
 }
 
+//Añadimos listeners a los botones
+uploadImage.addEventListener('change', getImage);
+
 //UploadImage se pinta en previewImage
-const writeImage= () => {
-    previewImage.src= fr.result;
+const writeImage = () => {
+    previewImage.style.backgroundImage = `url(${fr.result})`;
+    fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
 }
 
-//still doesn't work!
 
+////////Social icons /////////////
 
-//////////email field/////////////
+         ////email field////
 
 const fillEmailSelector = document.querySelector('#email');
-const cardEmailSelector = document.querySelector('.icon__mail');
+const cardSelector = document.querySelector('.preview__social-icons');
 
 fillEmailSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget;
 
-    cardEmailSelector.innerHTML = `<a href="${writer.value}"><span class="far fa-envelope"></span></a>`;    
+    cardSelector.innerHTML = `<a href="mailto:${writer.value}"><li class="social-icon icon__mail"><span class="far fa-envelope"></span></li></a>`;    
 });
 
 
-/////////////phone  number field////////
+    ////phone  number field////
 
 const fillPhoneSelector = document.querySelector('#phone');
-const cardPhoneSelector = document.querySelector('.icon__phone');
 
 fillPhoneSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget;
 
-    cardPhoneSelector.innerHTML = `<a href="${writer.value}"><span class="fas fa-mobile-alt"></span></a>`;    
+    cardSelector.innerHTML = `<a href="tel:${writer.value}"><li class="social-icon icon__phone"><span class="fas fa-mobile-alt"></span></li></a>`;    
 });
 
 
-/////////LinkedIn field////////
+   ///LinkedIn field////
 
 const fillLinkedInSelector = document.querySelector('#linkedin');
-const cardLinkedInSelector = document.querySelector('.icon__linkedin');
 
 fillLinkedInSelector.addEventListener('keyup', function(e){
-    const writer = e.currentTarget;
+    const writer = e.currentTarget; 
 
-    cardLinkedInSelector.innerHTML = `<a href="${writer.value}"><span class="fab fa-linkedin-in"></span></a>`;   
+    cardSelector.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><li class="social-icon icon__linkedin"><span class="fab fa-linkedin-in"></span></li></a>`; 
 });
 
 
-//////////Github field//////
+     ////Github field///
 
 const fillGithubSelector = document.querySelector('#github');
-const cardGithubSelector = document.querySelector('.icon__github');
 
 fillGithubSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget;
 
-    cardGithubSelector.innerHTML = `<a href="${writer.value}"><span class="fab fa-github-alt"></span></a>`;   
+    cardSelector.innerHTML = `<a href="https://github.com/${writer.value}"><li class="social-icon icon__github"><span class="fab fa-github-alt"></span></li></a>`;   
 });
 
 const htmlCheckbox = document.querySelector('#skills-html');
