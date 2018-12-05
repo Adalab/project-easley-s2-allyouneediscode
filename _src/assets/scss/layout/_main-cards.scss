@@ -3,11 +3,23 @@
     padding-bottom: 30px;
 }
 
+.main__form{
+    background-image: linear-gradient( to bottom, $color-white-three, $color-white 10%);     
+}
+
 .preview__container {
     width: 240px;
     margin: auto;
 }
-
+.main__design{
+    border-style: none;
+}
+.main__fill{
+    border-style: none;
+}
+.main__share{
+    border-style: none;
+}
 .preview__reset {
     padding: 5px 10px;
     border: 1px solid $color-white;
@@ -264,7 +276,33 @@
     color: $color-gunmetal;
   }
 
+  .border-section {
+    width: 280px;
+    height: 1px;
+    background-color: $color-white-two;
+  }
 
 
+  //Revisar para mejorar
+input[type=text] {
+    border: 1px solid $color-hospital-green;
+}
+input[type=number] {
+    border: 1px solid $color-hospital-green;
+}
+input[type=email] {
+    border: 1px solid $color-hospital-green;
+}
+.main__fill--container{
+    font-size:14px;
+    // @mixin Text-Style-3; 
+    font-family: 'OpenSans', sans-serif;
+    color: $color-dark-green-blue;
+}
+::placeholder { color: $color-pinkish-grey; }
 
-
+.main__fill--container{
+    display: flex;
+    flex-direction: column;
+    width: 281px;
+}
