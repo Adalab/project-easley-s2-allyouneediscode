@@ -292,10 +292,8 @@
     margin-bottom: 20px;
 }
 .main__fill--container{
-    font-size:14px;
-    // @mixin Text-Style-3; 
-    font-family: 'OpenSans', sans-serif;
-    color: $color-dark-green-blue;
+    @include Text-Style-3;
+    font-size:14px; 
     display: flex;
     flex-direction: column;
     width: 281px;
@@ -303,5 +301,11 @@
 }
 ::placeholder { color: $color-pinkish-grey; }
 
-
+.dropdown{
+  font-family: 'OpenSans', sans-serif;
+  font-size: 18px;
+  line-height: 24px;  
+  color: $color-gunmetal;
+  text-transform: uppercase;
+}
 
