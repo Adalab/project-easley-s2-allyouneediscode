@@ -188,15 +188,15 @@ const writeImage = () => {
 
 const fillEmailSelector = document.querySelector('#email');
 const cardSelector = document.querySelector('.preview__social-icons');
-const li1 = document.querySelector('.li1');
-const li2 = document.querySelector('.li2');
-const li3 = document.querySelector('.li3');
-const li4 = document.querySelector('.li4');
+const li__email = document.querySelector('.li__email');
+const li__phone = document.querySelector('.li__phone');
+const li__linkedin = document.querySelector('.li__linkedin');
+const li__github = document.querySelector('.li__github');
 
 fillEmailSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget;
     // event.preventDefault(); 
-        li1.innerHTML = `<a href="mailto:${writer.value}"><div class="social-icon social-icon--green icon__mail"><span class="far fa-envelope"></span></div></a>`; 
+        li__email.innerHTML = `<a href="mailto:${writer.value}"><div class="social-icon social-icon--green icon__mail"><span class="far fa-envelope"></span></div></a>`; 
 });
 
 
@@ -207,7 +207,7 @@ const fillPhoneSelector = document.querySelector('#phone');
 fillPhoneSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget;
 
-    li2.innerHTML = `<a href="tel:${writer.value}"><div class="social-icon social-icon--green icon__phone"><span class="fas fa-mobile-alt"></span></div></a>`;    
+    li__phone.innerHTML = `<a href="tel:${writer.value}"><div class="social-icon social-icon--green icon__phone"><span class="fas fa-mobile-alt"></span></div></a>`;    
 });
 
 
@@ -218,9 +218,8 @@ const fillLinkedInSelector = document.querySelector('#linkedin');
 fillLinkedInSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget; 
 
-    li3.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><div class="social-icon social-icon--green icon__linkedin"><span class="fab fa-linkedin-in"></span></div></a>`; 
+    li__linkedin.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><div class="social-icon social-icon--green icon__linkedin"><span class="fab fa-linkedin-in"></span></div></a>`; 
 });
-
 
      ////Github field///
 
@@ -229,7 +228,7 @@ const fillGithubSelector = document.querySelector('#github');
 fillGithubSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget;
 
-    li4.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;  
+    li__github.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;  
 });
 
 const htmlCheckbox = document.querySelector('#skills-html');
