@@ -14,10 +14,14 @@ body{
     height: 100vh;
 }
 
-.hidden{
+.hidden__element{
     height: 0px;
     overflow: hidden;
     margin: 0;
+}
+
+.hidden {
+    display: none;
 }
 
 .icon{
