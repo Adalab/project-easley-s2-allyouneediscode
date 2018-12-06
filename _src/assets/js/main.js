@@ -131,6 +131,34 @@ reactCheckbox.addEventListener('click',handleSkillsReact);
 
 /* desplegable */
 
-const buttonDrop = document.querySelector('.dropdown__design');
+// const buttonDrop = document.querySelector('.dropdown__design');
 
-buttonDrop.addEventListener('click', () => buttonDrop.classList.toggle('.hidden'));
+// buttonDrop.addEventListener('click', () => buttonDrop.classList.toggle('.hidden'));
+
+//Reset button
+
+const buttonReset = document.querySelector('.preview__reset');
+const formData = document.querySelector('.main__form');
+const cardData = document.querySelector('.preview__card');
+
+function resetForm(){
+    console.log('funciona');
+    formData.reset();
+    cardNameSelector.innerHTML='Nombre Apellido';
+    cardOccupationSelector.innerHTML='Front-end developer';
+    previewImage.style.backgroundImage = `url(https://placehold.it/200x200/ffcc00/0000ff/?text=TEXT)`;
+    fakeCheckUploadImage.style.backgroundImage = ``;
+    cardSelector.innerHTML = '';
+
+}
+
+buttonReset.addEventListener('click', resetForm);
+
+
+{/* <input type="button" value="Reset Form" onClick="this.form.reset()" /> */}
+
+
+// preview-img resetear imagen
+// preview-nombre resetear nombre/puesto
+// preview-colores resetar colores
+// preview-fuente resetear fuente
