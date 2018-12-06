@@ -3,11 +3,11 @@
 
     <form class="main__form">
         <fieldset class="main__design">
-            <button class="dropdown__design">
+            <div class=" dropdown dropdown__design">
                 <span class="icon main__design--icon"></span>
                 <h2 class="main__design--title">diseña</h2>
                 <span class="main__arrow main__design--arrow"></span>
-            </button>
+            </div>
 
             <div class="main__design--container">   
                 <p class="main__design--titles">colores</p> 
@@ -81,40 +81,42 @@
                     </li>
                 </ul>
             </div>
+            <div class="border-section">
+            </div>
 
         </fieldset>
 
         <fieldset class="main__fill">
-            <button class="dropdown__fill">
+            <div class="dropdown dropdown__fill">
                 <span class="icon main__fill--icon"></span>
                 <h2 class="main__fill--title">rellena</h2>
                 <span class="main__arrow main__fill--arrow"></span>
-            </button>
+            </div>
 
             <div class="main__fill--container">
-                <label for="full-name">nombre completo</label>
-                <input id="full-name" type="text" name="full-name">
+                <label for="full-name">Nombre completo</label>
+                <input class="input-container" placeholder="Ej: Paca Ramirez" id="full-name" type="text" name="full-name">
 
-                <label for="occupation">puesto</label>
-                <input id="occupation" type="text" name="occupation">
+                <label for="occupation">Puesto</label>
+                <input class="input-container" placeholder="Ej: Web tester"id="occupation" type="text" name="occupation">
 
-                <label for="upload-image">añadir imagen</label>
-                <input id="upload-image" type="file" name="upload-image">
+                <label for="upload-image">Imagen de perfil</label>
+                <input class="input-container" id="upload-image" type="file" name="upload-image">
                 <div class="upload-image__container"></div>
                 
-                <label for="email">email</label>
-                <input id="email" type="email" name="email">
+                <label for="email">Email</label>
+                <input class="input-container" placeholder="Ej: PaquitaR@gmail.com"id="email" type="email" name="email">
 
-                <label for="phone">teléfono</label>
-                <input id="phone" type="number" name="phone">
+                <label for="phone">Teléfono</label>
+                <input class="input-container" placeholder="Ej: 666-55-44-33"id="phone" type="number" name="phone">
 
-                <label for="linkedin">linkedin</label>
-                <input id="linkedin" type="text" name="linkedin">
+                <label for="linkedin">Linkedin</label>
+                <input class="input-container" placeholder="Ej: linkedin.com/in/paqui.ram"id="linkedin" type="text" name="linkedin">
 
-                <label for="github">github</label>
-                <input id="github" type="text" name="github">
+                <label for="github">Github</label>
+                <input class="input-container" placeholder="Ej: @paqui-ram"id="github" type="text" name="github">
 
-                <p>habilidades</p>
+                <p>Habilidades</p>
 
                 <label for="skills-html">
                     <input class="option-button" id="skills-html" type="radio" value="skills-html" name="skills">
@@ -131,14 +133,16 @@
                     <p class="main__design--skills-react">react</p>
                 </label>
             </div>
+            <div class="border-section">                
+            </div>
         </fieldset>
 
         <fieldset class="main__share">
-            <button class="main__share--dropdown">
+            <div class="dropdown main__share--dropdown">
                 <span class="icon main__share--icon"></span>
                 <h2 class="main__share--title">comparte</h2>
                 <span class="main__arrow main__share--arrow"></span>
-            </button>
+            </div>
 
             <div class="main__share--container">
                 <button class="main__share--create">
@@ -146,11 +150,15 @@
                     <span class="main__share--create-text">crear tarjeta</span>
                 </button>
             </div>
+            <div class="border-section">                
+            </div>
 
             <div class="main__share--generated">
                 <h3 class="main__share--generated-text">la tarjeta ha sido creada:</h3>
                 <a class="main__share--generated-link" href=""></a>
                 <button class="main__share--generated-twitter"></button>
+            </div>
+            <div class="border-section">                
             </div>
         </fieldset>
     </form>
