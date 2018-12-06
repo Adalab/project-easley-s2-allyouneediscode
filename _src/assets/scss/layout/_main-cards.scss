@@ -3,7 +3,7 @@
     padding-bottom: 30px;
 }
 
-.main__form{
+.main__form {
     background-image: linear-gradient( to bottom, $color-white-three, $color-white 10%);     
 }
 
@@ -11,15 +11,19 @@
     width: 240px;
     margin: auto;
 }
-.main__design{
+
+.main__design {
     border-style: none;
 }
-.main__fill{
+
+.main__fill {
     border-style: none;
 }
-.main__share{
+
+.main__share {
     border-style: none;
 }
+
 .preview__reset {
     padding: 5px 10px;
     border: 1px solid $color-white;
@@ -63,14 +67,12 @@
 }
 
 .preview__name {
-    // @include Text-Style-3(); Lo quito, porque este mixin tiene unos estilos diferentes a los que le tocan. Y luego, fuera de él está el font-size otra vez, con los pixels que tocan. Me imagino que es una confusión.
-    font-family: 'ComicSansMS';
+    font-family: 'ComicSansMS', 'Comic Neue';
     font-weight: 700;
     font-size: 18px;
     line-height: 20px;
     color: $color-dark-green-blue;
     margin: 0 0 5px;
- 
 }
 
 .preview__occupation {
@@ -137,8 +139,6 @@
     text-transform: uppercase;
     margin-right: 10px;
     line-height: 18px;
-
-////I applied 10px less for the icons to look similar to the design///////
     padding: 0 5px;
     border-radius: 4px;
 }
@@ -161,137 +161,144 @@
 .main__design--palette-green {
     margin-bottom: 20px;
     display: flex;
-  }
-  
-  .green-dark {
+}
+
+.green-dark {
     width: 30px;
     height: 25px;
     background-color: #114e4e;
-  }
-  
-  .green-medium {
+}
+
+.green-medium {
     width: 30px;
     height: 25px;
     background-color: #438792;
-  }
-  
-  .green-light{
+}
+
+.green-light {
     width: 30px;
     height: 25px;
     background-color: #a2deaf;
-  }
-  
-  /* red palette */
-  
-  .main__design--palette-red {
+}
+
+/* red palette */
+
+.main__design--palette-red {
     margin-bottom: 20px;
     display: flex;
-  }
-  
-  .red-dark {
+}
+
+.red-dark {
     width: 30px;
     height: 25px;
     background-color: #420101;
-  }
-  
-  .red-medium {
+}
+
+.red-medium {
     width: 30px;
     height: 25px;
     background-color: #bd1010;
-  }
-  
-  .red-light{
+}
+
+.red-light {
     width: 30px;
     height: 25px;
     background-color: #e95626;
-  }
+}
 
-  .main__design--colors,
-  .main__design--fonts {
+.form__title {
+    font-family: 'Open Sans';
+    font-size: 18px;
+    color: $color-gunmetal;
+}
+
+.main__design--colors,
+.main__design--fonts {
     list-style-type: none;
-  }
+}
 
-  .main__design--container {
+.main__design--container {
     padding-left: 39px;
     padding-right: 20px;
-    padding-botton: 30px;
+    padding-bottom: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-gap: 27px;
-  }
+}
 
-  .main__design--titles {
+.main__design--titles {
     text-transform: uppercase;
     font-family: 'OpenSans', sans-serif;
     font-size: 14px;
     color: $color-gunmetal;
-  }
+}
 
-  .main__design--fonts {
+.main__design--fonts {
     text-transform: capitalize;
-  }
-  
-  /* grey palette */
-  
-  .main__design--palette-grey {
+}
+
+/* grey palette */
+
+.main__design--palette-grey {
     display: flex;
-  }
-  
-  .grey-dark {
+}
+
+.grey-dark {
     width: 30px;
     height: 25px;
     background-color: #3e5b65;
-  }
-  
-  .grey-medium {
+}
+
+.grey-medium {
     width: 30px;
     height: 25px;
     background-color: #dfe5eb;
-  }
-  
-  .grey-light{
+}
+
+.grey-light{
     width: 30px;
     height: 25px;
     background-color: #a0c0cf;
-  }
+}
 
-  /*fonts starts here*/
+/*fonts starts here*/
 
-  .ubuntu {
+.ubuntu {
     @include Text-Style-5();
     color: $color-gunmetal;
     text-align: left;
     margin-bottom: 9px;
-  }
+}
 
-  .comic-sans {
+.comic-sans {
     @include Text-Style-6();
     margin-bottom: 12px;
-  }
+}
 
-  .montserrat {
+.montserrat {
     font-family: 'Merriweather', serif;
     font-size: 16px;
     color: $color-gunmetal;
-  }
+}
 
-  .border-section {
+.border-section {
     width: 280px;
     height: 1px;
     background-color: $color-white-two;
-  }
+}
 
 
-  //Revisar para mejorar
+//Revisar para mejorar
 
-.input-container{
+.input-container {
     border: 1px solid $color-hospital-green;
     height: 30px;
     margin-top: 6px;
     margin-bottom: 20px;
 }
-.main__fill--container{
+
+.main__fill--container {
     @include Text-Style-3;
     font-size:14px; 
     display: flex;
@@ -299,13 +306,13 @@
     width: 281px;
     margin-top:25px;
 }
+
 ::placeholder { color: $color-pinkish-grey; }
 
-.dropdown{
+.dropdown {
   font-family: 'OpenSans', sans-serif;
   font-size: 18px;
   line-height: 24px;  
   color: $color-gunmetal;
   text-transform: uppercase;
 }
-
