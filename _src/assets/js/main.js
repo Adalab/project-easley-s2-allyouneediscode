@@ -27,6 +27,7 @@ const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 function choosePalette(event) {
 
     const checkboxElement = event.currentTarget;
+    console.log('funciona');
 
     if ((this.value) === 'green-palette') {
         cardNameSelector.classList.add('preview__name--green');
@@ -141,7 +142,6 @@ fillNameSelector.addEventListener('keyup', function(e){
 //////////occupation field///////////
 
 const fillOccupationSelector = document.querySelector('#occupation');
-const cardOccupationSelector = document.querySelector('.preview__occupation');
 
 fillOccupationSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget;
@@ -188,11 +188,15 @@ const writeImage = () => {
 
 const fillEmailSelector = document.querySelector('#email');
 const cardSelector = document.querySelector('.preview__social-icons');
+const li1 = document.querySelector('.li1');
+const li2 = document.querySelector('.li2');
+const li3 = document.querySelector('.li3');
+const li4 = document.querySelector('.li4');
 
 fillEmailSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget;
-
-    cardSelector.innerHTML = `<a href="mailto:${writer.value}"><li class="social-icon icon__mail"><span class="far fa-envelope"></span></li></a>`;    
+    // event.preventDefault(); 
+        li1.innerHTML = `<a href="mailto:${writer.value}"><div class="social-icon social-icon--green icon__mail"><span class="far fa-envelope"></span></div></a>`; 
 });
 
 
@@ -203,7 +207,7 @@ const fillPhoneSelector = document.querySelector('#phone');
 fillPhoneSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget;
 
-    cardSelector.innerHTML = `<a href="tel:${writer.value}"><li class="social-icon icon__phone"><span class="fas fa-mobile-alt"></span></li></a>`;    
+    li2.innerHTML = `<a href="tel:${writer.value}"><div class="social-icon social-icon--green icon__phone"><span class="fas fa-mobile-alt"></span></div></a>`;    
 });
 
 
@@ -214,7 +218,7 @@ const fillLinkedInSelector = document.querySelector('#linkedin');
 fillLinkedInSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget; 
 
-    cardSelector.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><li class="social-icon icon__linkedin"><span class="fab fa-linkedin-in"></span></li></a>`; 
+    li3.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><div class="social-icon social-icon--green icon__linkedin"><span class="fab fa-linkedin-in"></span></div></a>`; 
 });
 
 
@@ -225,7 +229,7 @@ const fillGithubSelector = document.querySelector('#github');
 fillGithubSelector.addEventListener('keyup', function(e){
     const writer = e.currentTarget;
 
-    cardSelector.innerHTML = `<a href="https://github.com/${writer.value}"><li class="social-icon icon__github"><span class="fab fa-github-alt"></span></li></a>`;   
+    li4.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;  
 });
 
 const htmlCheckbox = document.querySelector('#skills-html');
@@ -262,14 +266,35 @@ const formData = document.querySelector('.main__form');
 const cardData = document.querySelector('.preview__card');
 
 function resetForm(){
-    console.log('funciona');
+    
     formData.reset();
     cardNameSelector.innerHTML='Nombre Apellido';
     cardOccupationSelector.innerHTML='Front-end developer';
     previewImage.style.backgroundImage = `url(https://placehold.it/200x200/ffcc00/0000ff/?text=TEXT)`;
     fakeCheckUploadImage.style.backgroundImage = ``;
     cardSelector.innerHTML = '';
-
+    cardNameSelector.classList.add('preview__name--green');
+    decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
+    for (let i=0; i<socialIconSelector.length; i++){
+    socialIconSelector[i].classList.add('social-icon--green');
+    }
+    for (let i=0; i<skillIconSelector.length; i++){
+    skillIconSelector[i].classList.add('skill--green');
+    }
+    cardNameSelector.classList.remove('preview__name--red', 'preview__name--grey');
+    decoRectangleSelector.classList.remove('preview__decoration-rectangle--red', 'preview__decoration-rectangle--grey' );
+    for (let i=0; i<socialIconSelector.length; i++){
+    socialIconSelector[i].classList.remove('social-icon--red', 'social-icon--grey');
+    }
+    for (let i=0; i<skillIconSelector.length; i++){
+    skillIconSelector[i].classList.remove('skill--red', 'skill--grey');
+    }
+    cardTextSelector.classList.add('comic-sans');
+    cardTextSelector.classList.remove('ubuntu', 'montserrat');
+    htmlLabel.classList.add('hidden');
+    cssLabel.classList.add('hidden');
+    reactLabel.classList.add('hidden');
+    
 }
 
 buttonReset.addEventListener('click', resetForm);
