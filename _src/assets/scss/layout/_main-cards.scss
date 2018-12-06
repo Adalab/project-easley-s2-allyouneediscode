@@ -3,11 +3,23 @@
     padding-bottom: 30px;
 }
 
+.main__form{
+    background-image: linear-gradient( to bottom, $color-white-three, $color-white 10%);     
+}
+
 .preview__container {
     width: 240px;
     margin: auto;
 }
-
+.main__design{
+    border-style: none;
+}
+.main__fill{
+    border-style: none;
+}
+.main__share{
+    border-style: none;
+}
 .preview__reset {
     padding: 5px 10px;
     border: 1px solid $color-white;
@@ -331,8 +343,37 @@
     color: $color-gunmetal;
   }
 
+  .border-section {
+    width: 280px;
+    height: 1px;
+    background-color: $color-white-two;
+  }
 
 
+  //Revisar para mejorar
 
+.input-container{
+    border: 1px solid $color-hospital-green;
+    height: 30px;
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+.main__fill--container{
+    @include Text-Style-3;
+    font-size:14px; 
+    display: flex;
+    flex-direction: column;
+    width: 281px;
+    margin-top:25px;
+}
+::placeholder { color: $color-pinkish-grey; }
+
+.dropdown{
+  font-family: 'OpenSans', sans-serif;
+  font-size: 18px;
+  line-height: 24px;  
+  color: $color-gunmetal;
+  text-transform: uppercase;
+}
 
 
