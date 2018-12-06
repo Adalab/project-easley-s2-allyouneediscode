@@ -5,9 +5,13 @@
     height: 100%;
     margin-top: 94px;
 
-    @media all and (min-width: 768px){
+    @media all and (min-width: 768px) {
         justify-content: flex-end;
-        margin-top: 0px;
+        margin-top: 20px;
+    }
+
+    @media all and (min-width: 768px) {
+        justify-content: flex-end;
     }
 }
 
@@ -24,7 +28,7 @@
     margin-top: 35px;
     margin-bottom: 4px;
 
-    @media all and (min-width: 768px){
+    @media all and (min-width: 768px) {
         font-size: 24px;
         margin-top: 31px;
     }
@@ -66,6 +70,7 @@
         min-height: 86px;
         border-radius: 5px;
     }
+    
     span {
         font-size: 28px;
     }
