@@ -42,28 +42,56 @@
 
 .preview__decoration-rectangle {
     height: 42px;
-    width: 5px;
+    width: 5px;  
+}
+
+//Creamos clases diferentes específicas para cada color, para poder seleccionar las clases más fácilemente con JS
+.preview__decoration-rectangle--green {
     background-color: $color-hospital-green;
 }
 
+.preview__decoration-rectangle--red {
+    background-color: $color-tomato;
+}
+
+.preview__decoration-rectangle--grey {
+    background-color: $color-light-grey-blue;
+}
+
+
+
 .preview__texts {
     margin-left: 15px;
+    font-family: 'ComicSansMS';
 }
 
 .preview__name {
     // @include Text-Style-3(); Lo quito, porque este mixin tiene unos estilos diferentes a los que le tocan. Y luego, fuera de él está el font-size otra vez, con los pixels que tocan. Me imagino que es una confusión.
-    font-family: 'ComicSansMS';
+
     font-weight: 700;
     font-size: 18px;
     line-height: 20px;
-    color: $color-dark-green-blue;
     margin: 0 0 5px;
- 
+}
+
+//Creamos clases diferentes específicas para cada color, para poder seleccionar las clases más fácilemente con JS
+
+.preview__name--green {
+    color: $color-dark-green-blue;
+}
+
+.preview__name--red {
+    color: $color-dried-blood;
+}
+
+.preview__name--grey {
+    color: $color-slate;
 }
 
 .preview__occupation {
-    @include Text-Style-6();
     margin: 0px;
+    font-size: 16px;
+    color: $color-gunmetal;
 }
 
 .preview__image {
@@ -95,9 +123,23 @@
     width: 32px;
     height: 32px;
     margin-right: 10px;
+    border-radius: 16px;   
+}
+
+//Creamos clases diferentes específicas para cada color, para poder seleccionar las clases más fácilemente con JS
+.social-icon--green {
     border: 2px solid $color-hospital-green;
-    border-radius: 16px;
     color: $color-dark-green-blue;
+}
+
+.social-icon--red {
+    border: 2px solid $color-tomato;
+    color: $color-dried-blood;
+}
+
+.social-icon--grey {
+    border: 2px solid $color-light-grey-blue;
+    color: $color-slate;
 }
 
 .social-icon:first-child {
@@ -118,7 +160,6 @@
 }
 
 .skill {
-    background-color: $color-dirty-blue;
     font-size: 13px;
     font-family: 'OpenSans', sans-serif;
     color: $color-white;
@@ -133,7 +174,6 @@
 
 //hidden upload image fieldset
 
-
 .upload-image {
     display: none;
 }
@@ -146,6 +186,153 @@
     background-position: center;
     background-size: cover;
 }
+
+//Creamos clases diferentes específicas para cada color, para poder seleccionar las clases más fácilemente con JS
+
+.skill--green {
+    background-color: $color-dirty-blue;
+}
+
+.skill--red {
+    background-color: $color-rusty-red;
+}
+
+.skill--grey {
+    background-color: $color-pale-grey-two; 
+}
+
+.main__design--palette {
+    display: flex;
+    flex-direction: row;
+}
+
+.option-button {
+    margin-right: 10px;
+    height: 17px;
+    width: 17px;
+}
+
+/*color squares starts here*/
+
+/* green palette */
+
+.main__design--palette-green {
+    margin-bottom: 20px;
+    display: flex;
+  }
+  
+  .green-dark {
+    width: 30px;
+    height: 25px;
+    background-color: #114e4e;
+  }
+  
+  .green-medium {
+    width: 30px;
+    height: 25px;
+    background-color: #438792;
+  }
+  
+  .green-light{
+    width: 30px;
+    height: 25px;
+    background-color: #a2deaf;
+  }
+  
+  /* red palette */
+  
+  .main__design--palette-red {
+    margin-bottom: 20px;
+    display: flex;
+  }
+  
+  .red-dark {
+    width: 30px;
+    height: 25px;
+    background-color: #420101;
+  }
+  
+  .red-medium {
+    width: 30px;
+    height: 25px;
+    background-color: #bd1010;
+  }
+  
+  .red-light{
+    width: 30px;
+    height: 25px;
+    background-color: #e95626;
+  }
+
+  .main__design--colors,
+  .main__design--fonts {
+    list-style-type: none;
+  }
+
+  .main__design--container {
+    padding-left: 39px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 27px;
+  }
+
+  .main__design--titles {
+    text-transform: uppercase;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 14px;
+    color: $color-gunmetal;
+  }
+
+  .main__design--fonts {
+    text-transform: capitalize;
+  }
+  
+  /* grey palette */
+  
+  .main__design--palette-grey {
+    display: flex;
+  }
+  
+  .grey-dark {
+    width: 30px;
+    height: 25px;
+    background-color: #3e5b65;
+  }
+  
+  .grey-medium {
+    width: 30px;
+    height: 25px;
+    background-color: #dfe5eb;
+  }
+  
+  .grey-light{
+    width: 30px;
+    height: 25px;
+    background-color: #a0c0cf;
+  }
+
+  /*fonts starts here*/
+
+  .ubuntu {
+    @include Text-Style-5();
+    color: $color-gunmetal;
+    text-align: left;
+    margin-bottom: 9px;
+  }
+
+  .comic-sans {
+    @include Text-Style-6();
+    margin-bottom: 12px;
+  }
+
+  .montserrat {
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    color: $color-gunmetal;
+  }
 
 
 

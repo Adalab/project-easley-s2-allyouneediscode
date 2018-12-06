@@ -10,10 +10,13 @@
             </button>
 
             <div class="hidden main__design--container">
+                <p class="main__design--titles">colores</p> 
                 <ul class="main__design--colors">
                     <li class="main__design--items">
-                        <label for="color-green">
-                            <input class="option-button" id="color-green" type="radio" value="green-palette" name="color-selection">
+                        <label for="color-green" class="main__design--palette">
+                            <div class="main__design--input">
+                                <input class="option-button" id="color-green" type="radio" value="green-palette" name="color-selection">
+                            </div>
 
                             <!--color squares go here-->
                             <div class="main__design--palette-green">
@@ -24,8 +27,10 @@
                         </label>
                     </li>
                     <li class="main__design--items">
-                        <label for="color-red">
-                            <input class="option-button" id="color-red" type="radio" value="red-palette" name="color-selection">
+                        <label for="color-red" class="main__design--palette">
+                            <div class="main__design--input">
+                                <input class="option-button" id="color-red" type="radio" value="red-palette" name="color-selection">
+                            </div>  
 
                             <div class="main__design--palette-red">
                                 <div class="red-dark"></div>
@@ -35,8 +40,10 @@
                         </label>
                     </li>
                     <li class="main__design--items">
-                        <label for="color-grey">
-                            <input class="option-button" id="color-grey" type="radio" value="grey-palette" name="color-selection">
+                        <label for="color-grey" class="main__design--palette">
+                            <div class="main__design--input">
+                                <input class="option-button" id="color-grey" type="radio" value="grey-palette" name="color-selection">
+                            </div>
 
                             <div class="main__design--palette-grey">
                                 <div class="grey-dark"></div>
@@ -46,28 +53,30 @@
                         </label>
                     </li>
                 </ul>
+            
+
+                <!--fonts go here-->
+               
+                <p class="main__design--titles">fuentes</p>
                 <ul class="main__design--fonts">
-                    <li class="main__design--items">
+                    <li class="main__design--items ubuntu">
                         <label for="font-ubuntu">
                             <input class="option-button" id="font-ubuntu" type="radio" value="font-ubuntu" name="font-selection">
-
-                            <p class="main__design--font-ubuntu">ubuntu</p>
+                            ubuntu
                         </label>
                     </li>
 
-                    <li class="main__design--items">
+                    <li class="main__design--items comic-sans">
                         <label for="font-comic-sans">
                             <input class="option-button" id="font-comic-sans" type="radio" value="font-comic-sans" name="font-selection">
-
-                            <p class="main__design--font-comic-sans">comic sans</p>
+                            comic sans
                         </label>
                     </li>
 
-                    <li class="main__design--items">
+                    <li class="main__design--items montserrat">
                         <label for="font-montserrat">
                             <input class="option-button" id="font-montserrat" type="radio" value="font-montserrat" name="font-selection">
-
-                            <p class="main__design--font-montserrat">montserrat</p>
+                            montserrat
                         </label>
                     </li>
                 </ul>
