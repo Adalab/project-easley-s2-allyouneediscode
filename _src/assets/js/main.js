@@ -310,5 +310,29 @@ buttonReset.addEventListener('click', resetForm);
 
 // buttonDrop.addEventListener('click', () => buttonDrop.classList.toggle('.hidden'));
 
+/////Select every dropdown trigger element////////
+const dropdownTrigger = document.querySelectorAll('.dropdown');
+console.log(dropdownTrigger);
+
+
+
+
+for (var i = 0; i < dropdownTrigger.length; i++) {
+  console.log(dropdownTrigger[i]);
+  dropdownTrigger[i].addEventListener("click", updateMenu);
+}
+
+function updateMenu(event) {
+  for (var i = 0; i < dropdownTrigger.length; i++) {
+
+    dropdownTrigger[i].parentElement.classList.add('.hidden');
+  }
+
+  var sibling = event.currentTarget.nextSibling;
+  sibling.classList.toggle('.hidden');
+  console.log(event);
+}
+
+
 
 
