@@ -306,15 +306,11 @@ buttonReset.addEventListener('click', resetForm);
 
 /* desplegable */
 
-// const buttonDrop = document.querySelector('.dropdown__design');
+/////Select every dropdown trigger element. Las tres secciones en las que pincharemos para que se abra el menu tienen la clase dropdown, de esta manera las seleccionamos a todas.////
 
-// buttonDrop.addEventListener('click', () => buttonDrop.classList.toggle('.hidden'));
 
-/////Select every dropdown trigger element////////
 const dropdownTrigger = document.querySelectorAll('.dropdown');
 console.log(dropdownTrigger);
-
-
 
 
 for (var i = 0; i < dropdownTrigger.length; i++) {
@@ -322,10 +318,12 @@ for (var i = 0; i < dropdownTrigger.length; i++) {
   dropdownTrigger[i].addEventListener("click", updateMenu);
 }
 
+/////Aquí he puesto nextsibling, para que seleccione el contenido del desplegable, que en el html es una hermana/////
+
 function updateMenu(event) {
   for (var i = 0; i < dropdownTrigger.length; i++) {
 
-    dropdownTrigger[i].parentElement.classList.add('.hidden');
+    dropdownTrigger[i].nextSibling.classList.add('.hidden');
   }
 
   var sibling = event.currentTarget.nextSibling;
