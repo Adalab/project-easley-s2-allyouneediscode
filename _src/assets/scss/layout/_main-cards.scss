@@ -18,6 +18,13 @@
     color: $color-dull-orange;
 }
 
+.main__arrow {
+    width: 16px;
+    height: 18px;
+    color: $color-gunmetal;
+    // align-self: flex-end; -> it aligns vertically and it has to be horizontally
+}
+
 .main__design {
     border-style: none;
 }
@@ -389,5 +396,9 @@
   line-height: 24px;  
   color: $color-gunmetal;
   text-transform: uppercase;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
