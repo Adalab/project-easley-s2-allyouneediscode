@@ -22,6 +22,9 @@
     width: 16px;
     height: 18px;
     color: $color-gunmetal;
+    font-size: 18px;
+    text-align: right;
+
     // align-self: flex-end; -> it aligns vertically and it has to be horizontally
 }
 
@@ -398,7 +401,15 @@
   text-transform: uppercase;
 
   display: flex;
-  justify-content: flex-start;
+  flex-flow: row nowrap;
+  justify-content: space-between;
   align-items: center;
+}
+
+.dropdown-icon{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center; 
 }
 
