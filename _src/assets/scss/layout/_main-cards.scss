@@ -4,18 +4,26 @@
 }
 
 .main__form {
-    background-image: linear-gradient( to bottom, $color-white-three, $color-white 10%);     
+    background-image: linear-gradient( to bottom, $color-white-three, $color-white 10%); 
+    padding-right: 20px;
+    padding-left: 20px;    
 }
 
 .preview__container {
     width: 240px;
-    margin: auto;
+    // margin: auto;
+    margin-left: 45px;
 }
+
 
 .icon {
     width: 21px;
     height: 18px;
     color: $color-dull-orange;
+    
+}
+.fa-object-ungroup{
+    margin:0;
 }
 
 .main__arrow {
@@ -30,14 +38,21 @@
 
 .main__design {
     border-style: none;
+    margin: 0;
+    padding: 0;
+
 }
 
 .main__fill {
     border-style: none;
+    margin:0;
+    padding:0;
 }
 
 .main__share {
     border-style: none;
+    margin:0;
+    padding:0;
 }
 
 .preview__reset {
@@ -294,6 +309,7 @@
     font-family: 'Open Sans';
     font-size: 18px;
     color: $color-gunmetal;
+    margin-left: 10px;
 }
 
 .main__design--colors,
@@ -302,7 +318,7 @@
 }
 
 .main__design--container {
-    padding-left: 39px;
+    padding-left: 10px;
     padding-right: 20px;
     padding-bottom: 30px;
     display: grid;
@@ -404,6 +420,7 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  
 }
 
 .dropdown-icon{
