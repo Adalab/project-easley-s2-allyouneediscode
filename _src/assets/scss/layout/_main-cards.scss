@@ -4,17 +4,16 @@
 }
 
 .main__form {
-    background-image: linear-gradient( to bottom, $color-white-three, $color-white 10%); 
+    background-image: linear-gradient(to bottom, $color-white-three, $color-white 10%); 
     padding-right: 20px;
-    padding-left: 20px;    
+    padding-left: 20px;  
 }
 
 .preview__container {
     width: 240px;
-    // margin: auto;
-    margin-left: 45px;
+    margin: auto;
+    //removed margin: left and re-added margin auto. Don't change it back, otherwise page isn't responsive!
 }
-
 
 .icon {
     width: 21px;
@@ -22,8 +21,9 @@
     color: $color-dull-orange;
     
 }
-.fa-object-ungroup{
-    margin:0;
+
+.fa-object-ungroup {
+    margin: 0;
 }
 
 .main__arrow {
@@ -31,28 +31,25 @@
     height: 18px;
     color: $color-gunmetal;
     font-size: 18px;
-    text-align: right;
-
-    // align-self: flex-end; -> it aligns vertically and it has to be horizontally
+    text-align: center;
 }
 
 .main__design {
     border-style: none;
     margin: 0;
     padding: 0;
-
 }
 
 .main__fill {
     border-style: none;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
 .main__share {
     border-style: none;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
 .preview__reset {
@@ -407,7 +404,9 @@
     margin-top:25px;
 }
 
-::placeholder { color: $color-pinkish-grey; }
+::placeholder { 
+    color: $color-pinkish-grey;
+}
 
 .dropdown {
   font-family: 'OpenSans', sans-serif;
@@ -420,13 +419,11 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  
 }
 
-.dropdown-icon{
+.dropdown-icon {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
 }
-
