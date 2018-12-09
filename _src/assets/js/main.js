@@ -127,7 +127,7 @@ checkboxMontserratSelector.addEventListener('click', chooseFont);
 const fillNameSelector = document.querySelector('#full-name');
 
 
-fillNameSelector.addEventListener('keyup', function (e) {
+fillNameSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     cardNameSelector.innerHTML = writer.value;
@@ -137,7 +137,7 @@ fillNameSelector.addEventListener('keyup', function (e) {
 
 const fillOccupationSelector = document.querySelector('#occupation');
 
-fillOccupationSelector.addEventListener('keyup', function (e) {
+fillOccupationSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     cardOccupationSelector.innerHTML = writer.value;
@@ -188,7 +188,7 @@ const liPhone = document.querySelector('.li__phone');
 const liLinkedin = document.querySelector('.li__linkedin');
 const liGithub = document.querySelector('.li__github');
 
-fillEmailSelector.addEventListener('keyup', function (e) {
+fillEmailSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
     liEmail.innerHTML = `<a href="mailto:${writer.value}"><div class="social-icon social-icon--green icon__mail"><span class="far fa-envelope"></span></div></a>`;
 });
@@ -198,7 +198,7 @@ fillEmailSelector.addEventListener('keyup', function (e) {
 
 const fillPhoneSelector = document.querySelector('#phone');
 
-fillPhoneSelector.addEventListener('keyup', function (e) {
+fillPhoneSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     liPhone.innerHTML = `<a href="tel:${writer.value}"><div class="social-icon social-icon--green icon__phone"><span class="fas fa-mobile-alt"></span></div></a>`;
@@ -209,7 +209,7 @@ fillPhoneSelector.addEventListener('keyup', function (e) {
 
 const fillLinkedInSelector = document.querySelector('#linkedin');
 
-fillLinkedInSelector.addEventListener('keyup', function (e) {
+fillLinkedInSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     liLinkedin.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><div class="social-icon social-icon--green icon__linkedin"><span class="fab fa-linkedin-in"></span></div></a>`;
@@ -219,7 +219,7 @@ fillLinkedInSelector.addEventListener('keyup', function (e) {
 
 const fillGithubSelector = document.querySelector('#github');
 
-fillGithubSelector.addEventListener('keyup', function (e) {
+fillGithubSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     liGithub.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;
