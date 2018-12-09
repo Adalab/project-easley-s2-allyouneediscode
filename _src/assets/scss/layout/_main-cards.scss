@@ -247,7 +247,7 @@
 .option-button {
     margin-right: 10px;
     height: 17px;
-    width: 17px;
+    width: 17px;   
 }
 
 /*color squares starts here*/
@@ -383,6 +383,7 @@
     width: 280px;
     height: 1px;
     background-color: $color-white-two;
+    margin-top: 30px;
 }
 
 
@@ -426,4 +427,73 @@
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+}
+
+//position skills checkbox
+
+.text--skills{
+    margin-top: 20px;
+}
+.option-skills {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+//position button and preview image
+
+.upload-image__container{
+    display:flex;
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+
+//button uploadimage styles
+
+.fake__upload-image{
+    width: 140px;
+    height: 30px;
+    background-color: $color-dull-orange;
+    color: $color-white;
+    border-style: none;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 3px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+    margin-right: 20px;
+    padding: 0;
+}
+
+//button create styles
+
+.main__share--create{
+    width: 199px;
+    height: 50px;
+    font-size: 18px;
+    font-family: 'OpenSans', sans-serif;
+    font-weight: 500;
+    background-color: $color-dull-orange;
+    border-style: none;
+    text-transform: uppercase;
+    color: $color-white;
+    // padding-left:18px;
+    justify-content: center;
+    border-radius: 12px;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.32);
+}
+
+.main__share--create-text{
+    margin-left:10px;
+}
+.main__share--container{
+    display: flex;
+    justify-content: center;
+    margin-top:15px;
+}
+
+.main__share--generated-text{
+  @include Text-Style-Main;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
 }
