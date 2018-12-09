@@ -298,17 +298,27 @@ function resetForm(){
 
 buttonReset.addEventListener('click', resetForm);
 
-// preview-img resetear imagen
-// preview-nombre resetear nombre/puesto
-// preview-colores resetar colores
-// preview-fuente resetear fuente
-
-
 /* desplegable */
 
-// const buttonDrop = document.querySelector('.dropdown__design');
+const buttonDrop = document.querySelectorAll('.dropdown');
+const boxDesign = document.querySelector('.main__design--container');
+const boxFill = document.querySelector('.main__fill--container');
+const boxShare = document.querySelector('.main__share--container');
 
-// buttonDrop.addEventListener('click', () => buttonDrop.classList.toggle('.hidden'));
+function dropDown(event){
+    const btnSelected = event.currentTarget;
+    if (btnSelected.classList.contains('dropdown__design') === true){
+        boxDesign.classList.toggle('hidden');
+    } else if (btnSelected.classList.contains('dropdown__fill') === true){
+        boxFill.classList.toggle('hidden');
+        console.log(btnSelected + "2");
+    } else {
+        boxShare.classList.toggle('hidden');
+    }
+}
+for (let i=0; i<buttonDrop.length; i++){
+    buttonDrop[i].addEventListener('click',  dropDown);
+}
 
 
 
