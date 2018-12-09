@@ -293,6 +293,10 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-gap: 27px;
+    //he tenido que meterlo aquí porque el display: grid lo sobreescribe
+    &.hidden{
+        display: none;
+    }
 }
 
 .main__design--titles {
@@ -373,6 +377,10 @@
     flex-direction: column;
     width: 281px;
     margin-top:25px;
+    //he tenido que meterlo aquí porque el display: flex lo sobreescribe
+    &.hidden{
+        display: none;
+    }
 }
 
 ::placeholder { color: $color-pinkish-grey; }
@@ -384,4 +392,3 @@
   color: $color-gunmetal;
   text-transform: uppercase;
 }
-
