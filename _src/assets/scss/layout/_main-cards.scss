@@ -4,24 +4,52 @@
 }
 
 .main__form {
-    background-image: linear-gradient( to bottom, $color-white-three, $color-white 10%);     
+    background-image: linear-gradient(to bottom, $color-white-three, $color-white 10%); 
+    padding-right: 20px;
+    padding-left: 20px;  
 }
 
 .preview__container {
     width: 240px;
     margin: auto;
+    //removed margin: left and re-added margin auto. Don't change it back, otherwise page isn't responsive!
+}
+
+.icon {
+    width: 21px;
+    height: 18px;
+    color: $color-dull-orange;
+    
+}
+
+.fa-object-ungroup {
+    margin: 0;
+}
+
+.main__arrow {
+    width: 16px;
+    height: 18px;
+    color: $color-gunmetal;
+    font-size: 18px;
+    text-align: center;
 }
 
 .main__design {
     border-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .main__fill {
     border-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .main__share {
     border-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .preview__reset {
@@ -218,7 +246,7 @@
 .option-button {
     margin-right: 10px;
     height: 17px;
-    width: 17px;
+    width: 17px;   
 }
 
 /*color squares starts here*/
@@ -277,6 +305,7 @@
     font-family: 'Open Sans';
     font-size: 18px;
     color: $color-gunmetal;
+    margin-left: 10px;
 }
 
 .main__design--colors,
@@ -285,7 +314,7 @@
 }
 
 .main__design--container {
-    padding-left: 39px;
+    padding-left: 10px;
     padding-right: 20px;
     padding-bottom: 30px;
     display: grid;
@@ -357,6 +386,7 @@
     width: 280px;
     height: 1px;
     background-color: $color-white-two;
+    margin-top: 30px;
 }
 
 
@@ -382,7 +412,9 @@
     }
 }
 
-::placeholder { color: $color-pinkish-grey; }
+::placeholder { 
+    color: $color-pinkish-grey;
+}
 
 .dropdown {
   font-family: 'OpenSans', sans-serif;
@@ -390,4 +422,85 @@
   line-height: 24px;  
   color: $color-gunmetal;
   text-transform: uppercase;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-icon {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+//position skills checkbox
+
+.text--skills{
+    margin-top: 20px;
+}
+.option-skills {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+//position button and preview image
+
+.upload-image__container{
+    display:flex;
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+
+//button uploadimage styles
+
+.fake__upload-image{
+    width: 140px;
+    height: 30px;
+    background-color: $color-dull-orange;
+    color: $color-white;
+    border-style: none;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 3px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+    margin-right: 20px;
+    padding: 0;
+}
+
+//button create styles
+
+.main__share--create{
+    width: 199px;
+    height: 50px;
+    font-size: 18px;
+    font-family: 'OpenSans', sans-serif;
+    font-weight: 500;
+    background-color: $color-dull-orange;
+    border-style: none;
+    text-transform: uppercase;
+    color: $color-white;
+    // padding-left:18px;
+    justify-content: center;
+    border-radius: 12px;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.32);
+}
+
+.main__share--create-text{
+    margin-left:10px;
+}
+.main__share--container{
+    display: flex;
+    justify-content: center;
+    margin-top:15px;
+}
+
+.main__share--generated-text{
+  @include Text-Style-Main;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
 }

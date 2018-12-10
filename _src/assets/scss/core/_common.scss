@@ -2,19 +2,25 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0;
     background-color: $color-white-three;
 }
 
-.page{
+li, ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+.page {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto;
     height: 100vh;
 }
 
-.hidden__element{
+.hidden__element {
     height: 0px;
     overflow: hidden;
     margin: 0;
@@ -24,7 +30,7 @@ body{
     display: none;
 }
 
-.icon{
+.icon {
     width: 60px;
     height: 49px;
 
@@ -33,12 +39,12 @@ body{
         height: 26px;
         color: $color-dull-orange;
         
-        @media all and (min-width: 768px){
+        @media all and (min-width: 768px) {
             width: 75px;
         }
     }
     
-    @media all and (min-width: 768px){
+    @media all and (min-width: 768px) {
         width: 75px;
         height: 61px;
     }

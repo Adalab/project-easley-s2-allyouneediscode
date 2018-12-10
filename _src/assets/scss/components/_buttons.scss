@@ -1,0 +1,14 @@
+//button uploadimage styles
+
+.fake__upload-image{
+    width: 140px;
+    height: 30px;
+    background-color: $color-dull-orange;
+    color: $color-white;
+    border-style: none;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+}
