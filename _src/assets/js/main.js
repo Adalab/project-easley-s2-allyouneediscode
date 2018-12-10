@@ -2,7 +2,7 @@
 
 /* design section funtionality */
 
-//Declarar las variables 
+// Variables
 const cardTextSelector = document.querySelector('.preview__texts');
 const cardNameSelector = document.querySelector('.preview__name');
 const cardOccupationSelector = document.querySelector('.preview__occupation');
@@ -11,27 +11,36 @@ const decoRectangleSelector = document.querySelector('.preview__decoration-recta
 const socialIconSelector = document.querySelectorAll('.social-icon');
 const skillIconSelector = document.querySelectorAll('.skill');
 
-console.log(socialIconSelector);
-
 const checkboxPaletteGreen = document.querySelector('#color-green');
 const checkboxPaletteRed = document.querySelector('#color-red');
 const checkboxPaletteGrey = document.querySelector('#color-grey');
-
 
 const checkboxUbuntuSelector = document.querySelector('#font-ubuntu');
 const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
 const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 
+<<<<<<< HEAD
 //Cuando 'click' en checkbox, cambiar clase a las variables con una clase específica de la paleta de colores
+=======
+// When 'click'-ing checkbox, add the class corresponding to the selected palette and remove others
+>>>>>>> cleanup
 
 function choosePalette() {
 
     if ((this.value) === 'green-palette') {
         cardNameSelector.classList.add('preview__name--green');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
+<<<<<<< HEAD
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--green');
         }
+=======
+
+        for (let i = 0; i < socialIconSelector.length; i++) {
+            socialIconSelector[i].classList.add('social-icon--green');
+        }
+
+>>>>>>> cleanup
         for (let i = 0; i < skillIconSelector.length; i++) {
             skillIconSelector[i].classList.add('skill--green');
         }
@@ -92,7 +101,7 @@ checkboxPaletteRed.addEventListener('click', choosePalette);
 checkboxPaletteGrey.addEventListener('click', choosePalette);
 
 
-//Cuando 'click' en checkbox, cambiar clase a las variables con una clase específica de la tipografía
+//When 'click'-ing checkbox, add the class corresponding to the selected typography and remove others
 
 function chooseFont() {
 
@@ -121,31 +130,31 @@ checkboxMontserratSelector.addEventListener('click', chooseFont);
 
 
 
-/* campo de escritura */
+/* fill section functionality */
 
-/* Name field */
+// name field
 
 const fillNameSelector = document.querySelector('#full-name');
 
 
-fillNameSelector.addEventListener('keyup', function (e) {
+fillNameSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     cardNameSelector.innerHTML = writer.value;
 });
 
-//////////occupation field///////////
+// occupation field
 
 const fillOccupationSelector = document.querySelector('#occupation');
 
-fillOccupationSelector.addEventListener('keyup', function (e) {
+fillOccupationSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     cardOccupationSelector.innerHTML = writer.value;
 });
 
 
-////////////Here goes imagen de perfil//////////
+// profile image field
 
 const fakeUploadImage = document.querySelector('.fake__upload-image');
 const uploadImage = document.querySelector('.upload-image');
@@ -153,77 +162,77 @@ const fakeCheckUploadImage = document.querySelector('.fake__check-upload-image')
 const previewImage = document.querySelector('.preview__image');
 const fr = new FileReader();
 
-//FakeUploadImage activa UploadImage
+//fakeUploadImage activates UploadImage
 const uploadClick = () => {
     uploadImage.click();
 };
 
-//hacemos click en FakeUploadImage 
+//clicking fakeUploadImage event listener
 fakeUploadImage.addEventListener('click', uploadClick);
 
-//se obtiene la imagen del fakeCheckUploadImage
+//obtaining the image via fakeCheckUploadImage
 function getImage(event) {
     const myFile = event.currentTarget.files[0];
     fr.addEventListener('load', writeImage);
     fr.readAsDataURL(myFile);
 }
 
-//Añadimos listeners a los botones
+//Upload complete event listener
 uploadImage.addEventListener('change', getImage);
 
-//UploadImage se pinta en previewImage
+//UploadImage is drawn on previewImage
 const writeImage = () => {
     previewImage.style.backgroundImage = `url(${fr.result})`;
     fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
 };
 
-////////Social icons /////////////
 
-////email field////
+/* Social icons */
+
+// email field
 
 const fillEmailSelector = document.querySelector('#email');
 const cardSelector = document.querySelector('.preview__social-icons');
-const li__email = document.querySelector('.li__email');
-const li__phone = document.querySelector('.li__phone');
-const li__linkedin = document.querySelector('.li__linkedin');
-const li__github = document.querySelector('.li__github');
+const liEmail = document.querySelector('.li__email');
+const liPhone = document.querySelector('.li__phone');
+const liLinkedin = document.querySelector('.li__linkedin');
+const liGithub = document.querySelector('.li__github');
 
-fillEmailSelector.addEventListener('keyup', function (e) {
+fillEmailSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
-    // event.preventDefault(); 
-    li__email.innerHTML = `<a href="mailto:${writer.value}"><div class="social-icon social-icon--green icon__mail"><span class="far fa-envelope"></span></div></a>`;
+    liEmail.innerHTML = `<a href="mailto:${writer.value}"><div class="social-icon social-icon--green icon__mail"><span class="far fa-envelope"></span></div></a>`;
 });
 
 
-////phone  number field////
+//phone number field
 
 const fillPhoneSelector = document.querySelector('#phone');
 
-fillPhoneSelector.addEventListener('keyup', function (e) {
+fillPhoneSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
-    li__phone.innerHTML = `<a href="tel:${writer.value}"><div class="social-icon social-icon--green icon__phone"><span class="fas fa-mobile-alt"></span></div></a>`;
+    liPhone.innerHTML = `<a href="tel:${writer.value}"><div class="social-icon social-icon--green icon__phone"><span class="fas fa-mobile-alt"></span></div></a>`;
 });
 
 
-///LinkedIn field////
+//LinkedIn field
 
 const fillLinkedInSelector = document.querySelector('#linkedin');
 
-fillLinkedInSelector.addEventListener('keyup', function (e) {
+fillLinkedInSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
-    li__linkedin.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><div class="social-icon social-icon--green icon__linkedin"><span class="fab fa-linkedin-in"></span></div></a>`;
+    liLinkedin.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><div class="social-icon social-icon--green icon__linkedin"><span class="fab fa-linkedin-in"></span></div></a>`;
 });
 
-////Github field///
+//Github field
 
 const fillGithubSelector = document.querySelector('#github');
 
-fillGithubSelector.addEventListener('keyup', function (e) {
+fillGithubSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
-    li__github.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;
+    liGithub.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;
 });
 
 const htmlCheckbox = document.querySelector('#skills-html');
@@ -253,7 +262,7 @@ cssCheckbox.addEventListener('click', handleSkillsCss);
 
 reactCheckbox.addEventListener('click', handleSkillsReact);
 
-//Reset button
+/* Reset button */
 
 const buttonReset = document.querySelector('.preview__reset');
 const formData = document.querySelector('.main__form');
@@ -292,7 +301,7 @@ function resetForm() {
 
 buttonReset.addEventListener('click', resetForm);
 
-/* desplegable */
+/* dropdown */
 
 const buttonDrop = document.querySelectorAll('.dropdown');
 const boxDesign = document.querySelector('.main__design--container');
