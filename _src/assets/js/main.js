@@ -19,28 +19,18 @@ const checkboxUbuntuSelector = document.querySelector('#font-ubuntu');
 const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
 const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 
-<<<<<<< HEAD
-//Cuando 'click' en checkbox, cambiar clase a las variables con una clase específica de la paleta de colores
-=======
 // When 'click'-ing checkbox, add the class corresponding to the selected palette and remove others
->>>>>>> cleanup
 
 function choosePalette() {
 
     if ((this.value) === 'green-palette') {
         cardNameSelector.classList.add('preview__name--green');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
-<<<<<<< HEAD
-        for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.add('social-icon--green');
-        }
-=======
 
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--green');
         }
 
->>>>>>> cleanup
         for (let i = 0; i < skillIconSelector.length; i++) {
             skillIconSelector[i].classList.add('skill--green');
         }
@@ -170,6 +160,13 @@ const uploadClick = () => {
 //clicking fakeUploadImage event listener
 fakeUploadImage.addEventListener('click', uploadClick);
 
+
+//UploadImage is drawn on previewImage
+const writeImage = () => {
+  previewImage.style.backgroundImage = `url(${fr.result})`;
+  fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
+};
+
 //obtaining the image via fakeCheckUploadImage
 function getImage(event) {
     const myFile = event.currentTarget.files[0];
@@ -180,11 +177,7 @@ function getImage(event) {
 //Upload complete event listener
 uploadImage.addEventListener('change', getImage);
 
-//UploadImage is drawn on previewImage
-const writeImage = () => {
-    previewImage.style.backgroundImage = `url(${fr.result})`;
-    fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
-};
+
 
 
 /* Social icons */
@@ -321,3 +314,56 @@ function dropDown(event) {
 for (let i = 0; i < buttonDrop.length; i++) {
     buttonDrop[i].addEventListener('click', dropDown);
 }
+
+
+//////Share functionality/////
+
+
+const shareButton = document.querySelector('.main__share--create');
+const responseURL = document.querySelector('.main__share--generated-link');
+const form = document.querySelector('form');
+
+shareButton.addEventListener('click', sendData);
+
+
+function sendData (event) {
+  event.preventDefault();
+  const inputs = Array.from(form.elements);
+  const json = getJSONFromInputs(inputs);
+  // json.skills = [];
+  json.photo = fr.result;
+  sendRequest(json);
+}
+
+
+function getJSONFromInputs(inputs){
+  return inputs.reduce(function (acc, val) {
+    if(val.nodeName !== 'BUTTON')
+      acc[val.name] = val.value;
+    return acc;
+  }, {})
+}
+
+function sendRequest(json){
+  fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
+    method: 'POST',
+    body: JSON.stringify(json),
+    headers: {
+      'content-type': 'application/json'
+    },
+  })
+    .then(function(resp) { return resp.json(); })
+    .then(function(result) { showURL(result); })
+    .catch(function(error) {console.log(error); });
+}
+
+function showURL(result){
+  if(result.success){
+    responseURL.innerHTML = '<a href=' + result.cardURL + '>' + result.cardURL + '</a>';
+  }else{
+    responseURL.innerHTML = 'ERROR:' + result.error;
+  }
+}
+
+
+
