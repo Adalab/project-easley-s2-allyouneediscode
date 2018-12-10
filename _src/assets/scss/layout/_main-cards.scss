@@ -106,11 +106,10 @@
 
 .preview__texts {
     margin-left: 15px;
-    font-family: 'ComicSansMS';
+    font-family: 'ComicSansMS', 'Comic Neue';
 }
 
 .preview__name {
-    font-family: 'ComicSansMS', 'Comic Neue';
     font-weight: 700;
     font-size: 18px;
     line-height: 20px;
@@ -322,6 +321,10 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-gap: 27px;
+    //he tenido que meterlo aquí porque el display: grid lo sobreescribe
+    &.hidden{
+        display: none;
+    }
 }
 
 .main__design--titles {
@@ -403,6 +406,10 @@
     flex-direction: column;
     width: 281px;
     margin-top:25px;
+    //he tenido que meterlo aquí porque el display: flex lo sobreescribe
+    &.hidden{
+        display: none;
+    }
 }
 
 ::placeholder { 
