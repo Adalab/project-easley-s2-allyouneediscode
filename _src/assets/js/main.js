@@ -19,28 +19,18 @@ const checkboxUbuntuSelector = document.querySelector('#font-ubuntu');
 const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
 const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 
-<<<<<<< HEAD
-//Cuando 'click' en checkbox, cambiar clase a las variables con una clase específica de la paleta de colores
-=======
 // When 'click'-ing checkbox, add the class corresponding to the selected palette and remove others
->>>>>>> cleanup
 
 function choosePalette() {
 
     if ((this.value) === 'green-palette') {
         cardNameSelector.classList.add('preview__name--green');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
-<<<<<<< HEAD
-        for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.add('social-icon--green');
-        }
-=======
 
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--green');
         }
 
->>>>>>> cleanup
         for (let i = 0; i < skillIconSelector.length; i++) {
             skillIconSelector[i].classList.add('skill--green');
         }
