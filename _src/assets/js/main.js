@@ -130,6 +130,8 @@ const fillNameSelector = document.querySelector('#full-name');
 fillNameSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
+    localStorage.setItem('name', writer.value);
+
     cardNameSelector.innerHTML = writer.value;
 });
 
@@ -139,6 +141,8 @@ const fillOccupationSelector = document.querySelector('#occupation');
 
 fillOccupationSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
+
+    localStorage.setItem('ocuppation', writer.value);
 
     cardOccupationSelector.innerHTML = writer.value;
 });
@@ -163,6 +167,7 @@ fakeUploadImage.addEventListener('click', uploadClick);
 //obtaining the image via fakeCheckUploadImage
 function getImage(event) {
     const myFile = event.currentTarget.files[0];
+
     fr.addEventListener('load', writeImage);
     fr.readAsDataURL(myFile);
 }
@@ -174,6 +179,7 @@ uploadImage.addEventListener('change', getImage);
 const writeImage = () => {
     previewImage.style.backgroundImage = `url(${fr.result})`;
     fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
+    localStorage.setItem('image', JSON.stringify(fr.result));
 };
 
 
@@ -190,6 +196,9 @@ const liGithub = document.querySelector('.li__github');
 
 fillEmailSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
+
+    localStorage.setItem('email', writer.value);
+
     liEmail.innerHTML = `<a href="mailto:${writer.value}"><div class="social-icon social-icon--green icon__mail"><span class="far fa-envelope"></span></div></a>`;
 });
 
@@ -200,6 +209,8 @@ const fillPhoneSelector = document.querySelector('#phone');
 
 fillPhoneSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
+
+    localStorage.setItem('phone', writer.value);
 
     liPhone.innerHTML = `<a href="tel:${writer.value}"><div class="social-icon social-icon--green icon__phone"><span class="fas fa-mobile-alt"></span></div></a>`;
 });
@@ -212,6 +223,8 @@ const fillLinkedInSelector = document.querySelector('#linkedin');
 fillLinkedInSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
+    localStorage.setItem('linkedin', writer.value);
+
     liLinkedin.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><div class="social-icon social-icon--green icon__linkedin"><span class="fab fa-linkedin-in"></span></div></a>`;
 });
 
@@ -221,6 +234,8 @@ const fillGithubSelector = document.querySelector('#github');
 
 fillGithubSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
+
+    localStorage.setItem('github', writer.value);
 
     liGithub.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;
 });
@@ -311,3 +326,5 @@ function dropDown(event) {
 for (let i = 0; i < buttonDrop.length; i++) {
     buttonDrop[i].addEventListener('click', dropDown);
 }
+
+/* Local Storage */
