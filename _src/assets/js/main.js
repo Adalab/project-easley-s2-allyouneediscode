@@ -26,6 +26,7 @@ function choosePalette() {
     if ((this.value) === 'green-palette') {
         cardNameSelector.classList.add('preview__name--green');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
+        localStorage.setItem('palette', '1');
 
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--green');
@@ -48,6 +49,8 @@ function choosePalette() {
     else if ((this.value) === 'red-palette') {
         cardNameSelector.classList.add('preview__name--red');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--red');
+        localStorage.setItem('palette', '2');
+
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--red');
         }
@@ -68,6 +71,8 @@ function choosePalette() {
     else if ((this.value) === 'grey-palette') {
         cardNameSelector.classList.add('preview__name--grey');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--grey');
+        localStorage.setItem('palette', '3');
+
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--grey');
         }
@@ -99,18 +104,21 @@ function chooseFont() {
         cardTextSelector.classList.add('ubuntu');
         cardTextSelector.classList.remove('comic-sans');
         cardTextSelector.classList.remove('montserrat');
+        localStorage.setItem('font', '1');
     }
 
     else if ((this.value) === 'font-comic-sans') {
         cardTextSelector.classList.add('comic-sans');
         cardTextSelector.classList.remove('ubuntu');
         cardTextSelector.classList.remove('montserrat');
+        localStorage.setItem('font', '2');
     }
 
     else if ((this.value) === 'font-montserrat') {
         cardTextSelector.classList.add('montserrat');
         cardTextSelector.classList.remove('ubuntu');
         cardTextSelector.classList.remove('comic-sans');
+        localStorage.setItem('font', '3');
     }
 }
 
