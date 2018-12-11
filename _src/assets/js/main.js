@@ -19,6 +19,19 @@ const checkboxUbuntuSelector = document.querySelector('#font-ubuntu');
 const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
 const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 
+const jsonObject = {
+  "palette": 0,
+  "typography": 0,
+  "name" : "",
+  "job": "",
+  "phone": "",
+  "email": "",
+  "linkedin": "",
+  "github": "",
+  "photo": "",
+  "skills": []
+};
+
 // When 'click'-ing checkbox, add the class corresponding to the selected palette and remove others
 
 function choosePalette() {
@@ -26,6 +39,7 @@ function choosePalette() {
     if ((this.value) === 'green-palette') {
         cardNameSelector.classList.add('preview__name--green');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
+        jsonObject.palette = 1;
 
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--green');
@@ -48,6 +62,7 @@ function choosePalette() {
     else if ((this.value) === 'red-palette') {
         cardNameSelector.classList.add('preview__name--red');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--red');
+        jsonObject.palette = 2;
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--red');
         }
@@ -68,6 +83,7 @@ function choosePalette() {
     else if ((this.value) === 'grey-palette') {
         cardNameSelector.classList.add('preview__name--grey');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--grey');
+        jsonObject.palette = 3;
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--grey');
         }
@@ -99,18 +115,21 @@ function chooseFont() {
         cardTextSelector.classList.add('ubuntu');
         cardTextSelector.classList.remove('comic-sans');
         cardTextSelector.classList.remove('montserrat');
+        jsonObject.typography = 1;
     }
 
     else if ((this.value) === 'font-comic-sans') {
         cardTextSelector.classList.add('comic-sans');
         cardTextSelector.classList.remove('ubuntu');
         cardTextSelector.classList.remove('montserrat');
+        jsonObject.typography = 2;
     }
 
     else if ((this.value) === 'font-montserrat') {
         cardTextSelector.classList.add('montserrat');
         cardTextSelector.classList.remove('ubuntu');
         cardTextSelector.classList.remove('comic-sans');
+        jsonObject.typography = 3;
     }
 }
 
@@ -131,6 +150,8 @@ fillNameSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     cardNameSelector.innerHTML = writer.value;
+
+    jsonObject.name = writer.value;
 });
 
 // occupation field
@@ -141,6 +162,7 @@ fillOccupationSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     cardOccupationSelector.innerHTML = writer.value;
+    jsonObject.job = writer.value;
 });
 
 
@@ -165,6 +187,7 @@ fakeUploadImage.addEventListener('click', uploadClick);
 const writeImage = () => {
   previewImage.style.backgroundImage = `url(${fr.result})`;
   fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
+  localStorage.setItem('image', JSON.stringify(fr.result));
 };
 
 //obtaining the image via fakeCheckUploadImage
@@ -172,6 +195,7 @@ function getImage(event) {
     const myFile = event.currentTarget.files[0];
     fr.addEventListener('load', writeImage);
     fr.readAsDataURL(myFile);
+
 }
 
 //Upload complete event listener
@@ -194,6 +218,7 @@ const liGithub = document.querySelector('.li__github');
 fillEmailSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
     liEmail.innerHTML = `<a href="mailto:${writer.value}"><div class="social-icon social-icon--green icon__mail"><span class="far fa-envelope"></span></div></a>`;
+    jsonObject.email = writer.value;
 });
 
 
@@ -205,6 +230,7 @@ fillPhoneSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     liPhone.innerHTML = `<a href="tel:${writer.value}"><div class="social-icon social-icon--green icon__phone"><span class="fas fa-mobile-alt"></span></div></a>`;
+    jsonObject.phone = writer.value;
 });
 
 
@@ -216,6 +242,7 @@ fillLinkedInSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     liLinkedin.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><div class="social-icon social-icon--green icon__linkedin"><span class="fab fa-linkedin-in"></span></div></a>`;
+    jsonObject.linkedin = writer.value;
 });
 
 //Github field
@@ -226,6 +253,9 @@ fillGithubSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     liGithub.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;
+    jsonObject.github = writer.value;
+
+
 });
 
 const htmlCheckbox = document.querySelector('#skills-html');
@@ -319,51 +349,46 @@ for (let i = 0; i < buttonDrop.length; i++) {
 //////Share functionality/////
 
 
-const shareButton = document.querySelector('.main__share--create');
-const responseURL = document.querySelector('.main__share--generated-link');
-const form = document.querySelector('form');
+  // const shareButton = document.querySelector('.main__share--create');
+  // const responseURL = document.querySelector('.main__share--generated-link');
+  // const form = document.querySelector('form');
 
-shareButton.addEventListener('click', sendData);
-
-
-function sendData (event) {
-  event.preventDefault();
-  const inputs = Array.from(form.elements);
-  const json = getJSONFromInputs(inputs);
-  // json.skills = [];
-  json.photo = fr.result;
-  sendRequest(json);
-}
+  // shareButton.addEventListener('click', sendData);
 
 
-function getJSONFromInputs(inputs){
-  return inputs.reduce(function (acc, val) {
-    if(val.nodeName !== 'BUTTON')
-      acc[val.name] = val.value;
-    return acc;
-  }, {})
-}
+  // function sendData (event) {
+  //   event.preventDefault();
+  //   const inputs = Array.from(form.elements);
+  //   const json = getJSONFromInputs(inputs);
+  //   // json.skills = [];
+  //   json.photo = fr.result;
+  //   sendRequest(json);
+  // }
 
-function sendRequest(json){
-  fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
-    method: 'POST',
-    body: JSON.stringify(json),
-    headers: {
-      'content-type': 'application/json'
-    },
-  })
-    .then(function(resp) { return resp.json(); })
-    .then(function(result) { showURL(result); })
-    .catch(function(error) {console.log(error); });
-}
 
-function showURL(result){
-  if(result.success){
-    responseURL.innerHTML = '<a href=' + result.cardURL + '>' + result.cardURL + '</a>';
-  }else{
-    responseURL.innerHTML = 'ERROR:' + result.error;
-  }
-}
+  // function getJSONFromInputs(inputs){
+  //   return inputs.reduce(function (acc, val) {
+  //     if(val.nodeName !== 'BUTTON')
+  //       acc[val.name] = val.value;
+  //     return acc;
+  //   }, {})
+  // }
+
+
+
+
+  // //////we need to put this within a function. We also need to create a json object: with the values we want to get from the preview-card. Skills have to be within an array////////
+  //   fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
+  //     method: 'POST',
+  //     body: JSON.stringify(json),
+  //     headers: {
+  //       'content-type': 'application/json'
+  //     },
+  //   })
+  //     .then(function(resp) { return resp.json(); })
+  //     .then(function(result) { console.log(result); })
+  //     .catch(function(error) {console.log(error); });
+
 
 
 
