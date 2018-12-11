@@ -251,17 +251,33 @@ const reactLabel = document.querySelector('.skill_react');
 
 function handleSkillsHtml() {
     htmlLabel.classList.toggle('hidden');
+    if (htmlLabel.classList.contains('hidden')) {
+        localStorage.setItem('html', false);
+    } else {
+        localStorage.setItem('html', true);
+    }
 }
 
 function handleSkillsCss() {
     cssLabel.classList.toggle('hidden');
+    if (cssLabel.classList.contains('hidden')) {
+        localStorage.setItem('css', false);
+    } else {
+        localStorage.setItem('css', true);
+    }
 }
 
 function handleSkillsReact() {
     reactLabel.classList.toggle('hidden');
+    if (reactLabel.classList.contains('hidden')) {
+        localStorage.setItem('react', false);
+    } else {
+        localStorage.setItem('react', true);
+    }
 }
 
 htmlCheckbox.addEventListener('click', handleSkillsHtml);
+
 
 cssCheckbox.addEventListener('click', handleSkillsCss);
 
