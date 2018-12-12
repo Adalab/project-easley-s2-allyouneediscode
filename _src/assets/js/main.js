@@ -187,7 +187,7 @@ fakeUploadImage.addEventListener('click', uploadClick);
 const writeImage = () => {
   previewImage.style.backgroundImage = `url(${fr.result})`;
   fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
-  localStorage.setItem('image', JSON.stringify(fr.result));
+  jsonObject.photo = fr.result;
 };
 
 //obtaining the image via fakeCheckUploadImage
@@ -289,21 +289,21 @@ function handleSkillsCss() {
 
 } else {
 
- jsonObject.skills.splice( jsonObject.skills.indexOf('CSS'), 1 );
-}
-}
+      jsonObject.skills.splice( jsonObject.skills.indexOf('CSS'), 1 );
+            }
+            }
 
 function handleSkillsReact() {
     reactLabel.classList.toggle('hidden');
 
     if(reactCheckbox.checked === true) {
 
-      jsonObject.skills.push('React');
+        jsonObject.skills.push('React');
 
-} else {
+    } else {
 
- jsonObject.skills.splice( jsonObject.skills.indexOf('React'), 1 );
-}
+        jsonObject.skills.splice( jsonObject.skills.indexOf('React'), 1 );
+    }
 }
 
 htmlCheckbox.addEventListener('click', handleSkillsHtml);
@@ -376,46 +376,26 @@ for (let i = 0; i < buttonDrop.length; i++) {
 //////Share functionality/////
 
 
-  // const shareButton = document.querySelector('.main__share--create');
-  // const responseURL = document.querySelector('.main__share--generated-link');
-  // const form = document.querySelector('form');
+const shareButton = document.querySelector('.main__share--create');
+const responseURL = document.querySelector('.main__share--generated-link');
 
-  // shareButton.addEventListener('click', sendData);
-
-
-  // function sendData (event) {
-  //   event.preventDefault();
-  //   const inputs = Array.from(form.elements);
-  //   const json = getJSONFromInputs(inputs);
-  //   // json.skills = [];
-  //   json.photo = fr.result;
-  //   sendRequest(json);
-  // }
-
-
-  // function getJSONFromInputs(inputs){
-  //   return inputs.reduce(function (acc, val) {
-  //     if(val.nodeName !== 'BUTTON')
-  //       acc[val.name] = val.value;
-  //     return acc;
-  //   }, {})
-  // }
+shareButton.addEventListener('click', sendRequest);
 
 
 
+function sendRequest(){
+    fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
+        method: 'POST',
+        body: JSON.stringify(jsonObject),
+        headers: {
+            'content-type': 'application/json'
+        },
+    })
+        .then(function(resp) { return resp.json(); })
+        .then(function(result) { console.log(result); })
+        .catch(function(error) { console.log(error); });
+}
 
-  // //////we need to put this within a function. We also need to create a json object: with the values we want to get from the preview-card. Skills have to be within an array////////
-  //   fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
-  //     method: 'POST',
-  //     body: JSON.stringify(json),
-  //     headers: {
-  //       'content-type': 'application/json'
-  //     },
-  //   })
-  //     .then(function(resp) { return resp.json(); })
-  //     .then(function(result) { console.log(result); })
-  //     .catch(function(error) {console.log(error); });
-
-
-
+//////We still have to generate the url/////////
+console.log(jsonObject);
 
