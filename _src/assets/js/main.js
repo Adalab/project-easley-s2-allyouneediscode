@@ -108,7 +108,7 @@ function chooseFont() {
     }
 
     else if ((this.value) === 'font-comic-sans') {
-        cardTextSelector.classList.add('comic-sans');
+        cardTextSelector.classList.add('comic-sans');b
         cardTextSelector.classList.remove('ubuntu');
         cardTextSelector.classList.remove('montserrat');
         localStorage.setItem('font', '2');
