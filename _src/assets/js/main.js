@@ -403,9 +403,5 @@ function sendRequest(){
         });
 }
 
-/// URL Response ///
 
-function showURL (result) {
-
-}
 
