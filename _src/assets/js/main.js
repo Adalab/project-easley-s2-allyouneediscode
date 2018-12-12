@@ -19,6 +19,8 @@ const checkboxUbuntuSelector = document.querySelector('#font-ubuntu');
 const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
 const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 
+const containerSkills = document.querySelector('.container--skills');
+
 const jsonObject = {
   "palette": 0,
   "typography": 0,
@@ -202,9 +204,6 @@ function getImage(event) {
 //Upload complete event listener
 uploadImage.addEventListener('change', getImage);
 
-
-
-
 /* Social icons */
 
 // email field
@@ -259,59 +258,80 @@ fillGithubSelector.addEventListener('keyup', function(e) {
 
 });
 
-const htmlCheckbox = document.querySelector('#skills-html');
-const htmlLabel = document.querySelector('.skill_html');
+//Guión:
+//Llamar al API con fetch y sus respectivas promesas
 
-const cssCheckbox = document.querySelector('#skills-css');
-const cssLabel = document.querySelector('.skill_css');
+fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+    .then(response => response.json())
+    .then(data => getSkills(data.skills));
 
-const reactCheckbox = document.querySelector('#skills-react');
-const reactLabel = document.querySelector('.skill_react');
 
-function handleSkillsHtml() {
-    htmlLabel.classList.toggle('hidden');
-
-    if(htmlCheckbox.checked === true) {
-
-           jsonObject.skills.push('HTML');
-
-    } else {
-
-      jsonObject.skills.splice( jsonObject.skills.indexOf('HTML'), 1 );
-    }
+function getSkills(skills){
+    containerSkills.innerHTML += `<label for="skills-${skills[0]}" class="option-skills">
+    <input class="option-button" id="skills-${skills[0]}" type="checkbox" value="skills-${skills[0]}" name="skills">
+    <p class="main__design--skills-${skills[0]}">${skills[0]}</p></label>`;
+    console.log(skills);
 }
 
-function handleSkillsCss() {
-    cssLabel.classList.toggle('hidden');
 
-    if(cssCheckbox.checked === true) {
+//Pedirle toda la información de skills
+//Llenarlo desde JS con un bucle for
+//Limitar las opciones disponibles a 3 máx
+//Enviar a Json
 
-      jsonObject.skills.push('CSS');
+// const htmlCheckbox = document.querySelector('#skills-html');
+// const htmlLabel = document.querySelector('.skill_html');
 
-} else {
+// const cssCheckbox = document.querySelector('#skills-css');
+// const cssLabel = document.querySelector('.skill_css');
 
-      jsonObject.skills.splice( jsonObject.skills.indexOf('CSS'), 1 );
-            }
-            }
+// const reactCheckbox = document.querySelector('#skills-react');
+// const reactLabel = document.querySelector('.skill_react');
 
-function handleSkillsReact() {
-    reactLabel.classList.toggle('hidden');
+// function handleSkillsHtml() {
+//     htmlLabel.classList.toggle('hidden');
 
-    if(reactCheckbox.checked === true) {
+//     if(htmlCheckbox.checked === true) {
 
-        jsonObject.skills.push('React');
+//            jsonObject.skills.push('HTML');
 
-    } else {
+//     } else {
 
-        jsonObject.skills.splice( jsonObject.skills.indexOf('React'), 1 );
-    }
-}
+//       jsonObject.skills.splice( jsonObject.skills.indexOf('HTML'), 1 );
+//     }
+// }
 
-htmlCheckbox.addEventListener('click', handleSkillsHtml);
+// function handleSkillsCss() {
+//     cssLabel.classList.toggle('hidden');
 
-cssCheckbox.addEventListener('click', handleSkillsCss);
+//     if(cssCheckbox.checked === true) {
 
-reactCheckbox.addEventListener('click', handleSkillsReact);
+//       jsonObject.skills.push('CSS');
+
+// } else {
+
+//       jsonObject.skills.splice( jsonObject.skills.indexOf('CSS'), 1 );
+//             }
+//             }
+
+// function handleSkillsReact() {
+//     reactLabel.classList.toggle('hidden');
+
+//     if(reactCheckbox.checked === true) {
+
+//         jsonObject.skills.push('React');
+
+//     } else {
+
+//         jsonObject.skills.splice( jsonObject.skills.indexOf('React'), 1 );
+//     }
+// }
+
+// htmlCheckbox.addEventListener('click', handleSkillsHtml);
+
+// cssCheckbox.addEventListener('click', handleSkillsCss);
+
+// reactCheckbox.addEventListener('click', handleSkillsReact);
 
 /* Reset button */
 
