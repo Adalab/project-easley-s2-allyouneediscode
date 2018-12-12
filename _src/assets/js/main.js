@@ -19,6 +19,19 @@ const checkboxUbuntuSelector = document.querySelector('#font-ubuntu');
 const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
 const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 
+const jsonObject = {
+  "palette": 0,
+  "typography": 0,
+  "name" : "",
+  "job": "",
+  "phone": "",
+  "email": "",
+  "linkedin": "",
+  "github": "",
+  "photo": "",
+  "skills": []
+};
+
 // When 'click'-ing checkbox, add the class corresponding to the selected palette and remove others
 
 function choosePalette() {
@@ -26,6 +39,8 @@ function choosePalette() {
     if ((this.value) === 'green-palette') {
         cardNameSelector.classList.add('preview__name--green');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
+        jsonObject.palette = 1;
+
 
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--green');
@@ -48,6 +63,7 @@ function choosePalette() {
     else if ((this.value) === 'red-palette') {
         cardNameSelector.classList.add('preview__name--red');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--red');
+        jsonObject.palette = 2;
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--red');
         }
@@ -68,6 +84,7 @@ function choosePalette() {
     else if ((this.value) === 'grey-palette') {
         cardNameSelector.classList.add('preview__name--grey');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--grey');
+        jsonObject.palette = 3;
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--grey');
         }
@@ -99,18 +116,21 @@ function chooseFont() {
         cardTextSelector.classList.add('ubuntu');
         cardTextSelector.classList.remove('comic-sans');
         cardTextSelector.classList.remove('montserrat');
+        jsonObject.typography = 1;
     }
 
     else if ((this.value) === 'font-comic-sans') {
         cardTextSelector.classList.add('comic-sans');
         cardTextSelector.classList.remove('ubuntu');
         cardTextSelector.classList.remove('montserrat');
+        jsonObject.typography = 2;
     }
 
     else if ((this.value) === 'font-montserrat') {
         cardTextSelector.classList.add('montserrat');
         cardTextSelector.classList.remove('ubuntu');
         cardTextSelector.classList.remove('comic-sans');
+        jsonObject.typography = 3;
     }
 }
 
@@ -131,6 +151,8 @@ fillNameSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     cardNameSelector.innerHTML = writer.value;
+
+    jsonObject.name = writer.value;
 });
 
 // occupation field
@@ -141,6 +163,7 @@ fillOccupationSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     cardOccupationSelector.innerHTML = writer.value;
+    jsonObject.job = writer.value;
 });
 
 
@@ -160,21 +183,26 @@ const uploadClick = () => {
 //clicking fakeUploadImage event listener
 fakeUploadImage.addEventListener('click', uploadClick);
 
+
+//UploadImage is drawn on previewImage
+const writeImage = () => {
+  previewImage.style.backgroundImage = `url(${fr.result})`;
+  fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
+  jsonObject.photo = fr.result;
+};
+
 //obtaining the image via fakeCheckUploadImage
 function getImage(event) {
     const myFile = event.currentTarget.files[0];
     fr.addEventListener('load', writeImage);
     fr.readAsDataURL(myFile);
+
 }
 
 //Upload complete event listener
 uploadImage.addEventListener('change', getImage);
 
-//UploadImage is drawn on previewImage
-const writeImage = () => {
-    previewImage.style.backgroundImage = `url(${fr.result})`;
-    fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
-};
+
 
 
 /* Social icons */
@@ -191,6 +219,7 @@ const liGithub = document.querySelector('.li__github');
 fillEmailSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
     liEmail.innerHTML = `<a href="mailto:${writer.value}"><div class="social-icon social-icon--green icon__mail"><span class="far fa-envelope"></span></div></a>`;
+    jsonObject.email = writer.value;
 });
 
 
@@ -202,6 +231,7 @@ fillPhoneSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     liPhone.innerHTML = `<a href="tel:${writer.value}"><div class="social-icon social-icon--green icon__phone"><span class="fas fa-mobile-alt"></span></div></a>`;
+    jsonObject.phone = writer.value;
 });
 
 
@@ -213,6 +243,7 @@ fillLinkedInSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     liLinkedin.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><div class="social-icon social-icon--green icon__linkedin"><span class="fab fa-linkedin-in"></span></div></a>`;
+    jsonObject.linkedin = writer.value;
 });
 
 //Github field
@@ -223,6 +254,9 @@ fillGithubSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     liGithub.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;
+    jsonObject.github = writer.value;
+
+
 });
 
 const htmlCheckbox = document.querySelector('#skills-html');
@@ -236,14 +270,41 @@ const reactLabel = document.querySelector('.skill_react');
 
 function handleSkillsHtml() {
     htmlLabel.classList.toggle('hidden');
+
+    if(htmlCheckbox.checked === true) {
+
+           jsonObject.skills.push('HTML');
+
+    } else {
+
+      jsonObject.skills.splice( jsonObject.skills.indexOf('HTML'), 1 );
+    }
 }
 
 function handleSkillsCss() {
     cssLabel.classList.toggle('hidden');
-}
+
+    if(cssCheckbox.checked === true) {
+
+      jsonObject.skills.push('CSS');
+
+} else {
+
+      jsonObject.skills.splice( jsonObject.skills.indexOf('CSS'), 1 );
+            }
+            }
 
 function handleSkillsReact() {
     reactLabel.classList.toggle('hidden');
+
+    if(reactCheckbox.checked === true) {
+
+        jsonObject.skills.push('React');
+
+    } else {
+
+        jsonObject.skills.splice( jsonObject.skills.indexOf('React'), 1 );
+    }
 }
 
 htmlCheckbox.addEventListener('click', handleSkillsHtml);
@@ -311,3 +372,40 @@ function dropDown(event) {
 for (let i = 0; i < buttonDrop.length; i++) {
     buttonDrop[i].addEventListener('click', dropDown);
 }
+
+//////Share functionality/////
+
+
+const shareButton = document.querySelector('.main__share--create');
+const responseURL = document.querySelector('.main__share--generated-link');
+
+shareButton.addEventListener('click', sendRequest);
+
+
+
+function sendRequest(){
+    fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
+        method: 'POST',
+        body: JSON.stringify(jsonObject),
+        headers: {
+            'content-type': 'application/json'
+        },
+    })
+        .then(function(resp) { return resp.json(); })
+        .then(function(result) {
+            if(result.success === true){
+                responseURL.href = result.cardURL;
+                responseURL.innerHTML = result.cardURL;
+                console.log('funciona');
+            } else {
+                responseURL.innerHTML = 'ERROR: ' + result.error;
+            }
+        });
+}
+
+/// URL Response ///
+
+function showURL (result) {
+
+}
+
