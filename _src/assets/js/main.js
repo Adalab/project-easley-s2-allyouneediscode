@@ -41,6 +41,7 @@ function choosePalette() {
         decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
         jsonObject.palette = 1;
 
+
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--green');
         }
@@ -372,7 +373,6 @@ for (let i = 0; i < buttonDrop.length; i++) {
     buttonDrop[i].addEventListener('click', dropDown);
 }
 
-
 //////Share functionality/////
 
 
@@ -408,3 +408,4 @@ function sendRequest(){
 function showURL (result) {
 
 }
+
