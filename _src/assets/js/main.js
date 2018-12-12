@@ -392,10 +392,19 @@ function sendRequest(){
         },
     })
         .then(function(resp) { return resp.json(); })
-        .then(function(result) { console.log(result); })
-        .catch(function(error) { console.log(error); });
+        .then(function(result) {
+            if(result.success === true){
+                responseURL.href = result.cardURL;
+                responseURL.innerHTML = result.cardURL;
+                console.log('funciona');
+            } else {
+                responseURL.innerHTML = 'ERROR: ' + result.error;
+            }
+        });
 }
 
-//////We still have to generate the url/////////
-console.log(jsonObject);
+/// URL Response ///
 
+function showURL (result) {
+
+}
