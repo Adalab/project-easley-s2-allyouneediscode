@@ -269,14 +269,41 @@ const reactLabel = document.querySelector('.skill_react');
 
 function handleSkillsHtml() {
     htmlLabel.classList.toggle('hidden');
+
+    if(htmlCheckbox.checked === true) {
+
+           jsonObject.skills.push('HTML');
+
+    } else {
+
+      jsonObject.skills.splice( jsonObject.skills.indexOf('HTML'), 1 );
+    }
 }
 
 function handleSkillsCss() {
     cssLabel.classList.toggle('hidden');
+
+    if(cssCheckbox.checked === true) {
+
+      jsonObject.skills.push('CSS');
+
+} else {
+
+ jsonObject.skills.splice( jsonObject.skills.indexOf('CSS'), 1 );
+}
 }
 
 function handleSkillsReact() {
     reactLabel.classList.toggle('hidden');
+
+    if(reactCheckbox.checked === true) {
+
+      jsonObject.skills.push('React');
+
+} else {
+
+ jsonObject.skills.splice( jsonObject.skills.indexOf('React'), 1 );
+}
 }
 
 htmlCheckbox.addEventListener('click', handleSkillsHtml);
