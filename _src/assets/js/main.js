@@ -22,16 +22,16 @@ const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 const containerSkills = document.querySelector('.container--skills');
 
 const jsonObject = {
-  "palette": 0,
-  "typography": 0,
-  "name" : "",
-  "job": "",
-  "phone": "",
-  "email": "",
-  "linkedin": "",
-  "github": "",
-  "photo": "",
-  "skills": []
+    "palette": 0,
+    "typography": 0,
+    "name" : "",
+    "job": "",
+    "phone": "",
+    "email": "",
+    "linkedin": "",
+    "github": "",
+    "photo": "",
+    "skills": []
 };
 
 //Guión:
@@ -52,40 +52,58 @@ function getSkills(skills){
 
         const skillsContainer = document.querySelector('.container--skills');
 
-        skillsContainer.innerHTML += `<label for="skills-${skills[i]}" class="option-skills"><input class="option-button option-skills" id="skills-${skills[i]}" type="checkbox" value="${skills[i]}" name="skills-${skills[i]}"><p class="skills">${skills[i]}</p></label>`;
+        skillsContainer.innerHTML += `<label for="skills-${skills[i]}" class="option-skills"><input class="option-button option-skills-button" id="skills-${skills[i]}" type="checkbox" value="${skills[i]}" name="skills-${skills[i]}"><p class="skills">${skills[i]}</p></label>`;
     }
 
     //colocamos el addEventListener aquí para que la constante optionSelector no se genere vacía por la asincronía con la API
-    const optionSelector = document.querySelectorAll('.option-skills');
+    const optionSelector = document.querySelectorAll('.option-skills-button');
 
     for (let i = 0; i<optionSelector.length; i++){
         optionSelector[i].addEventListener('change', jsonCheckedItem);
     }
 }
+
 const previewSkills = document.querySelector('.preview__skills-icons');
 //metemos las skills que se seleccionen en el jsonObject -o las quitamos-
-function jsonCheckedItem(){
+function jsonCheckedItem(event) {
     let previewList = document.createElement('li');
-    previewList.className = `skill skill--green skill_${this.value}`;
+    previewList.className = `skill skill_${this.value}`;
     let previewElement = document.createTextNode(`${this.value}`);
     previewList.appendChild(previewElement);
 
     //Hay que crear un selector específico por clase para poder quitar la lista correspondiente en el "else", aunque previewList existe en el DOM no la acepta como "hija"
     let previewChildElement = document.querySelector(`.skill_${this.value}`);
 
-    if (this.checked === true) {
-        previewSkills.appendChild(previewList);
+    if(jsonObject.skills.length < 3) {
+        if (event.target.checked === true) {
+            console.log('ramiro');
+            previewSkills.appendChild(previewList);
 
-        jsonObject.skills.push(this.value);
-        console.log(jsonObject.skills);
-        console.log(this.value);
+            jsonObject.skills.push(event.target.value);
 
-    }else {
+        } else {
+            console.log('paco');
+            previewSkills.removeChild(previewChildElement);
+
+            jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
+        }
+
+    } else if (event.target.checked === true) {
+        event.target.checked = false;
+        console.log('alberto');
+
+        if(previewChildElement){
+            previewSkills.removeChild(previewChildElement);
+
+            jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
+        }
+
+    } else {
+        console.log('juanma');
+        event.target.checked = false;
         previewSkills.removeChild(previewChildElement);
 
         jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
-        console.log(jsonObject.skills);
-        console.log(this.value);
     }
 }
 
@@ -108,13 +126,15 @@ function choosePalette() {
             skillIconSelector[i].classList.add('skill--green');
         }
 
+        const skillContainer = document.querySelector('.preview__skills-icons');
+        skillContainer.classList.add('icons__container--green');
+        skillContainer.classList.remove('icons__container--red');
+        skillContainer.classList.remove('icons__container--grey');
+
         cardNameSelector.classList.remove('preview__name--red', 'preview__name--grey');
         decoRectangleSelector.classList.remove('preview__decoration-rectangle--red', 'preview__decoration-rectangle--grey');
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.remove('social-icon--red', 'social-icon--grey');
-        }
-        for (let i = 0; i < skillIconSelector.length; i++) {
-            skillIconSelector[i].classList.remove('skill--red', 'skill--grey');
         }
     }
 
@@ -129,13 +149,15 @@ function choosePalette() {
             skillIconSelector[i].classList.add('skill--red');
         }
 
+        const skillContainer = document.querySelector('.preview__skills-icons');
+        skillContainer.classList.add('icons__container--red');
+        skillContainer.classList.remove('icons__container--green');
+        skillContainer.classList.remove('icons__container--grey');
+
         cardNameSelector.classList.remove('preview__name--green', 'preview__name--grey');
         decoRectangleSelector.classList.remove('preview__decoration-rectangle--green', 'preview__decoration-rectangle--grey');
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.remove('social-icon--green', 'social-icon--grey');
-        }
-        for (let i = 0; i < skillIconSelector.length; i++) {
-            skillIconSelector[i].classList.remove('skill--green', 'skill--grey');
         }
     }
 
@@ -150,13 +172,15 @@ function choosePalette() {
             skillIconSelector[i].classList.add('skill--grey');
         }
 
+        const skillContainer = document.querySelector('.preview__skills-icons');
+        skillContainer.classList.add('icons__container--grey');
+        skillContainer.classList.remove('icons__container--green');
+        skillContainer.classList.remove('icons__container--red');
+
         cardNameSelector.classList.remove('preview__name--green', 'preview__name--red');
         decoRectangleSelector.classList.remove('preview__decoration-rectangle--green', 'preview__decoration-rectangle--red');
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.remove('social-icon--green', 'social-icon--red');
-        }
-        for (let i = 0; i < skillIconSelector.length; i++) {
-            skillIconSelector[i].classList.remove('skill--green', 'skill--red');
         }
     }
 }
@@ -244,9 +268,9 @@ fakeUploadImage.addEventListener('click', uploadClick);
 
 //UploadImage is drawn on previewImage
 const writeImage = () => {
-  previewImage.style.backgroundImage = `url(${fr.result})`;
-  fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
-  jsonObject.photo = fr.result;
+    previewImage.style.backgroundImage = `url(${fr.result})`;
+    fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
+    jsonObject.photo = fr.result;
 };
 
 //obtaining the image via fakeCheckUploadImage

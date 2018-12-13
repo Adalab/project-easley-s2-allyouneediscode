@@ -4,9 +4,9 @@
 }
 
 .main__form {
-    background-image: linear-gradient(to bottom, $color-white-three, $color-white 10%); 
+    background-image: linear-gradient(to bottom, $color-white-three, $color-white 10%);
     padding-right: 20px;
-    padding-left: 20px;  
+    padding-left: 20px;
 }
 
 .preview__container {
@@ -19,7 +19,7 @@
     width: 21px;
     height: 18px;
     color: $color-dull-orange;
-    
+
 }
 
 .fa-object-ungroup {
@@ -86,7 +86,7 @@
 
 .preview__decoration-rectangle {
     height: 42px;
-    width: 5px;  
+    width: 5px;
 }
 
 //Creamos clases diferentes específicas para cada color, para poder seleccionar las clases más fácilemente con JS
@@ -155,14 +155,33 @@
     padding: 10px 0;
 }
 
+
+.icons__container--green {
+    & > li {
+        background-color: $color-dirty-blue;
+    }
+}
+
+.icons__container--red {
+    & > li {
+        background-color: $color-rusty-red;
+    }
+}
+
+.icons__container--grey {
+    & > li {
+        background-color: $color-pale-grey-two;
+    }
+}
+
 .social-icon {
-    display: flex; 
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 32px;
     height: 32px;
     margin-right: 10px;
-    border-radius: 16px;   
+    border-radius: 16px;
 }
 
 //Creamos clases diferentes específicas para cada color, para poder seleccionar las clases más fácilemente con JS
@@ -226,18 +245,6 @@
 
 //Creamos clases diferentes específicas para cada color, para poder seleccionar las clases más fácilemente con JS
 
-.skill--green {
-    background-color: $color-dirty-blue;
-}
-
-.skill--red {
-    background-color: $color-rusty-red;
-}
-
-.skill--grey {
-    background-color: $color-pale-grey-two; 
-}
-
 .main__design--palette {
     display: flex;
     flex-direction: row;
@@ -246,7 +253,7 @@
 .option-button {
     margin-right: 10px;
     height: 17px;
-    width: 17px;   
+    width: 17px;
 }
 
 /*color squares starts here*/
@@ -401,7 +408,7 @@
 
 .main__fill--container {
     @include Text-Style-3;
-    font-size:14px; 
+    font-size:14px;
     display: flex;
     flex-direction: column;
     width: 281px;
@@ -412,14 +419,14 @@
     }
 }
 
-::placeholder { 
+::placeholder {
     color: $color-pinkish-grey;
 }
 
 .dropdown {
   font-family: 'OpenSans', sans-serif;
   font-size: 18px;
-  line-height: 24px;  
+  line-height: 24px;
   color: $color-gunmetal;
   text-transform: uppercase;
 
