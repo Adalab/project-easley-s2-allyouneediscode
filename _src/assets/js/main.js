@@ -259,6 +259,7 @@ fillGithubSelector.addEventListener('keyup', function(e) {
 });
 
 //Guión:
+
 //Llamar al API con fetch y sus respectivas promesas
 
 fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
@@ -266,16 +267,38 @@ fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/s
     .then(data => getSkills(data.skills));
 
 
+//Pedirle toda la información de skills
+//Llenarlo desde JS con un bucle for
+
+
 function getSkills(skills){
-    containerSkills.innerHTML += `<label for="skills-${skills[0]}" class="option-skills">
-    <input class="option-button" id="skills-${skills[0]}" type="checkbox" value="skills-${skills[0]}" name="skills">
-    <p class="main__design--skills-${skills[0]}">${skills[0]}</p></label>`;
-    console.log(skills);
+    for (let i = 0; i < skills.length; i++){
+
+        const skillsContainer = document.querySelector('.container--skills');
+
+        skillsContainer.innerHTML += `<label for="skills-${skills[i]}" class="option-skills"><input class="option-button" id="skills-${skills[i]}" type="checkbox" value="" name="skills-${skills[i]}"><p class="skills">${skills[i]}</p></label>`;
+    }
 }
 
 
-//Pedirle toda la información de skills
-//Llenarlo desde JS con un bucle for
+//         function handleSkillsHtml() {
+
+//             const htmlLabel = document.querySelector('.skill_html');
+//             htmlLabel.classList.toggle('hidden');
+
+//             if (htmlCheckbox.checked === true) {
+//                 jsonObject.skills.push('HTML');
+
+//             } else {
+//                 jsonObject.skills.splice(jsonObject.skills.indexOf('HTML'), 1);
+
+//             }
+//         }
+//     const htmlCheckbox = document.querySelector('#skills-html');
+//     htmlCheckbox.addEventListener('click', handleSkillsHtml);
+//     }
+// }
+
 //Limitar las opciones disponibles a 3 máx
 //Enviar a Json
 
@@ -425,7 +448,4 @@ function sendRequest(){
 
 /// URL Response ///
 
-function showURL (result) {
-
-}
-
+// function showURL (result){}
