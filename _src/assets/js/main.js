@@ -406,7 +406,6 @@ function sendRequest(){
 
             function shareOnTwitter(){
                 twitterShare.href = 'https://twitter.com/share?url=' + result.cardURL+'&text='+'¡Ey! Mira que tarjeta más molona acabo de hacer con Javascript ' + '&hashtags='+'JavaScript, Adalab';
-
             }
 
             twitterShare.addEventListener('click', shareOnTwitter);
