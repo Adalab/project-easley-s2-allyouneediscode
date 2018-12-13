@@ -276,10 +276,33 @@ function getSkills(skills){
 
         const skillsContainer = document.querySelector('.container--skills');
 
-        skillsContainer.innerHTML += `<label for="skills-${skills[i]}" class="option-skills"><input class="option-button" id="skills-${skills[i]}" type="checkbox" value="" name="skills-${skills[i]}"><p class="skills">${skills[i]}</p></label>`;
+        skillsContainer.innerHTML += `<label for="skills-${skills[i]}" class="option-skills"><input class="option-button" id="skills-${skills[i]}" type="checkbox" value="${skills[i]}" name="skills-${skills[i]}"><p class="skills">${skills[i]}</p></label>`;
     }
 }
 
+const optionSelector = document.querySelectorAll('.option-button');
+
+
+for (let i = 0; i<optionSelector.length; i++){
+    optionSelector[i].addEventListener('change', jsonCheckedItem);
+    console.log('funciona');
+
+    function jsonCheckedItem(){
+        console.log('hola');
+        // for (let i = 0; i<optionSelector.length; i++){
+        if (this.checked === true) {
+
+            jsonObject.skills.push(this.value);
+            console.log(jsonObject.skills);
+            console.log(this.value);
+
+        }else {
+            jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
+        }
+        // }
+    }
+
+}
 
 //         function handleSkillsHtml() {
 
