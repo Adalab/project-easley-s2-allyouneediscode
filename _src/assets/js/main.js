@@ -34,6 +34,62 @@ const jsonObject = {
   "skills": []
 };
 
+//Guión:
+
+//Llamamos al API con fetch y sus respectivas promesas
+
+fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+    .then(response => response.json())
+    .then(data => getSkills(data.skills));
+
+
+//Pedimos toda la información de skills
+//Creamos el contenido desde JS con un bucle for
+
+
+function getSkills(skills){
+    for (let i = 0; i < skills.length; i++){
+
+        const skillsContainer = document.querySelector('.container--skills');
+
+        skillsContainer.innerHTML += `<label for="skills-${skills[i]}" class="option-skills"><input class="option-button option-skills" id="skills-${skills[i]}" type="checkbox" value="${skills[i]}" name="skills-${skills[i]}"><p class="skills">${skills[i]}</p></label>`;
+    }
+
+    //colocamos el addEventListener aquí para que la constante optionSelector no se genere vacía por la asincronía con la API
+    const optionSelector = document.querySelectorAll('.option-skills');
+
+    for (let i = 0; i<optionSelector.length; i++){
+        optionSelector[i].addEventListener('change', jsonCheckedItem);
+    }
+}
+const previewSkills = document.querySelector('.preview__skills-icons');
+//metemos las skills que se seleccionen en el jsonObject -o las quitamos-
+function jsonCheckedItem(){
+    let previewList = document.createElement('li');
+    previewList.className = `skill skill--green skill_${this.value}`;
+    let previewElement = document.createTextNode(`${this.value}`);
+    previewList.appendChild(previewElement);
+
+    //Hay que crear un selector específico por clase para poder quitar la lista correspondiente en el "else", aunque previewList existe en el DOM no la acepta como "hija"
+    let previewChildElement = document.querySelector(`.skill_${this.value}`);
+
+    if (this.checked === true) {
+        previewSkills.appendChild(previewList);
+
+        jsonObject.skills.push(this.value);
+        console.log(jsonObject.skills);
+        console.log(this.value);
+
+    }else {
+        previewSkills.removeChild(previewChildElement);
+
+        jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
+        console.log(jsonObject.skills);
+        console.log(this.value);
+    }
+}
+
+
 // When 'click'-ing checkbox, add the class corresponding to the selected palette and remove others
 
 function choosePalette() {
@@ -254,53 +310,7 @@ fillGithubSelector.addEventListener('keyup', function(e) {
 
     liGithub.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;
     jsonObject.github = writer.value;
-
-
 });
-
-//Guión:
-
-//Llamar al API con fetch y sus respectivas promesas
-
-fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
-    .then(response => response.json())
-    .then(data => getSkills(data.skills));
-
-
-//Pedirle toda la información de skills
-//Llenarlo desde JS con un bucle for
-
-
-function getSkills(skills){
-    for (let i = 0; i < skills.length; i++){
-
-        const skillsContainer = document.querySelector('.container--skills');
-
-        skillsContainer.innerHTML += `<label for="skills-${skills[i]}" class="option-skills"><input class="option-button" id="skills-${skills[i]}" type="checkbox" value="${skills[i]}" name="skills-${skills[i]}"><p class="skills">${skills[i]}</p></label>`;
-    }
-    const optionSelector = document.querySelectorAll('.option-button');
-
-
-    for (let i = 0; i<optionSelector.length; i++){
-        optionSelector[i].addEventListener('change', jsonCheckedItem);
-        console.log('funciona');
-
-
-    }
-}
-function jsonCheckedItem(){
-    console.log('hola');
-    if (this.checked === true) {
-
-        jsonObject.skills.push(this.value);
-        console.log(jsonObject.skills);
-        console.log(this.value);
-
-    }else {
-        jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
-    }
-}
-
 
 
 //         function handleSkillsHtml() {
