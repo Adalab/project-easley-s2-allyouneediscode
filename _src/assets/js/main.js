@@ -19,18 +19,94 @@ const checkboxUbuntuSelector = document.querySelector('#font-ubuntu');
 const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
 const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 
+const containerSkills = document.querySelector('.container--skills');
+
 const jsonObject = {
-  "palette": 0,
-  "typography": 0,
-  "name" : "",
-  "job": "",
-  "phone": "",
-  "email": "",
-  "linkedin": "",
-  "github": "",
-  "photo": "",
-  "skills": []
+    "palette": 0,
+    "typography": 0,
+    "name" : "",
+    "job": "",
+    "phone": "",
+    "email": "",
+    "linkedin": "",
+    "github": "",
+    "photo": "",
+    "skills": []
 };
+
+//Guión:
+
+//Llamamos al API con fetch y sus respectivas promesas
+
+fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+    .then(response => response.json())
+    .then(data => getSkills(data.skills));
+
+
+//Pedimos toda la información de skills
+//Creamos el contenido desde JS con un bucle for
+
+
+function getSkills(skills){
+    for (let i = 0; i < skills.length; i++){
+
+        const skillsContainer = document.querySelector('.container--skills');
+
+        skillsContainer.innerHTML += `<label for="skills-${skills[i]}" class="option-skills"><input class="option-button option-skills-button" id="skills-${skills[i]}" type="checkbox" value="${skills[i]}" name="skills-${skills[i]}"><p class="skills">${skills[i]}</p></label>`;
+    }
+
+    //colocamos el addEventListener aquí para que la constante optionSelector no se genere vacía por la asincronía con la API
+    const optionSelector = document.querySelectorAll('.option-skills-button');
+
+    for (let i = 0; i<optionSelector.length; i++){
+        optionSelector[i].addEventListener('change', jsonCheckedItem);
+    }
+}
+
+const previewSkills = document.querySelector('.preview__skills-icons');
+//metemos las skills que se seleccionen en el jsonObject -o las quitamos-
+function jsonCheckedItem(event) {
+    let previewList = document.createElement('li');
+    previewList.className = `skill skill_${this.value}`;
+    let previewElement = document.createTextNode(`${this.value}`);
+    previewList.appendChild(previewElement);
+
+    //Hay que crear un selector específico por clase para poder quitar la lista correspondiente en el "else", aunque previewList existe en el DOM no la acepta como "hija"
+    let previewChildElement = document.querySelector(`.skill_${this.value}`);
+
+    if(jsonObject.skills.length < 3) {
+        if (event.target.checked === true) {
+            console.log('ramiro');
+            previewSkills.appendChild(previewList);
+
+            jsonObject.skills.push(event.target.value);
+
+        } else {
+            console.log('paco');
+            previewSkills.removeChild(previewChildElement);
+
+            jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
+        }
+
+    } else if (event.target.checked === true) {
+        event.target.checked = false;
+        console.log('alberto');
+
+        if(previewChildElement){
+            previewSkills.removeChild(previewChildElement);
+
+            jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
+        }
+
+    } else {
+        console.log('juanma');
+        event.target.checked = false;
+        previewSkills.removeChild(previewChildElement);
+
+        jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
+    }
+}
+
 
 // When 'click'-ing checkbox, add the class corresponding to the selected palette and remove others
 
@@ -50,13 +126,15 @@ function choosePalette() {
             skillIconSelector[i].classList.add('skill--green');
         }
 
+        const skillContainer = document.querySelector('.preview__skills-icons');
+        skillContainer.classList.add('icons__container--green');
+        skillContainer.classList.remove('icons__container--red');
+        skillContainer.classList.remove('icons__container--grey');
+
         cardNameSelector.classList.remove('preview__name--red', 'preview__name--grey');
         decoRectangleSelector.classList.remove('preview__decoration-rectangle--red', 'preview__decoration-rectangle--grey');
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.remove('social-icon--red', 'social-icon--grey');
-        }
-        for (let i = 0; i < skillIconSelector.length; i++) {
-            skillIconSelector[i].classList.remove('skill--red', 'skill--grey');
         }
     }
 
@@ -71,13 +149,15 @@ function choosePalette() {
             skillIconSelector[i].classList.add('skill--red');
         }
 
+        const skillContainer = document.querySelector('.preview__skills-icons');
+        skillContainer.classList.add('icons__container--red');
+        skillContainer.classList.remove('icons__container--green');
+        skillContainer.classList.remove('icons__container--grey');
+
         cardNameSelector.classList.remove('preview__name--green', 'preview__name--grey');
         decoRectangleSelector.classList.remove('preview__decoration-rectangle--green', 'preview__decoration-rectangle--grey');
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.remove('social-icon--green', 'social-icon--grey');
-        }
-        for (let i = 0; i < skillIconSelector.length; i++) {
-            skillIconSelector[i].classList.remove('skill--green', 'skill--grey');
         }
     }
 
@@ -92,13 +172,15 @@ function choosePalette() {
             skillIconSelector[i].classList.add('skill--grey');
         }
 
+        const skillContainer = document.querySelector('.preview__skills-icons');
+        skillContainer.classList.add('icons__container--grey');
+        skillContainer.classList.remove('icons__container--green');
+        skillContainer.classList.remove('icons__container--red');
+
         cardNameSelector.classList.remove('preview__name--green', 'preview__name--red');
         decoRectangleSelector.classList.remove('preview__decoration-rectangle--green', 'preview__decoration-rectangle--red');
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.remove('social-icon--green', 'social-icon--red');
-        }
-        for (let i = 0; i < skillIconSelector.length; i++) {
-            skillIconSelector[i].classList.remove('skill--green', 'skill--red');
         }
     }
 }
@@ -186,9 +268,9 @@ fakeUploadImage.addEventListener('click', uploadClick);
 
 //UploadImage is drawn on previewImage
 const writeImage = () => {
-  previewImage.style.backgroundImage = `url(${fr.result})`;
-  fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
-  jsonObject.photo = fr.result;
+    previewImage.style.backgroundImage = `url(${fr.result})`;
+    fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
+    jsonObject.photo = fr.result;
 };
 
 //obtaining the image via fakeCheckUploadImage
@@ -201,9 +283,6 @@ function getImage(event) {
 
 //Upload complete event listener
 uploadImage.addEventListener('change', getImage);
-
-
-
 
 /* Social icons */
 
@@ -255,63 +334,83 @@ fillGithubSelector.addEventListener('keyup', function(e) {
 
     liGithub.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;
     jsonObject.github = writer.value;
-
-
 });
 
-const htmlCheckbox = document.querySelector('#skills-html');
-const htmlLabel = document.querySelector('.skill_html');
 
-const cssCheckbox = document.querySelector('#skills-css');
-const cssLabel = document.querySelector('.skill_css');
+//         function handleSkillsHtml() {
 
-const reactCheckbox = document.querySelector('#skills-react');
-const reactLabel = document.querySelector('.skill_react');
+//             const htmlLabel = document.querySelector('.skill_html');
+//             htmlLabel.classList.toggle('hidden');
 
-function handleSkillsHtml() {
-    htmlLabel.classList.toggle('hidden');
+//             if (htmlCheckbox.checked === true) {
+//                 jsonObject.skills.push('HTML');
 
-    if(htmlCheckbox.checked === true) {
+//             } else {
+//                 jsonObject.skills.splice(jsonObject.skills.indexOf('HTML'), 1);
 
-           jsonObject.skills.push('HTML');
+//             }
+//         }
+//     const htmlCheckbox = document.querySelector('#skills-html');
+//     htmlCheckbox.addEventListener('click', handleSkillsHtml);
+//     }
+// }
 
-    } else {
+//Limitar las opciones disponibles a 3 máx
+//Enviar a Json
 
-      jsonObject.skills.splice( jsonObject.skills.indexOf('HTML'), 1 );
-    }
-}
+// const htmlCheckbox = document.querySelector('#skills-html');
+// const htmlLabel = document.querySelector('.skill_html');
 
-function handleSkillsCss() {
-    cssLabel.classList.toggle('hidden');
+// const cssCheckbox = document.querySelector('#skills-css');
+// const cssLabel = document.querySelector('.skill_css');
 
-    if(cssCheckbox.checked === true) {
+// const reactCheckbox = document.querySelector('#skills-react');
+// const reactLabel = document.querySelector('.skill_react');
 
-      jsonObject.skills.push('CSS');
+// function handleSkillsHtml() {
+//     htmlLabel.classList.toggle('hidden');
 
-} else {
+//     if(htmlCheckbox.checked === true) {
 
-      jsonObject.skills.splice( jsonObject.skills.indexOf('CSS'), 1 );
-            }
-            }
+//            jsonObject.skills.push('HTML');
 
-function handleSkillsReact() {
-    reactLabel.classList.toggle('hidden');
+//     } else {
 
-    if(reactCheckbox.checked === true) {
+//       jsonObject.skills.splice( jsonObject.skills.indexOf('HTML'), 1 );
+//     }
+// }
 
-        jsonObject.skills.push('React');
+// function handleSkillsCss() {
+//     cssLabel.classList.toggle('hidden');
 
-    } else {
+//     if(cssCheckbox.checked === true) {
 
-        jsonObject.skills.splice( jsonObject.skills.indexOf('React'), 1 );
-    }
-}
+//       jsonObject.skills.push('CSS');
 
-htmlCheckbox.addEventListener('click', handleSkillsHtml);
+// } else {
 
-cssCheckbox.addEventListener('click', handleSkillsCss);
+//       jsonObject.skills.splice( jsonObject.skills.indexOf('CSS'), 1 );
+//             }
+//             }
 
-reactCheckbox.addEventListener('click', handleSkillsReact);
+// function handleSkillsReact() {
+//     reactLabel.classList.toggle('hidden');
+
+//     if(reactCheckbox.checked === true) {
+
+//         jsonObject.skills.push('React');
+
+//     } else {
+
+//         jsonObject.skills.splice( jsonObject.skills.indexOf('React'), 1 );
+//     }
+// }
+
+// htmlCheckbox.addEventListener('click', handleSkillsHtml);
+
+// cssCheckbox.addEventListener('click', handleSkillsCss);
+
+// reactCheckbox.addEventListener('click', handleSkillsReact);
 
 /* Reset button */
 
@@ -405,7 +504,4 @@ function sendRequest(){
 
 /// URL Response ///
 
-function showURL (result) {
-
-}
-
+// function showURL (result){}
