@@ -85,26 +85,22 @@ function jsonCheckedItem(event) {
             console.log('paco');
             previewSkills.removeChild(previewChildElement);
 
-            jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
+            jsonObject.skills.splice(jsonObject.skills.indexOf(event.target.value), 1);
         }
 
-    } else if (event.target.checked === true) {
+    } else {
         event.target.checked = false;
         console.log('alberto');
 
         if(previewChildElement){
             previewSkills.removeChild(previewChildElement);
 
-            jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
+            jsonObject.skills.splice(jsonObject.skills.indexOf(event.target.value), 1);
         }
-
-    } else {
-        console.log('juanma');
-        event.target.checked = false;
-        previewSkills.removeChild(previewChildElement);
-
-        jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
     }
+
+    console.log(jsonObject.skills);
+    console.log(previewSkills);
 }
 
 
