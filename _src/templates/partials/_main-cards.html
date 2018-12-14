@@ -3,13 +3,17 @@
 
     <form class="main__form">
         <fieldset class="main__design">
-            <button class="dropdown__design">
-                <span class="icon main__design--icon"></span>
-                <h2 class="main__design--title">diseña</h2>
-                <span class="main__arrow main__design--arrow"></span>
-            </button>
+            <div class=" dropdown dropdown__design">
+                <div class="dropdown-icon">
+                    <span class="dropdown-icon icon far fa-object-ungroup"></span>
+                    <h2 class="form__title main__design--title">diseña</h2>
+                </div>
+                <div class="dropdown-arrow">
+                    <span class="main__arrow fas fa-angle-down"></span>
+                </div>
+            </div>
 
-            <div class="main__design--container">   
+            <div class="main__design--container hidden">
                 <p class="main__design--titles">colores</p> 
                 <ul class="main__design--colors">
                     <li class="main__design--items">
@@ -81,76 +85,96 @@
                     </li>
                 </ul>
             </div>
+            <div class="border-section">
+            </div>
 
         </fieldset>
 
         <fieldset class="main__fill">
-            <button class="dropdown__fill">
-                <span class="icon main__fill--icon"></span>
-                <h2 class="main__fill--title">rellena</h2>
-                <span class="main__arrow main__fill--arrow"></span>
-            </button>
+            <div class="dropdown dropdown__fill">
+                <div class="dropdown-icon">
+                    <span class="dropdown-icon icon far fa-keyboard"></span>
+                    <h2 class="form__title main__fill--title">rellena</h2>
+                </div>
+                <div class="dropdown-arrow">
+                    <span class="main__arrow fas fa-angle-down"></span>
+                </div>
+            </div>
 
-            <div class="main__fill--container">
-                <label for="full-name">nombre completo</label>
-                <input id="full-name" type="text" name="full-name">
+            <div class="main__fill--container hidden">
 
-                <label for="occupation">puesto</label>
-                <input id="occupation" type="text" name="occupation">
+                <label for="full-name">Nombre completo</label>
+                <input id="full-name" type="text" name="full-name" class="input-container" placeholder="Ej: Paca Ramirez">
 
-                <label for="upload-image">añadir imagen</label>
-                <input id="upload-image" type="file" name="upload-image">
-                <div class="upload-image__container"></div>
+                <label for="occupation">Puesto</label>
+                <input id="occupation" type="text" name="occupation" class="input-container" placeholder="Ej: Web tester">
+
+                <label class="upload-image-label" for="upload-image">Añadir imagen</label>
+                <input class="upload-image input-container" id="upload-image" type="file" name="upload-image">
+                <div class="upload-image__container">
+                    <button type="button" class="fake__upload-image">Añadir imagen</button>
+                    <div class="fake__check-upload-image"></div>
+                </div>
                 
-                <label for="email">email</label>
-                <input id="email" type="email" name="email">
+                <label for="email">Email</label>
+                <input class="input-container" placeholder="Ej: PaquitaR@gmail.com"id="email" type="email" name="email">
 
-                <label for="phone">teléfono</label>
-                <input id="phone" type="number" name="phone">
+                <label for="phone">Teléfono</label>
+                <input class="input-container" placeholder="Ej: 666-55-44-33"id="phone" type="number" name="phone">
 
-                <label for="linkedin">linkedin</label>
-                <input id="linkedin" type="text" name="linkedin">
+                <label for="linkedin">Linkedin</label>
+                <input class="input-container" placeholder="Ej: linkedin.com/in/paqui.ram"id="linkedin" type="text" name="linkedin">
 
-                <label for="github">github</label>
-                <input id="github" type="text" name="github">
+                <label for="github">Github</label>
+                <input class="input-container" placeholder="Ej: @paqui-ram"id="github" type="text" name="github">
 
-                <p>habilidades</p>
+                <p class="text--skills">Habilidades (máximo 3)</p>
 
-                <label for="skills-html">
-                    <input class="option-button" id="skills-html" type="radio" value="skills-html" name="skills">
+                <label for="skills-html" class="option-skills">
+                    <input class="option-button" id="skills-html" type="checkbox" value="skills-html" name="skills">
                     <p class="main__design--skills-html">HTML</p>
                 </label>
 
-                <label for="skills-css">
-                    <input class="option-button" id="skills-css" type="radio" value="skills-css" name="skills">
+                <label for="skills-css" class="option-skills">
+                    <input class="option-button" id="skills-css" type="checkbox" value="skills-css" name="skills">
                     <p class="main__design--skills-css">CSS</p>
                 </label>
 
-                <label for="skills-react">
-                    <input class="option-button" id="skills-react" type="radio" value="skills-react" name="skills">
-                    <p class="main__design--skills-react">react</p>
+                <label for="skills-react" class="option-skills">
+                    <input class="option-button" id="skills-react" type="checkbox" value="skills-react" name="skills">
+                    <p class="main__design--skills-react">React</p>
                 </label>
+            </div>
+            <div class="border-section">                
             </div>
         </fieldset>
 
         <fieldset class="main__share">
-            <button class="main__share--dropdown">
-                <span class="icon main__share--icon"></span>
-                <h2 class="main__share--title">comparte</h2>
-                <span class="main__arrow main__share--arrow"></span>
-            </button>
+            <div class="dropdown main__share--dropdown">
+                <div class="dropdown-icon">
+                    <span class="dropdown-icon icon fas fa-share-alt"></span>
+                    <h2 class="form__title main__share--title">comparte</h2>
+                </div>
+                <div class="dropdown-arrow">
+                    <span class="main__arrow fas fa-angle-down"></span>
+                </div>
+            </div>
 
-            <div class="main__share--container">
+            <div class="main__share--container hidden">
                 <button class="main__share--create">
-                    <span class="main__share--create-icon"></span>
+                    <span class="main__share--create- far fa-address-card"></span>
                     <span class="main__share--create-text">crear tarjeta</span>
                 </button>
             </div>
+            <div class="border-section">                
+            </div>
 
             <div class="main__share--generated">
-                <h3 class="main__share--generated-text">la tarjeta ha sido creada:</h3>
+                <h3 class="main__share--generated-text">La tarjeta ha sido creada:</h3>
                 <a class="main__share--generated-link" href=""></a>
-                <button class="main__share--generated-twitter"></button>
+                <button class="main__share--generated-twitter">Compartir en twitter</button>
+            </div>
+            <div class="border-section">                
             </div>
         </fieldset>
     </form>

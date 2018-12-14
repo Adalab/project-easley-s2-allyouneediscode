@@ -1,20 +1,16 @@
 .page__header {
-    margin: 0 auto;
-    max-width: 268px;
-    margin-top: 94px;
+    margin: auto;
+    width: 250px;
 
-    @media all and (min-width: 768px){
-        max-width: 419px;
-        margin-top: 348px;
+    @media all and (min-width: 768px) {
+        width: 419px;
     }
 }
 
 .header__logo {
-    min-height: 64px;
     width: 250px;
 
-    @media all and (min-width: 768px){
-        min-height: 107px;
+    @media all and (min-width: 768px) {
         width: 419px;
     }
 }
