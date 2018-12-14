@@ -19,6 +19,95 @@ const checkboxUbuntuSelector = document.querySelector('#font-ubuntu');
 const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
 const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 
+const containerSkills = document.querySelector('.container--skills');
+
+const jsonObject = {
+    "palette": 0,
+    "typography": 0,
+    "name" : "",
+    "job": "",
+    "phone": "",
+    "email": "",
+    "linkedin": "",
+    "github": "",
+    "photo": "",
+    "skills": []
+};
+
+//Guión:
+
+//Llamamos al API con fetch y sus respectivas promesas
+
+fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')
+    .then(response => response.json())
+    .then(data => getSkills(data.skills));
+
+
+//Pedimos toda la información de skills
+//Creamos el contenido desde JS con un bucle for
+
+
+function getSkills(skills){
+    for (let i = 0; i < skills.length; i++){
+
+        const skillsContainer = document.querySelector('.container--skills');
+
+        skillsContainer.innerHTML += `<label for="skills-${skills[i]}" class="option-skills"><input class="option-button option-skills-button" id="skills-${skills[i]}" type="checkbox" value="${skills[i]}" name="skills-${skills[i]}"><p class="skills">${skills[i]}</p></label>`;
+    }
+
+    //colocamos el addEventListener aquí para que la constante optionSelector no se genere vacía por la asincronía con la API
+    const optionSelector = document.querySelectorAll('.option-skills-button');
+
+    for (let i = 0; i<optionSelector.length; i++){
+        optionSelector[i].addEventListener('change', jsonCheckedItem);
+    }
+}
+
+const previewSkills = document.querySelector('.preview__skills-icons');
+//metemos las skills que se seleccionen en el jsonObject -o las quitamos-
+function jsonCheckedItem(event) {
+    let previewList = document.createElement('li');
+    previewList.className = `skill skill_${this.value}`;
+    let previewElement = document.createTextNode(`${this.value}`);
+    previewList.appendChild(previewElement);
+
+    //Hay que crear un selector específico por clase para poder quitar la lista correspondiente en el "else", aunque previewList existe en el DOM no la acepta como "hija"
+    let previewChildElement = document.querySelector(`.skill_${this.value}`);
+
+    if(jsonObject.skills.length < 3) {
+        if (event.target.checked === true) {
+            console.log('ramiro');
+            previewSkills.appendChild(previewList);
+
+            jsonObject.skills.push(event.target.value);
+
+        } else {
+            console.log('paco');
+            previewSkills.removeChild(previewChildElement);
+
+            jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
+        }
+
+    } else if (event.target.checked === true) {
+        event.target.checked = false;
+        console.log('alberto');
+
+        if(previewChildElement){
+            previewSkills.removeChild(previewChildElement);
+
+            jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
+        }
+
+    } else {
+        console.log('juanma');
+        event.target.checked = false;
+        previewSkills.removeChild(previewChildElement);
+
+        jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
+    }
+}
+
+
 // When 'click'-ing checkbox, add the class corresponding to the selected palette and remove others
 
 function choosePalette() {
@@ -26,7 +115,9 @@ function choosePalette() {
     if ((this.value) === 'green-palette') {
         cardNameSelector.classList.add('preview__name--green');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
+      
         localStorage.setItem('palette', '1');
+        jsonObject.palette = 1;
 
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--green');
@@ -36,20 +127,24 @@ function choosePalette() {
             skillIconSelector[i].classList.add('skill--green');
         }
 
+        const skillContainer = document.querySelector('.preview__skills-icons');
+        skillContainer.classList.add('icons__container--green');
+        skillContainer.classList.remove('icons__container--red');
+        skillContainer.classList.remove('icons__container--grey');
+
         cardNameSelector.classList.remove('preview__name--red', 'preview__name--grey');
         decoRectangleSelector.classList.remove('preview__decoration-rectangle--red', 'preview__decoration-rectangle--grey');
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.remove('social-icon--red', 'social-icon--grey');
-        }
-        for (let i = 0; i < skillIconSelector.length; i++) {
-            skillIconSelector[i].classList.remove('skill--red', 'skill--grey');
         }
     }
 
     else if ((this.value) === 'red-palette') {
         cardNameSelector.classList.add('preview__name--red');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--red');
+
         localStorage.setItem('palette', '2');
+        jsonObject.palette = 2;
 
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--red');
@@ -58,20 +153,24 @@ function choosePalette() {
             skillIconSelector[i].classList.add('skill--red');
         }
 
+        const skillContainer = document.querySelector('.preview__skills-icons');
+        skillContainer.classList.add('icons__container--red');
+        skillContainer.classList.remove('icons__container--green');
+        skillContainer.classList.remove('icons__container--grey');
+
         cardNameSelector.classList.remove('preview__name--green', 'preview__name--grey');
         decoRectangleSelector.classList.remove('preview__decoration-rectangle--green', 'preview__decoration-rectangle--grey');
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.remove('social-icon--green', 'social-icon--grey');
-        }
-        for (let i = 0; i < skillIconSelector.length; i++) {
-            skillIconSelector[i].classList.remove('skill--green', 'skill--grey');
         }
     }
 
     else if ((this.value) === 'grey-palette') {
         cardNameSelector.classList.add('preview__name--grey');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--grey');
+
         localStorage.setItem('palette', '3');
+        jsonObject.palette = 3;
 
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--grey');
@@ -80,13 +179,15 @@ function choosePalette() {
             skillIconSelector[i].classList.add('skill--grey');
         }
 
+        const skillContainer = document.querySelector('.preview__skills-icons');
+        skillContainer.classList.add('icons__container--grey');
+        skillContainer.classList.remove('icons__container--green');
+        skillContainer.classList.remove('icons__container--red');
+
         cardNameSelector.classList.remove('preview__name--green', 'preview__name--red');
         decoRectangleSelector.classList.remove('preview__decoration-rectangle--green', 'preview__decoration-rectangle--red');
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.remove('social-icon--green', 'social-icon--red');
-        }
-        for (let i = 0; i < skillIconSelector.length; i++) {
-            skillIconSelector[i].classList.remove('skill--green', 'skill--red');
         }
     }
 }
@@ -104,21 +205,27 @@ function chooseFont() {
         cardTextSelector.classList.add('ubuntu');
         cardTextSelector.classList.remove('comic-sans');
         cardTextSelector.classList.remove('montserrat');
-        localStorage.setItem('font', '1');
+
+        localStorage.setItem('typography', '1');
+        jsonObject.typography = 1;
     }
 
     else if ((this.value) === 'font-comic-sans') {
         cardTextSelector.classList.add('comic-sans');b
         cardTextSelector.classList.remove('ubuntu');
         cardTextSelector.classList.remove('montserrat');
-        localStorage.setItem('font', '2');
+
+        localStorage.setItem('typography', '2');
+        jsonObject.typography = 2;
     }
 
     else if ((this.value) === 'font-montserrat') {
         cardTextSelector.classList.add('montserrat');
         cardTextSelector.classList.remove('ubuntu');
         cardTextSelector.classList.remove('comic-sans');
-        localStorage.setItem('font', '3');
+
+        localStorage.setItem('typography', '3');
+        jsonObject.typography = 3;
     }
 }
 
@@ -141,6 +248,8 @@ fillNameSelector.addEventListener('keyup', function(e) {
     localStorage.setItem('name', writer.value);
 
     cardNameSelector.innerHTML = writer.value;
+
+    jsonObject.name = writer.value;
 });
 
 // occupation field
@@ -153,6 +262,7 @@ fillOccupationSelector.addEventListener('keyup', function(e) {
     localStorage.setItem('ocuppation', writer.value);
 
     cardOccupationSelector.innerHTML = writer.value;
+    jsonObject.job = writer.value;
 });
 
 
@@ -172,16 +282,26 @@ const uploadClick = () => {
 //clicking fakeUploadImage event listener
 fakeUploadImage.addEventListener('click', uploadClick);
 
+
+//UploadImage is drawn on previewImage
+const writeImage = () => {
+    previewImage.style.backgroundImage = `url(${fr.result})`;
+    fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
+    jsonObject.photo = fr.result;
+};
+
 //obtaining the image via fakeCheckUploadImage
 function getImage(event) {
     const myFile = event.currentTarget.files[0];
 
     fr.addEventListener('load', writeImage);
     fr.readAsDataURL(myFile);
+
 }
 
 //Upload complete event listener
 uploadImage.addEventListener('change', getImage);
+
 
 //UploadImage is drawn on previewImage
 const writeImage = () => {
@@ -208,6 +328,7 @@ fillEmailSelector.addEventListener('keyup', function(e) {
     localStorage.setItem('email', writer.value);
 
     liEmail.innerHTML = `<a href="mailto:${writer.value}"><div class="social-icon social-icon--green icon__mail"><span class="far fa-envelope"></span></div></a>`;
+    jsonObject.email = writer.value;
 });
 
 
@@ -221,6 +342,7 @@ fillPhoneSelector.addEventListener('keyup', function(e) {
     localStorage.setItem('phone', writer.value);
 
     liPhone.innerHTML = `<a href="tel:${writer.value}"><div class="social-icon social-icon--green icon__phone"><span class="fas fa-mobile-alt"></span></div></a>`;
+    jsonObject.phone = writer.value;
 });
 
 
@@ -234,6 +356,7 @@ fillLinkedInSelector.addEventListener('keyup', function(e) {
     localStorage.setItem('linkedin', writer.value);
 
     liLinkedin.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><div class="social-icon social-icon--green icon__linkedin"><span class="fab fa-linkedin-in"></span></div></a>`;
+    jsonObject.linkedin = writer.value;
 });
 
 //Github field
@@ -246,16 +369,14 @@ fillGithubSelector.addEventListener('keyup', function(e) {
     localStorage.setItem('github', writer.value);
 
     liGithub.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;
+    jsonObject.github = writer.value;
 });
 
-const htmlCheckbox = document.querySelector('#skills-html');
-const htmlLabel = document.querySelector('.skill_html');
 
-const cssCheckbox = document.querySelector('#skills-css');
-const cssLabel = document.querySelector('.skill_css');
+//         function handleSkillsHtml() {
 
-const reactCheckbox = document.querySelector('#skills-react');
-const reactLabel = document.querySelector('.skill_react');
+//             const htmlLabel = document.querySelector('.skill_html');
+//             htmlLabel.classList.toggle('hidden');
 
 function handleSkillsHtml() {
     htmlLabel.classList.toggle('hidden');
@@ -284,12 +405,10 @@ function handleSkillsReact() {
     }
 }
 
-htmlCheckbox.addEventListener('click', handleSkillsHtml);
 
 
 cssCheckbox.addEventListener('click', handleSkillsCss);
 
-reactCheckbox.addEventListener('click', handleSkillsReact);
 
 /* Reset button */
 
@@ -351,4 +470,36 @@ for (let i = 0; i < buttonDrop.length; i++) {
     buttonDrop[i].addEventListener('click', dropDown);
 }
 
+
 /* Local Storage */
+
+//////Share functionality/////
+
+
+const shareButton = document.querySelector('.main__share--create');
+const responseURL = document.querySelector('.main__share--generated-link');
+
+shareButton.addEventListener('click', sendRequest);
+
+
+
+function sendRequest(){
+    fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
+        method: 'POST',
+        body: JSON.stringify(jsonObject),
+        headers: {
+            'content-type': 'application/json'
+        },
+    })
+        .then(function(resp) { return resp.json(); })
+        .then(function(result) {
+            if(result.success === true){
+                responseURL.href = result.cardURL;
+                responseURL.innerHTML = result.cardURL;
+                console.log('funciona');
+            } else {
+                responseURL.innerHTML = 'ERROR: ' + result.error;
+            }
+        });
+}
+
