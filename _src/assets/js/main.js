@@ -115,8 +115,9 @@ function choosePalette() {
     if ((this.value) === 'green-palette') {
         cardNameSelector.classList.add('preview__name--green');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
+      
+        localStorage.setItem('palette', '1');
         jsonObject.palette = 1;
-
 
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--green');
@@ -141,7 +142,10 @@ function choosePalette() {
     else if ((this.value) === 'red-palette') {
         cardNameSelector.classList.add('preview__name--red');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--red');
+
+        localStorage.setItem('palette', '2');
         jsonObject.palette = 2;
+
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--red');
         }
@@ -164,7 +168,10 @@ function choosePalette() {
     else if ((this.value) === 'grey-palette') {
         cardNameSelector.classList.add('preview__name--grey');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--grey');
+
+        localStorage.setItem('palette', '3');
         jsonObject.palette = 3;
+
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.add('social-icon--grey');
         }
@@ -198,13 +205,17 @@ function chooseFont() {
         cardTextSelector.classList.add('ubuntu');
         cardTextSelector.classList.remove('comic-sans');
         cardTextSelector.classList.remove('montserrat');
+
+        localStorage.setItem('typography', '1');
         jsonObject.typography = 1;
     }
 
     else if ((this.value) === 'font-comic-sans') {
-        cardTextSelector.classList.add('comic-sans');
+        cardTextSelector.classList.add('comic-sans');b
         cardTextSelector.classList.remove('ubuntu');
         cardTextSelector.classList.remove('montserrat');
+
+        localStorage.setItem('typography', '2');
         jsonObject.typography = 2;
     }
 
@@ -212,6 +223,8 @@ function chooseFont() {
         cardTextSelector.classList.add('montserrat');
         cardTextSelector.classList.remove('ubuntu');
         cardTextSelector.classList.remove('comic-sans');
+
+        localStorage.setItem('typography', '3');
         jsonObject.typography = 3;
     }
 }
@@ -232,6 +245,8 @@ const fillNameSelector = document.querySelector('#full-name');
 fillNameSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
+    localStorage.setItem('name', writer.value);
+
     cardNameSelector.innerHTML = writer.value;
 
     jsonObject.name = writer.value;
@@ -243,6 +258,8 @@ const fillOccupationSelector = document.querySelector('#occupation');
 
 fillOccupationSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
+
+    localStorage.setItem('ocuppation', writer.value);
 
     cardOccupationSelector.innerHTML = writer.value;
     jsonObject.job = writer.value;
@@ -276,6 +293,7 @@ const writeImage = () => {
 //obtaining the image via fakeCheckUploadImage
 function getImage(event) {
     const myFile = event.currentTarget.files[0];
+
     fr.addEventListener('load', writeImage);
     fr.readAsDataURL(myFile);
 
@@ -283,6 +301,15 @@ function getImage(event) {
 
 //Upload complete event listener
 uploadImage.addEventListener('change', getImage);
+
+
+//UploadImage is drawn on previewImage
+const writeImage = () => {
+    previewImage.style.backgroundImage = `url(${fr.result})`;
+    fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
+    localStorage.setItem('image', JSON.stringify(fr.result));
+};
+
 
 /* Social icons */
 
@@ -297,6 +324,9 @@ const liGithub = document.querySelector('.li__github');
 
 fillEmailSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
+
+    localStorage.setItem('email', writer.value);
+
     liEmail.innerHTML = `<a href="mailto:${writer.value}"><div class="social-icon social-icon--green icon__mail"><span class="far fa-envelope"></span></div></a>`;
     jsonObject.email = writer.value;
 });
@@ -308,6 +338,8 @@ const fillPhoneSelector = document.querySelector('#phone');
 
 fillPhoneSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
+
+    localStorage.setItem('phone', writer.value);
 
     liPhone.innerHTML = `<a href="tel:${writer.value}"><div class="social-icon social-icon--green icon__phone"><span class="fas fa-mobile-alt"></span></div></a>`;
     jsonObject.phone = writer.value;
@@ -321,6 +353,8 @@ const fillLinkedInSelector = document.querySelector('#linkedin');
 fillLinkedInSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
+    localStorage.setItem('linkedin', writer.value);
+
     liLinkedin.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><div class="social-icon social-icon--green icon__linkedin"><span class="fab fa-linkedin-in"></span></div></a>`;
     jsonObject.linkedin = writer.value;
 });
@@ -332,6 +366,8 @@ const fillGithubSelector = document.querySelector('#github');
 fillGithubSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
+    localStorage.setItem('github', writer.value);
+
     liGithub.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;
     jsonObject.github = writer.value;
 });
@@ -342,75 +378,37 @@ fillGithubSelector.addEventListener('keyup', function(e) {
 //             const htmlLabel = document.querySelector('.skill_html');
 //             htmlLabel.classList.toggle('hidden');
 
-//             if (htmlCheckbox.checked === true) {
-//                 jsonObject.skills.push('HTML');
+function handleSkillsHtml() {
+    htmlLabel.classList.toggle('hidden');
+    if (htmlLabel.classList.contains('hidden')) {
+        localStorage.setItem('html', false);
+    } else {
+        localStorage.setItem('html', true);
+    }
+}
 
-//             } else {
-//                 jsonObject.skills.splice(jsonObject.skills.indexOf('HTML'), 1);
+function handleSkillsCss() {
+    cssLabel.classList.toggle('hidden');
+    if (cssLabel.classList.contains('hidden')) {
+        localStorage.setItem('css', false);
+    } else {
+        localStorage.setItem('css', true);
+    }
+}
 
-//             }
-//         }
-//     const htmlCheckbox = document.querySelector('#skills-html');
-//     htmlCheckbox.addEventListener('click', handleSkillsHtml);
-//     }
-// }
+function handleSkillsReact() {
+    reactLabel.classList.toggle('hidden');
+    if (reactLabel.classList.contains('hidden')) {
+        localStorage.setItem('react', false);
+    } else {
+        localStorage.setItem('react', true);
+    }
+}
 
-//Limitar las opciones disponibles a 3 máx
-//Enviar a Json
 
-// const htmlCheckbox = document.querySelector('#skills-html');
-// const htmlLabel = document.querySelector('.skill_html');
 
-// const cssCheckbox = document.querySelector('#skills-css');
-// const cssLabel = document.querySelector('.skill_css');
+cssCheckbox.addEventListener('click', handleSkillsCss);
 
-// const reactCheckbox = document.querySelector('#skills-react');
-// const reactLabel = document.querySelector('.skill_react');
-
-// function handleSkillsHtml() {
-//     htmlLabel.classList.toggle('hidden');
-
-//     if(htmlCheckbox.checked === true) {
-
-//            jsonObject.skills.push('HTML');
-
-//     } else {
-
-//       jsonObject.skills.splice( jsonObject.skills.indexOf('HTML'), 1 );
-//     }
-// }
-
-// function handleSkillsCss() {
-//     cssLabel.classList.toggle('hidden');
-
-//     if(cssCheckbox.checked === true) {
-
-//       jsonObject.skills.push('CSS');
-
-// } else {
-
-//       jsonObject.skills.splice( jsonObject.skills.indexOf('CSS'), 1 );
-//             }
-//             }
-
-// function handleSkillsReact() {
-//     reactLabel.classList.toggle('hidden');
-
-//     if(reactCheckbox.checked === true) {
-
-//         jsonObject.skills.push('React');
-
-//     } else {
-
-//         jsonObject.skills.splice( jsonObject.skills.indexOf('React'), 1 );
-//     }
-// }
-
-// htmlCheckbox.addEventListener('click', handleSkillsHtml);
-
-// cssCheckbox.addEventListener('click', handleSkillsCss);
-
-// reactCheckbox.addEventListener('click', handleSkillsReact);
 
 /* Reset button */
 
@@ -472,6 +470,9 @@ for (let i = 0; i < buttonDrop.length; i++) {
     buttonDrop[i].addEventListener('click', dropDown);
 }
 
+
+/* Local Storage */
+
 //////Share functionality/////
 
 
@@ -502,6 +503,3 @@ function sendRequest(){
         });
 }
 
-/// URL Response ///
-
-// function showURL (result){}
