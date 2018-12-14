@@ -78,31 +78,29 @@ function jsonCheckedItem(event) {
         if (event.target.checked === true) {
             console.log('ramiro');
             previewSkills.appendChild(previewList);
-
             jsonObject.skills.push(event.target.value);
 
-        } else {
+        }else {
             console.log('paco');
             previewSkills.removeChild(previewChildElement);
-
             jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
         }
 
-    } else if (event.target.checked === true) {
+    } else {
         event.target.checked = false;
         console.log('alberto');
 
         if(previewChildElement){
             previewSkills.removeChild(previewChildElement);
-
             jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
         }
 
-    } else {
+    }
+
+    else {
         console.log('juanma');
         event.target.checked = false;
         previewSkills.removeChild(previewChildElement);
-
         jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
     }
 }
@@ -115,7 +113,7 @@ function choosePalette() {
     if ((this.value) === 'green-palette') {
         cardNameSelector.classList.add('preview__name--green');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
-      
+
         localStorage.setItem('palette', '1');
         jsonObject.palette = 1;
 
@@ -287,6 +285,7 @@ fakeUploadImage.addEventListener('click', uploadClick);
 const writeImage = () => {
     previewImage.style.backgroundImage = `url(${fr.result})`;
     fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
+    localStorage.setItem('image', JSON.stringify(fr.result));
     jsonObject.photo = fr.result;
 };
 
@@ -303,12 +302,12 @@ function getImage(event) {
 uploadImage.addEventListener('change', getImage);
 
 
-//UploadImage is drawn on previewImage
-const writeImage = () => {
-    previewImage.style.backgroundImage = `url(${fr.result})`;
-    fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
-    localStorage.setItem('image', JSON.stringify(fr.result));
-};
+// //UploadImage is drawn on previewImage
+// const writeImage = () => {
+//     previewImage.style.backgroundImage = `url(${fr.result})`;
+//     fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
+
+// };
 
 
 /* Social icons */
@@ -404,11 +403,6 @@ function handleSkillsReact() {
         localStorage.setItem('react', true);
     }
 }
-
-
-
-cssCheckbox.addEventListener('click', handleSkillsCss);
-
 
 /* Reset button */
 
