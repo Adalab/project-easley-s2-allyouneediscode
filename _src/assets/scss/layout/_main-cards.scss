@@ -1,17 +1,36 @@
+.cards--form__container{
+  margin: 0;
+}
 .main__preview {
     background-image: linear-gradient(to bottom, $color-silver, $color-pale-grey);
     padding-bottom: 30px;
+
+}
+.main__container{
+  background-image: linear-gradient(to bottom, $color-white-three, $color-white 10%);
+
 }
 
 .main__form {
     background-image: linear-gradient(to bottom, $color-white-three, $color-white 10%);
     padding-right: 20px;
     padding-left: 20px;
+
+    @media all and (min-width: 768px) {
+      width: 399px;
+      height: 470px;
+    }
 }
 
 .preview__container {
     width: 240px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // background: green;
+    // border: dotted black;
+
     //removed margin: left and re-added margin auto. Don't change it back, otherwise page isn't responsive!
 }
 
@@ -53,6 +72,10 @@
 }
 
 .preview__reset {
+  align-self: flex-start;
+}
+
+.preview__reset {
     padding: 5px 10px;
     border: 1px solid $color-white;
     border-radius: 15px;
@@ -72,11 +95,12 @@
 
 .preview__card {
     width: 100%;
-    height: 367px;
+    max-height: 367px;
     padding-top: 20px;
     background-color: $color-white;
     box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
     border-radius: 2px;
+    // background: fuchsia;
 }
 
 .preview__title {
@@ -134,6 +158,7 @@
     margin: 0px;
     font-size: 16px;
     color: $color-gunmetal;
+    height: 22px;
 }
 
 .preview__image {
@@ -244,6 +269,18 @@
 }
 
 //Creamos clases diferentes específicas para cada color, para poder seleccionar las clases más fácilemente con JS
+
+.skill--green {
+    background-color: $color-dirty-blue;
+}
+
+.skill--red {
+    background-color: $color-rusty-red;
+}
+
+.skill--grey {
+    background-color: $color-pale-grey-two;
+}
 
 .main__design--palette {
     display: flex;
@@ -375,12 +412,10 @@
     @include Text-Style-5();
     color: $color-gunmetal;
     text-align: left;
-    margin-bottom: 9px;
 }
 
 .comic-sans {
     @include Text-Style-6();
-    margin-bottom: 12px;
 }
 
 .montserrat {
@@ -409,6 +444,7 @@
 .main__fill--container {
     @include Text-Style-3;
     font-size:14px;
+    text-align: left;
     display: flex;
     flex-direction: column;
     width: 281px;
@@ -502,7 +538,7 @@
 .main__share--container{
     display: flex;
     justify-content: center;
-    margin-top:15px;
+    margin-top:18px;
 }
 
 .main__share--generated-text{
@@ -510,4 +546,76 @@
   font-size: 18px;
   font-weight: 600;
   text-align: center;
+  margin: 20px 0 0 0;
+
+}
+
+.main__share--generated-twitter{
+  background-color: $color-azure;
+  border-radius: 3px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+  height: 30px;
+  width: 181px;
+  font-family: 'OpenSans', sans-serif;
+  font-size: 14px;
+  text-align: center;
+  color: $color-white;
+  display:flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.fa-twitter{
+font-size: 18px;
+margin: 6px 9.5px 6px 10.5px;
+}
+.main__share--generated{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.main__share--generated-link{
+  text-decoration: none;
+  color: $color-dull-orange;
+  font-size: 12px;
+  font-family: 'OpenSans', sans-serif;
+  margin-bottom: 10px;
+  margin-top:5px;
+
+}
+
+@media all and (min-width: 768px) {
+
+  .cards--form__container{
+  display:flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  background-image: linear-gradient(to bottom, $color-white-three, $color-white 10%);
+  border-radius: 6px;
+  height: 100vh;
+  }
+
+  .main__preview{
+    padding: 0;
+    width: 329px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background: red;
+
+  }
+  .cards--form__container{
+    margin-left: 40px;
+    margin-right: 40px;
+
+  }
+  .main__form {
+    background-image: none;
+  }
+
+
 }
