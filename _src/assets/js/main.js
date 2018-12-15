@@ -104,7 +104,7 @@ function choosePalette() {
     if ((this.value) === 'green-palette') {
         cardNameSelector.classList.add('preview__name--green');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
-      
+
         localStorage.setItem('palette', '1');
         jsonObject.palette = 1;
 
@@ -200,7 +200,7 @@ function chooseFont() {
     }
 
     else if ((this.value) === 'font-comic-sans') {
-        cardTextSelector.classList.add('comic-sans');b
+        cardTextSelector.classList.add('comic-sans');
         cardTextSelector.classList.remove('ubuntu');
         cardTextSelector.classList.remove('montserrat');
 
@@ -277,6 +277,7 @@ const writeImage = () => {
     previewImage.style.backgroundImage = `url(${fr.result})`;
     fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
     jsonObject.photo = fr.result;
+    localStorage.setItem('image', JSON.stringify(fr.result));
 };
 
 //obtaining the image via fakeCheckUploadImage
@@ -290,15 +291,6 @@ function getImage(event) {
 
 //Upload complete event listener
 uploadImage.addEventListener('change', getImage);
-
-
-//UploadImage is drawn on previewImage
-const writeImage = () => {
-    previewImage.style.backgroundImage = `url(${fr.result})`;
-    fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
-    localStorage.setItem('image', JSON.stringify(fr.result));
-};
-
 
 /* Social icons */
 
@@ -393,11 +385,6 @@ function handleSkillsReact() {
         localStorage.setItem('react', true);
     }
 }
-
-
-
-cssCheckbox.addEventListener('click', handleSkillsCss);
-
 
 /* Reset button */
 
