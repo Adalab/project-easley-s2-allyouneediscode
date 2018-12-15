@@ -74,38 +74,27 @@ function jsonCheckedItem(event) {
     //Hay que crear un selector específico por clase para poder quitar la lista correspondiente en el "else", aunque previewList existe en el DOM no la acepta como "hija"
     let previewChildElement = document.querySelector(`.skill_${this.value}`);
 
-    if(jsonObject.skills.length < 3) {
-        if (event.target.checked === true) {
-            console.log('ramiro');
-            previewSkills.appendChild(previewList);
+    if(jsonObject.skills.length < 3 && event.target.checked === true) {
+        console.log('ramiro');
+        previewSkills.appendChild(previewList);
 
-            jsonObject.skills.push(event.target.value);
+        jsonObject.skills.push(event.target.value);
 
-        } else {
-            console.log('paco');
-            previewSkills.removeChild(previewChildElement);
+    } else {
+        console.log('paco');
 
-            jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
-        }
-
-    } else if (event.target.checked === true) {
         event.target.checked = false;
-        console.log('alberto');
-
         if(previewChildElement){
             previewSkills.removeChild(previewChildElement);
 
-            jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
+            jsonObject.skills.splice(jsonObject.skills.indexOf(event.target.value), 1);
         }
-
-    } else {
-        console.log('juanma');
-        event.target.checked = false;
-        previewSkills.removeChild(previewChildElement);
-
-        jsonObject.skills.splice(jsonObject.skills.indexOf(this.value), 1);
     }
+
+    console.log(jsonObject.skills);
+    console.log(previewSkills);
 }
+
 
 
 // When 'click'-ing checkbox, add the class corresponding to the selected palette and remove others
