@@ -1,14 +1,12 @@
-.page__footer{
-  @media all and (min-width: 768px) {
 
-  }
-}
 
 .footer__container {
     background-color: $color-white;
     width: 100vw;
     height: 110px;
     margin: 10 auto 0;
+    position: relative;
+    bottom: 0;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
