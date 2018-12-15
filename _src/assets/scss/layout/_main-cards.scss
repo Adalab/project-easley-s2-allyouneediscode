@@ -15,6 +15,7 @@
     background-image: linear-gradient(to bottom, $color-white-three, $color-white 10%);
     padding-right: 20px;
     padding-left: 20px;
+
     @media all and (min-width: 768px) {
       width: 399px;
       height: 470px;
@@ -177,6 +178,25 @@
     list-style: none;
     margin: 0;
     padding: 10px 0;
+}
+
+
+.icons__container--green {
+    & > li {
+        background-color: $color-dirty-blue;
+    }
+}
+
+.icons__container--red {
+    & > li {
+        background-color: $color-rusty-red;
+    }
+}
+
+.icons__container--grey {
+    & > li {
+        background-color: $color-pale-grey-two;
+    }
 }
 
 .social-icon {
