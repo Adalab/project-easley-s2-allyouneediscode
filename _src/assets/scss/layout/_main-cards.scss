@@ -1,3 +1,4 @@
+
 .cards--form__container{
   margin: 0;
 }
@@ -10,6 +11,7 @@
   background-image: linear-gradient(to bottom, $color-white-three, $color-white 10%);
   position: relative;
   overflow: scroll;
+  min-height: 100%;
 }
 
 .main__form {
@@ -604,21 +606,17 @@ margin: 6px 9.5px 6px 10.5px;
   flex-direction: row-reverse;
   justify-content: space-around;
   border-radius: 6px;
-  height: 100vh;
+  margin-right: 40px;
   }
 
   .main__preview{
     padding: 0;
     width: 329px;
+    min-height: 826px;
     border-radius: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .cards--form__container{
-    margin-left: 40px;
-    margin-right: 40px;
-
   }
   .main__form {
     background-image: none;
