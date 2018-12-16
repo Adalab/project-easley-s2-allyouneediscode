@@ -20,6 +20,7 @@ const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
 const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 
 const containerSkills = document.querySelector('.container--skills');
+const skillContainer = document.querySelector('.preview__skills-icons');
 
 const jsonObject = {
     "palette": 0,
@@ -102,6 +103,7 @@ function jsonCheckedItem(event) {
 function choosePalette() {
 
     if ((this.value) === 'green-palette') {
+
         cardNameSelector.classList.add('preview__name--green');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
 
@@ -116,7 +118,6 @@ function choosePalette() {
             skillIconSelector[i].classList.add('skill--green');
         }
 
-        const skillContainer = document.querySelector('.preview__skills-icons');
         skillContainer.classList.add('icons__container--green');
         skillContainer.classList.remove('icons__container--red');
         skillContainer.classList.remove('icons__container--grey');
@@ -126,6 +127,8 @@ function choosePalette() {
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.remove('social-icon--red', 'social-icon--grey');
         }
+
+
     }
 
     else if ((this.value) === 'red-palette') {
@@ -307,8 +310,8 @@ fillEmailSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     localStorage.setItem('email', writer.value);
-
-    liEmail.innerHTML = `<a href="mailto:${writer.value}"><div class="social-icon social-icon--green icon__mail"><span class="far fa-envelope"></span></div></a>`;
+    liEmail.classList.add('social-icon--green');
+    liEmail.innerHTML = `<a href="mailto:${writer.value}"><span class="far fa-envelope"></span></a>`;
     jsonObject.email = writer.value;
 });
 
@@ -321,8 +324,8 @@ fillPhoneSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     localStorage.setItem('phone', writer.value);
-
-    liPhone.innerHTML = `<a href="tel:${writer.value}"><div class="social-icon social-icon--green icon__phone"><span class="fas fa-mobile-alt"></span></div></a>`;
+    liPhone.classList.add('social-icon--green');
+    liPhone.innerHTML = `<a href="tel:${writer.value}"><span class="fas fa-mobile-alt"></span></a>`;
     jsonObject.phone = writer.value;
 });
 
@@ -335,8 +338,8 @@ fillLinkedInSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     localStorage.setItem('linkedin', writer.value);
-
-    liLinkedin.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><div class="social-icon social-icon--green icon__linkedin"><span class="fab fa-linkedin-in"></span></div></a>`;
+    liLinkedin.classList.add('social-icon--green');
+    liLinkedin.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><span class="fab fa-linkedin-in"></span></a>`;
     jsonObject.linkedin = writer.value;
 });
 
@@ -348,43 +351,10 @@ fillGithubSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
     localStorage.setItem('github', writer.value);
-
-    liGithub.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;
+    liGithub.classList.add('social-icon--green');
+    liGithub.innerHTML = `<a href="https://github.com/${writer.value}"><span class="fab fa-github-alt"></span></a>`;
     jsonObject.github = writer.value;
 });
-
-
-//         function handleSkillsHtml() {
-
-//             const htmlLabel = document.querySelector('.skill_html');
-//             htmlLabel.classList.toggle('hidden');
-
-function handleSkillsHtml() {
-    htmlLabel.classList.toggle('hidden');
-    if (htmlLabel.classList.contains('hidden')) {
-        localStorage.setItem('html', false);
-    } else {
-        localStorage.setItem('html', true);
-    }
-}
-
-function handleSkillsCss() {
-    cssLabel.classList.toggle('hidden');
-    if (cssLabel.classList.contains('hidden')) {
-        localStorage.setItem('css', false);
-    } else {
-        localStorage.setItem('css', true);
-    }
-}
-
-function handleSkillsReact() {
-    reactLabel.classList.toggle('hidden');
-    if (reactLabel.classList.contains('hidden')) {
-        localStorage.setItem('react', false);
-    } else {
-        localStorage.setItem('react', true);
-    }
-}
 
 /* Reset button */
 
