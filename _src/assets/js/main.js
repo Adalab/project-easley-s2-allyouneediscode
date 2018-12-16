@@ -311,7 +311,7 @@ fillEmailSelector.addEventListener('keyup', function(e) {
 
     localStorage.setItem('email', writer.value);
     liEmail.classList.add('social-icon--green');
-    liEmail.innerHTML = `<a href="mailto:${writer.value}"><span class="far fa-envelope"></span></a>`;
+    liEmail.innerHTML = `<a class="socialicons-style" href="mailto:${writer.value}"><span class="far fa-envelope"></span></a>`;
     jsonObject.email = writer.value;
 });
 
@@ -325,7 +325,7 @@ fillPhoneSelector.addEventListener('keyup', function(e) {
 
     localStorage.setItem('phone', writer.value);
     liPhone.classList.add('social-icon--green');
-    liPhone.innerHTML = `<a href="tel:${writer.value}"><span class="fas fa-mobile-alt"></span></a>`;
+    liPhone.innerHTML = `<a class="socialicons-style" href="tel:${writer.value}"><span class="fas fa-mobile-alt"></span></a>`;
     jsonObject.phone = writer.value;
 });
 
@@ -339,7 +339,7 @@ fillLinkedInSelector.addEventListener('keyup', function(e) {
 
     localStorage.setItem('linkedin', writer.value);
     liLinkedin.classList.add('social-icon--green');
-    liLinkedin.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><span class="fab fa-linkedin-in"></span></a>`;
+    liLinkedin.innerHTML = `<a class="socialicons-style" href="https://www.linkedin.com/in/${writer.value}"><span class="fab fa-linkedin-in"></span></a>`;
     jsonObject.linkedin = writer.value;
 });
 
@@ -352,7 +352,7 @@ fillGithubSelector.addEventListener('keyup', function(e) {
 
     localStorage.setItem('github', writer.value);
     liGithub.classList.add('social-icon--green');
-    liGithub.innerHTML = `<a href="https://github.com/${writer.value}"><span class="fab fa-github-alt"></span></a>`;
+    liGithub.innerHTML = `<a class="socialicons-style" href="https://github.com/${writer.value}"><span class="fab fa-github-alt"></span></a>`;
     jsonObject.github = writer.value;
 });
 
