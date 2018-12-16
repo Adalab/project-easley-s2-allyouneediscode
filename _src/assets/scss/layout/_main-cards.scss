@@ -565,13 +565,18 @@
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
   height: 30px;
   width: 181px;
+  display:flex;
+  align-items: center;
+  justify-items: center;
+  color: $color-white;
+}
+
+.main__share--generated-twitter{
   font-family: 'OpenSans', sans-serif;
   font-size: 14px;
   text-align: center;
   color: $color-white;
-  display:flex;
-  align-items: center;
-  justify-items: center;
+  text-decoration: none;
 }
 
 .fa-twitter{
