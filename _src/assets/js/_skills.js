@@ -1,19 +1,5 @@
 'use strict';
 
-/*Este subrayado es porque ESlint considera que las strings van con comillas simples */
-const jsonObject = {
-    'palette': 0,
-    'typography': 0,
-    'name' : '',
-    'job': '',
-    'phone': '',
-    'email': '',
-    'linkedin': '',
-    'github': '',
-    'photo': '',
-    'skills': []
-};
-
 //Llamamos al API con fetch y sus respectivas promesas
 
 fetch('https://raw.githubusercontent.com/Adalab/dorcas-s2-proyecto-data/master/skills.json')

@@ -1,22 +1,5 @@
 'use strict';
 
-const cardNameSelector = document.querySelector('.preview__name');
-const cardOccupationSelector = document.querySelector('.preview__occupation');
-
-/*Este subrayado es porque ESlint considera que las strings van con comillas simples */
-const jsonObject = {
-    'palette': 0,
-    'typography': 0,
-    'name' : '',
-    'job': '',
-    'phone': '',
-    'email': '',
-    'linkedin': '',
-    'github': '',
-    'photo': '',
-    'skills': []
-};
-
 /* Name field */
 
 const fillNameSelector = document.querySelector('#full-name');
@@ -50,8 +33,6 @@ fillOccupationSelector.addEventListener('keyup', function(e) {
 
 const fakeUploadImage = document.querySelector('.fake__upload-image');
 const uploadImage = document.querySelector('.upload-image');
-const fakeCheckUploadImage = document.querySelector('.fake__check-upload-image');
-const previewImage = document.querySelector('.preview__image');
 const fr = new FileReader();
 
 /* FakeUploadImage activates UploadImage */

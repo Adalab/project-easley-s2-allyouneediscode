@@ -1,23 +1,8 @@
 'use strict';
 
-const cardTextSelector = document.querySelector('.preview__texts');
 const checkboxUbuntuSelector = document.querySelector('#font-ubuntu');
 const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
 const checkboxMontserratSelector = document.querySelector('#font-montserrat');
-
-/*Este subrayado es porque ESlint considera que las strings van con comillas simples */
-const jsonObject = {
-    'palette': 0,
-    'typography': 0,
-    'name' : '',
-    'job': '',
-    'phone': '',
-    'email': '',
-    'linkedin': '',
-    'github': '',
-    'photo': '',
-    'skills': []
-};
 
 //When 'click'-ing checkbox, add the class corresponding to the selected typography and remove others
 

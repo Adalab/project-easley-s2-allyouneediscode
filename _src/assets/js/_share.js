@@ -5,20 +5,6 @@
 const shareButton = document.querySelector('.main__share--create');
 const responseURL = document.querySelector('.main__share--generated-link');
 
-/*Este subrayado es porque ESlint considera que las strings van con comillas simples */
-const jsonObject = {
-    'palette': 0,
-    'typography': 0,
-    'name' : '',
-    'job': '',
-    'phone': '',
-    'email': '',
-    'linkedin': '',
-    'github': '',
-    'photo': '',
-    'skills': []
-};
-
 shareButton.addEventListener('click', sendRequest);
 
 function sendRequest(){

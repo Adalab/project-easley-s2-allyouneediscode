@@ -3,12 +3,8 @@
 /* Reset button */
 
 const cardTextSelector = document.querySelector('.preview__texts');
-const cardNameSelector = document.querySelector('.preview__name');
 const cardSelector = document.querySelector('.preview__social-icons');
 const cardOccupationSelector = document.querySelector('.preview__occupation');
-const decoRectangleSelector = document.querySelector('.preview__decoration-rectangle');
-const socialIconSelector = document.querySelectorAll('.social-icon');
-const skillIconSelector = document.querySelectorAll('.skill');
 const fakeCheckUploadImage = document.querySelector('.fake__check-upload-image');
 const previewImage = document.querySelector('.preview__image');
 const buttonReset = document.querySelector('.preview__reset');
