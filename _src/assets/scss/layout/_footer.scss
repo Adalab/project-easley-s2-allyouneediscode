@@ -1,17 +1,22 @@
+
+
 .footer__container {
     background-color: $color-white;
     width: 100vw;
     height: 110px;
     margin: 10 auto 0;
+    position: relative;
+    bottom: 0;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    border-top: 1px solid $color-white-two;
 
     @media all and (min-width: 768px) {
         flex-flow: row;
-        justify-content: space-between; 
+        justify-content: space-between;
     }
-    
+
 }
 
 .footer__text {
@@ -21,11 +26,11 @@
     color: $color-brownish-grey;
     opacity: 0.5;
     width: 198px;
-    
+
     @media all and (min-width: 768px){
-        margin-left: 40px; 
+        margin-left: 40px;
     }
-    
+
 }
 .footer__logo {
     width: 103px;
@@ -33,6 +38,6 @@
     margin-bottom: 20px;
 
     @media all and (min-width: 768px) {
-        margin: 10px 40px 10px 0; 
+        margin: 10px 40px 10px 0;
     }
 }

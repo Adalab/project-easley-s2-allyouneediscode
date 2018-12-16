@@ -1,8 +1,9 @@
 <main class="main__container">
+  <div class="cards--form__container">
     <partial src="_cards-preview.html"></partial>
 
     <form class="main__form">
-        <fieldset class="main__design">
+        <fieldset class="main__collapsable main__design">
             <div class=" dropdown dropdown__design">
                 <div class="dropdown-icon">
                     <span class="dropdown-icon icon far fa-object-ungroup"></span>
@@ -19,7 +20,7 @@
                     <li class="main__design--items">
                         <label for="color-green" class="main__design--palette">
                             <div class="main__design--input">
-                                <input class="option-button" id="color-green" type="radio" value="green-palette" name="color-selection">
+                                <input checked="checked"  class="option-button" id="color-green" type="radio" value="green-palette" name="color-selection">
                             </div>
 
                             <!--color squares go here-->
@@ -72,7 +73,7 @@
 
                     <li class="main__design--items comic-sans">
                         <label for="font-comic-sans">
-                            <input class="option-button" id="font-comic-sans" type="radio" value="font-comic-sans" name="font-selection">
+                            <input checked="checked" class="option-button" id="font-comic-sans" type="radio" value="font-comic-sans" name="font-selection">
                             comic sans
                         </label>
                     </li>
@@ -85,12 +86,11 @@
                     </li>
                 </ul>
             </div>
-            <div class="border-section">
-            </div>
-
         </fieldset>
+        <div class="border-section border-section-nomargin">
+        </div>
 
-        <fieldset class="main__fill">
+        <fieldset class="main__collapsable main__fill">
             <div class="dropdown dropdown__fill">
                 <div class="dropdown-icon">
                     <span class="dropdown-icon icon far fa-keyboard"></span>
@@ -130,26 +130,14 @@
 
                 <p class="text--skills">Habilidades (máximo 3)</p>
 
-                <label for="skills-html" class="option-skills">
-                    <input class="option-button" id="skills-html" type="checkbox" value="skills-html" name="skills">
-                    <p class="main__design--skills-html">HTML</p>
-                </label>
+                <div class="container--skills"></div>
 
-                <label for="skills-css" class="option-skills">
-                    <input class="option-button" id="skills-css" type="checkbox" value="skills-css" name="skills">
-                    <p class="main__design--skills-css">CSS</p>
-                </label>
-
-                <label for="skills-react" class="option-skills">
-                    <input class="option-button" id="skills-react" type="checkbox" value="skills-react" name="skills">
-                    <p class="main__design--skills-react">React</p>
-                </label>
-            </div>
-            <div class="border-section">
-            </div>
+              </div>
         </fieldset>
+        <div class="border-section border-section-nomargin">
+        </div>
 
-        <fieldset class="main__share">
+        <fieldset class="main__collapsable main__share">
             <div class="dropdown main__share--dropdown">
                 <div class="dropdown-icon">
                     <span class="dropdown-icon icon fas fa-share-alt"></span>
@@ -169,14 +157,22 @@
             <div class="border-section">
             </div>
 
+            <!-- <div class="main__share--generated">
+
+                <a class="main__share--generated-twitter" target="_blank" href="">Compartir en twitter</a>
+            </div> -->
             <div class="main__share--generated">
                 <h3 class="main__share--generated-text">La tarjeta ha sido creada:</h3>
                 <a class="main__share--generated-link" href=""></a>
-                <a class="main__share--generated-twitter" target="_blank" href="">Compartir en twitter</a>
-            </div>
-            <div class="border-section">
+
+                <div class="main__share--twitter-button">
+                  <span class="main__share--generated-twitter- fab fa-twitter"></span>
+                  <a class="main__share--generated-twitter" target="_blank" href="">Compartir en twitter</a>
+                </div>
+                <div class="border-section">
+                </div>
             </div>
         </fieldset>
     </form>
-
+  </div>
 </main>
