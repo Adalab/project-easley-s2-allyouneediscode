@@ -9,16 +9,18 @@
 .main__container{
   background-image: linear-gradient(to bottom, $color-white-three, $color-white 10%);
   position: relative;
-  overflow: scroll;
+  overflow: overlay; //SAND
 }
 
 .main__form {
     background-image: linear-gradient(to bottom, $color-white-three, $color-white 10%);
     padding: 10px 20px 30px;
+    background-image: none;
+    overflow: overlay;
+    height: 100%;
 
     @media all and (min-width: 768px) {
       width: 399px;
-      height: 470px;
     }
 }
 
@@ -600,30 +602,25 @@ margin: 6px 9.5px 6px 10.5px;
   }
 
   .cards--form__container{
-  display:flex;
-  flex-direction: row-reverse;
-  justify-content: space-around;
-  border-radius: 6px;
-  height: 100vh;
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    border-radius: 6px;
+    height: 100vh;
   }
 
   .main__preview{
     padding: 0;
-    width: 329px;
     border-radius: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-grow: 1;
   }
   .cards--form__container{
     margin-left: 40px;
     margin-right: 40px;
 
-  }
-  .main__form {
-    background-image: none;
-    overflow: overlay;
-    height: 100%;
   }
 
   .dropdown{
