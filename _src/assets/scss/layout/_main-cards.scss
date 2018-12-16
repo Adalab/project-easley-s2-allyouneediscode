@@ -622,6 +622,8 @@ margin: 6px 9.5px 6px 10.5px;
   }
   .main__form {
     background-image: none;
+    overflow: scroll;
+    height: 100%;
   }
 
   .dropdown{
