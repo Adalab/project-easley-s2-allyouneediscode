@@ -1,4 +1,3 @@
-
 .cards--form__container{
   margin: 0;
 }
@@ -16,7 +15,7 @@
 
 .main__form {
     background-image: linear-gradient(to bottom, $color-white-three, $color-white 10%);
-    padding: 10px 20px 30px;
+    padding: 10px 30px 10px 40px;
 
     @media all and (min-width: 768px) {
       width: 399px;
@@ -45,6 +44,7 @@
 
 .fa-object-ungroup {
     margin: 0;
+    padding: 0;
 }
 
 .main__arrow {
@@ -228,7 +228,7 @@
 }
 
 .social-icon:first-child {
-    margin-left: 20px;
+    // margin-left: 20px;
 }
 
 .preview__skills-icons {
@@ -351,9 +351,9 @@
     font-family: 'Open Sans';
     font-size: 18px;
     color: $color-gunmetal;
-    margin: 0;
-    margin-left: 10px;
-    padding: 10px 0px 7px;
+    // margin: 0 0 0 10px;
+    // padding: 10px 0px 7px;
+    padding-left: 10px;
 }
 
 .main__design--colors,
@@ -362,7 +362,7 @@
 }
 
 .main__design--container {
-    padding-left: 10px;
+    // padding-left: 10px;
     padding-right: 20px;
     padding-bottom: 30px;
     display: grid;
@@ -484,9 +484,11 @@
 .dropdown-icon {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: center;
     align-items: center;
+    margin-left: 0;
+    justify-content: flex-start;
 }
+
 
 //position skills checkbox
 
@@ -620,8 +622,6 @@ margin: 6px 9.5px 6px 10.5px;
   }
   .main__form {
     background-image: none;
-    overflow: scroll;
-    height: 100%;
   }
 
   .dropdown{
