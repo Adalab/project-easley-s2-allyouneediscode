@@ -10,7 +10,7 @@
   background-image: linear-gradient(to bottom, $color-white-three, $color-white 10%);
   position: relative;
   overflow: scroll;
-  min-height: 100%;
+  min-height: 852px;
 }
 
 .main__form {
@@ -609,12 +609,13 @@ margin: 6px 9.5px 6px 10.5px;
   justify-content: space-around;
   border-radius: 6px;
   margin-right: 40px;
+  height: 100%;
   }
 
   .main__preview{
     padding: 0;
     width: 329px;
-    min-height: 826px;
+    min-height: 812px;
     border-radius: 6px;
     display: flex;
     justify-content: center;
@@ -622,6 +623,7 @@ margin: 6px 9.5px 6px 10.5px;
   }
   .main__form {
     background-image: none;
+    height: 100%;
   }
 
   .dropdown{
