@@ -19,19 +19,17 @@ const checkboxUbuntuSelector = document.querySelector('#font-ubuntu');
 const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
 const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 
-const containerSkills = document.querySelector('.container--skills');
-
 const jsonObject = {
-    "palette": 0,
-    "typography": 0,
-    "name" : "",
-    "job": "",
-    "phone": "",
-    "email": "",
-    "linkedin": "",
-    "github": "",
-    "photo": "",
-    "skills": []
+    'palette': 1,
+    'typography': 2,
+    'name' : '',
+    'job': '',
+    'phone': '',
+    'email': '',
+    'linkedin': '',
+    'github': '',
+    'photo': '',
+    'skills': []
 };
 
 //Guión:
@@ -353,39 +351,6 @@ fillGithubSelector.addEventListener('keyup', function(e) {
     jsonObject.github = writer.value;
 });
 
-
-//         function handleSkillsHtml() {
-
-//             const htmlLabel = document.querySelector('.skill_html');
-//             htmlLabel.classList.toggle('hidden');
-
-function handleSkillsHtml() {
-    htmlLabel.classList.toggle('hidden');
-    if (htmlLabel.classList.contains('hidden')) {
-        localStorage.setItem('html', false);
-    } else {
-        localStorage.setItem('html', true);
-    }
-}
-
-function handleSkillsCss() {
-    cssLabel.classList.toggle('hidden');
-    if (cssLabel.classList.contains('hidden')) {
-        localStorage.setItem('css', false);
-    } else {
-        localStorage.setItem('css', true);
-    }
-}
-
-function handleSkillsReact() {
-    reactLabel.classList.toggle('hidden');
-    if (reactLabel.classList.contains('hidden')) {
-        localStorage.setItem('react', false);
-    } else {
-        localStorage.setItem('react', true);
-    }
-}
-
 /* Reset button */
 
 const buttonReset = document.querySelector('.preview__reset');
@@ -417,10 +382,25 @@ function resetForm() {
     }
     cardTextSelector.classList.add('comic-sans');
     cardTextSelector.classList.remove('ubuntu', 'montserrat');
-    htmlLabel.classList.add('hidden');
-    cssLabel.classList.add('hidden');
-    reactLabel.classList.add('hidden');
 
+    //Reset skills from preview and re-add event listener
+    const skillsContainer = document.querySelector('.preview__skills-icons');
+    skillsContainer.innerHTML = '';
+
+    //Reset jsonObject
+    jsonObject.palette = 1;
+    jsonObject.typography = 2;
+    jsonObject.name = '';
+    jsonObject.job = '';
+    jsonObject.phone = '';
+    jsonObject.email = '';
+    jsonObject.linkedin = '';
+    jsonObject.github = '';
+    jsonObject.photo = '';
+    jsonObject.skills.length = 0;
+
+    //Reset local storage
+    localStorage.clear();
 }
 
 buttonReset.addEventListener('click', resetForm);
@@ -449,7 +429,7 @@ for (let i = 0; i < buttonDrop.length; i++) {
 
 /* Local Storage */
 
-//////Share functionality/////
+//Share functionality
 
 
 const shareButton = document.querySelector('.main__share--create');
