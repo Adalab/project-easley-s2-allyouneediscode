@@ -9,9 +9,7 @@
 .main__container{
   background-image: linear-gradient(to bottom, $color-white-three, $color-white 10%);
   position: relative;
-  min-height: 852px; //NAT
   overflow: overlay;
-
 }
 
 .main__form {
@@ -621,14 +619,13 @@ margin: 6px 9.5px 6px 10.5px;
   border-radius: 6px;
   margin-right: 40px;
   height: 100%;
-  // height: 100vh;
+  height: 100vh;
 
   }
 
   .main__preview{
     padding: 0;
     width: 329px;
-    min-height: 812px; //NAT
     border-radius: 6px;
     display: flex;
     justify-content: center;
