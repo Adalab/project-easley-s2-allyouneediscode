@@ -410,7 +410,7 @@ buttonReset.addEventListener('click', resetForm);
 const buttonDrop = document.querySelectorAll('.dropdown');
 const boxDesign = document.querySelector('.main__design--container');
 const boxFill = document.querySelector('.main__fill--container');
-const boxShare = document.querySelector('.main__share--container');
+const boxShare = document.querySelector('.main__share--generated');
 
 function dropDown(event) {
     const btnSelected = event.currentTarget;
@@ -418,7 +418,7 @@ function dropDown(event) {
         boxDesign.classList.toggle('hidden');
     } else if (btnSelected.classList.contains('dropdown__fill') === true) {
         boxFill.classList.toggle('hidden');
-    } else {
+    } else if (btnSelected.classList.contains('dropdown__share') === true){
         boxShare.classList.toggle('hidden');
     }
 }
