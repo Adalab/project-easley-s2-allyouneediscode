@@ -476,7 +476,15 @@ function sendRequest(){
             } else {
                 responseURL.innerHTML = 'ERROR: ' + result.error;
             }
+            //Twitter//
+
+            const twitterShare = document.querySelector('.main__share--generated-twitter');
+
+            function shareOnTwitter(){
+                twitterShare.href = 'https://twitter.com/share?url=' + result.cardURL+'&text='+'¡Ey! Mira que tarjeta más molona acabo de hacer con Javascript ' + '&hashtags='+'JavaScript, Adalab';
+            }
+
+            twitterShare.addEventListener('click', shareOnTwitter);
         });
 }
-
 
