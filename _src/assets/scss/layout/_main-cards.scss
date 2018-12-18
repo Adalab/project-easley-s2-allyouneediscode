@@ -173,6 +173,63 @@
     height: 200px;
 }
 
+.preview__social-icons.green {
+
+  & li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border: 2px solid $color-hospital-green;
+    border-radius: 16px;
+    color: $color-dark-green-blue;
+
+    & a {
+      text-decoration: none;
+    }
+  }
+
+}
+
+.preview__social-icons.red {
+
+  & li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border: 2px solid $color-tomato;
+    border-radius: 16px;
+    color: $color-dried-blood;
+
+    & a {
+      text-decoration: none;
+    }
+  }
+
+}
+
+.preview__social-icons.grey {
+
+  & li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border: 2px solid $color-light-grey-blue;
+    border-radius: 16px;
+    color: $color-slate;
+
+    & a {
+      text-decoration: none;
+    }
+  }
+
+}
+
 //////The conatiner class in each UL is to give each of them display: flex and some other common elements in just one place///
 
 .icons__container {
@@ -200,16 +257,6 @@
     & > li {
         background-color: $color-pale-grey-two;
     }
-}
-
-.social-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 32px;
-    height: 32px;
-    margin-right: 10px;
-    border-radius: 16px;
 }
 
 //Creamos clases diferentes específicas para cada color, para poder seleccionar las clases más fácilemente con JS
@@ -642,4 +689,8 @@ margin: 6px 9.5px 6px 10.5px;
     height: 41px;
   }
 
+}
+
+.hidden {
+  display: none;
 }

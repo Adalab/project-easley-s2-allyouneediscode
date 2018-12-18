@@ -19,6 +19,8 @@ const checkboxUbuntuSelector = document.querySelector('#font-ubuntu');
 const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
 const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 
+const socialSelector = document.querySelector('.preview__social-icons');
+
 const jsonObject = {
     'palette': 1,
     'typography': 2,
@@ -106,8 +108,8 @@ function choosePalette() {
         localStorage.setItem('palette', '1');
         jsonObject.palette = 1;
 
-        for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.add('social-icon--green');
+        for (let i = 0; i < socialSelector.length; i++) {
+            socialSelector[i].classList.add('green');
         }
 
         for (let i = 0; i < skillIconSelector.length; i++) {
@@ -121,9 +123,8 @@ function choosePalette() {
 
         cardNameSelector.classList.remove('preview__name--red', 'preview__name--grey');
         decoRectangleSelector.classList.remove('preview__decoration-rectangle--red', 'preview__decoration-rectangle--grey');
-        for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.remove('social-icon--red', 'social-icon--grey');
-        }
+        socialSelector.classList.remove('red', 'grey');
+
     }
 
     else if ((this.value) === 'red-palette') {
@@ -133,9 +134,8 @@ function choosePalette() {
         localStorage.setItem('palette', '2');
         jsonObject.palette = 2;
 
-        for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.add('social-icon--red');
-        }
+        socialSelector.classList.add('red');
+
         for (let i = 0; i < skillIconSelector.length; i++) {
             skillIconSelector[i].classList.add('skill--red');
         }
@@ -147,9 +147,7 @@ function choosePalette() {
 
         cardNameSelector.classList.remove('preview__name--green', 'preview__name--grey');
         decoRectangleSelector.classList.remove('preview__decoration-rectangle--green', 'preview__decoration-rectangle--grey');
-        for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.remove('social-icon--green', 'social-icon--grey');
-        }
+        socialSelector.classList.remove('green', 'grey');
     }
 
     else if ((this.value) === 'grey-palette') {
@@ -159,9 +157,8 @@ function choosePalette() {
         localStorage.setItem('palette', '3');
         jsonObject.palette = 3;
 
-        for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.add('social-icon--grey');
-        }
+        socialSelector.classList.add('grey');
+
         for (let i = 0; i < skillIconSelector.length; i++) {
             skillIconSelector[i].classList.add('skill--grey');
         }
@@ -173,9 +170,7 @@ function choosePalette() {
 
         cardNameSelector.classList.remove('preview__name--green', 'preview__name--red');
         decoRectangleSelector.classList.remove('preview__decoration-rectangle--green', 'preview__decoration-rectangle--red');
-        for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.remove('social-icon--green', 'social-icon--red');
-        }
+        socialSelector.classList.remove('green', 'red');
     }
 }
 
@@ -295,7 +290,6 @@ uploadImage.addEventListener('change', getImage);
 // email field
 
 const fillEmailSelector = document.querySelector('#email');
-const cardSelector = document.querySelector('.preview__social-icons');
 const liEmail = document.querySelector('.li__email');
 const liPhone = document.querySelector('.li__phone');
 const liLinkedin = document.querySelector('.li__linkedin');
@@ -306,7 +300,7 @@ fillEmailSelector.addEventListener('keyup', function(e) {
 
     localStorage.setItem('email', writer.value);
 
-    liEmail.innerHTML = `<a href="mailto:${writer.value}"><div class="social-icon social-icon--green icon__mail"><span class="far fa-envelope"></span></div></a>`;
+    liEmail.innerHTML = `<a href="mailto:${writer.value}"><div class="social-icon icon__mail"><span class="far fa-envelope"></span></div></a>`;
     jsonObject.email = writer.value;
 });
 
@@ -320,7 +314,7 @@ fillPhoneSelector.addEventListener('keyup', function(e) {
 
     localStorage.setItem('phone', writer.value);
 
-    liPhone.innerHTML = `<a href="tel:${writer.value}"><div class="social-icon social-icon--green icon__phone"><span class="fas fa-mobile-alt"></span></div></a>`;
+    liPhone.innerHTML = `<a href="tel:${writer.value}"><div class="social-icon icon__phone"><span class="fas fa-mobile-alt"></span></div></a>`;
     jsonObject.phone = writer.value;
 });
 
@@ -334,7 +328,7 @@ fillLinkedInSelector.addEventListener('keyup', function(e) {
 
     localStorage.setItem('linkedin', writer.value);
 
-    liLinkedin.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><div class="social-icon social-icon--green icon__linkedin"><span class="fab fa-linkedin-in"></span></div></a>`;
+    liLinkedin.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><div class="social-icon icon__linkedin"><span class="fab fa-linkedin-in"></span></div></a>`;
     jsonObject.linkedin = writer.value;
 });
 
@@ -347,7 +341,7 @@ fillGithubSelector.addEventListener('keyup', function(e) {
 
     localStorage.setItem('github', writer.value);
 
-    liGithub.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;
+    liGithub.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon icon__github"><span class="fab fa-github-alt"></span></div></a>`;
     jsonObject.github = writer.value;
 });
 
@@ -363,20 +357,16 @@ function resetForm() {
     cardOccupationSelector.innerHTML = 'Front-end developer';
     previewImage.style.backgroundImage = `url(https://placehold.it/200x200/ffcc00/0000ff/?text=TEXT)`;
     fakeCheckUploadImage.style.backgroundImage = ``;
-    cardSelector.innerHTML = '';
+    socialSelector.innerHTML = '';
     cardNameSelector.classList.add('preview__name--green');
     decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
-    for (let i = 0; i < socialIconSelector.length; i++) {
-        socialIconSelector[i].classList.add('social-icon--green');
-    }
+    socialSelector.classList.add('green');
     for (let i = 0; i < skillIconSelector.length; i++) {
         skillIconSelector[i].classList.add('skill--green');
     }
     cardNameSelector.classList.remove('preview__name--red', 'preview__name--grey');
     decoRectangleSelector.classList.remove('preview__decoration-rectangle--red', 'preview__decoration-rectangle--grey');
-    for (let i = 0; i < socialIconSelector.length; i++) {
-        socialIconSelector[i].classList.remove('social-icon--red', 'social-icon--grey');
-    }
+    socialSelector[i].classList.remove('red', 'grey');
     for (let i = 0; i < skillIconSelector.length; i++) {
         skillIconSelector[i].classList.remove('skill--red', 'skill--grey');
     }
