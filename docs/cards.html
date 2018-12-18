@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-
+    
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
@@ -12,193 +12,209 @@
         crossorigin="anonymous">
         <link rel="stylesheet" href="assets/css/main.css">
     </head>
-
+    
     <body>
         <div class="page">
             <div class="page__home-container">
                 <header class="page__header--cards">
                      <h1 class="header__title--cards hidden"> Awesome profile-cards</h1>
+ <a href="index.html">
+        <img src='assets/images/tarjetas-molonas.svg' alt="logo" class="header__logo--cards">
+    </a>
 
-                    <img src='assets/images/tarjetas-molonas.svg' alt="logo" class="header__logo--cards">
                 </header>
                 <main class="main__container">
-                    <section class="main__preview">
-                        <div class="preview__container">
-                            <button class="preview__reset"> <span class="far fa-trash-alt"></span><span class="preview__reset-text">reset</span>
-
-                            </button>
-                            <div class="preview__card">
-                                <div class="preview__title">
-                                    <div class="preview__decoration-rectangle"></div>
-                                    <div class="preview__texts">
-                                        <p class="preview__name">Nombre Apellido</p>
-                                        <p class="preview__occupation">Front-end developer</p>
-                                    </div>
-                                </div>
-                                <div class="preview__image"></div>
-                                <ul class="icons__container preview__social-icons">
-                                    <li class="social-icon icon__phone"><span class="fas fa-mobile-alt"></span>
-
-                                    </li>
-                                    <li class="social-icon icon__mail"><span class="far fa-envelope"></span>
-
-                                    </li>
-                                    <li class="social-icon icon__linkedin"><span class="fab fa-linkedin-in"></span>
-
-                                    </li>
-                                    <li class="social-icon icon__github"><span class="i fab fa-github-alt"></span>
-
-                                    </li>
-                                </ul>
-                                <div class="skills__container">
-                                    <ul class="icons__container icons__container--green preview__skills-icons">
-                                        <li class="skill skill_html">html</li>
-                                        <li class="skill skill_css">css</li>
-                                        <li class="skill skill_gulp">gulp</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <form class="main__form">
-                        <fieldset class="main__design">
-                            <button class="dropdown__design"> <span class="icon main__design--icon"></span>
-
-                                 <h2 class="main__design--title">diseña</h2>
- <span class="main__arrow main__design--arrow"></span>
-
-                            </button>
-                            <div class="main__design--container --hidden--">
-                                <ul class="main__design--colors">
-                                    <li class="main__design--items">
-                                        <label for="color-green">
-                                            <input class="option-button" id="color-green" type="radio" value="green-palette"
-                                            name="color-selection">
-                                            <!--color squares go here-->
-                                            <div class="main__design--palette-green">
-                                                <div class="green-dark"></div>
-                                                <div class="green-medium"></div>
-                                                <div class="green-light"></div>
-                                            </div>
-                                        </label>
-                                    </li>
-                                    <li class="main__design--items">
-                                        <label for="color-red">
-                                            <input class="option-button" id="color-red" type="radio" value="red-palette"
-                                            name="color-selection">
-                                            <div class="main__design--palette-red">
-                                                <div class="red-dark"></div>
-                                                <div class="red-medium"></div>
-                                                <div class="red-light"></div>
-                                            </div>
-                                        </label>
-                                    </li>
-                                    <li class="main__design--items">
-                                        <label for="color-grey">
-                                            <input class="option-button" id="color-grey" type="radio" value="grey-palette"
-                                            name="color-selection">
-                                            <div class="main__design--palette-grey">
-                                                <div class="grey-dark"></div>
-                                                <div class="grey-medium"></div>
-                                                <div class="grey-light"></div>
-                                            </div>
-                                        </label>
-                                    </li>
-                                </ul>
-                                <ul class="main__design--fonts">
-                                    <li class="main__design--items">
-                                        <label for="font-ubuntu">
-                                            <input class="option-button" id="font-ubuntu" type="radio" value="font-ubuntu"
-                                            name="font-selection">
-                                            <p class="main__design--font-ubuntu">ubuntu</p>
-                                        </label>
-                                    </li>
-                                    <li class="main__design--items">
-                                        <label for="font-comic-sans">
-                                            <input class="option-button" id="font-comic-sans" type="radio" value="font-comic-sans"
-                                            name="font-selection">
-                                            <p class="main__design--font-comic-sans">comic sans</p>
-                                        </label>
-                                    </li>
-                                    <li class="main__design--items">
-                                        <label for="font-montserrat">
-                                            <input class="option-button" id="font-montserrat" type="radio" value="font-montserrat"
-                                            name="font-selection">
-                                            <p class="main__design--font-montserrat">montserrat</p>
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </fieldset>
-                        <fieldset class="main__fill">
-                            <button class="dropdown__fill"> <span class="icon main__fill--icon"></span>
-
-                                 <h2 class="main__fill--title">rellena</h2>
- <span class="main__arrow main__fill--arrow"></span>
-
-                            </button>
-                            <div class="main__fill--container">
-                                <label for="full-name">nombre completo</label>
-                                <input id="full-name" type="text" name="full-name">
-                                <label for="occupation">puesto</label>
-                                <input id="occupation" type="text" name="occupation">
-                                <label for="upload-image">añadir imagen</label>
-                                <input id="upload-image" type="file" name="upload-image">
-                                <div class="upload-image__container"></div>
-                                <label for="email">email</label>
-                                <input id="email" type="email" name="email">
-                                <label for="phone">teléfono</label>
-                                <input id="phone" type="number" name="phone">
-                                <label for="linkedin">linkedin</label>
-                                <input id="linkedin" type="text" name="linkedin">
-                                <label for="github">github</label>
-                                <input id="github" type="text" name="github">
-                                <p>habilidades</p>
-                                <label for="skills-html">
-                                    <input class="option-button" id="skills-html" type="radio" value="skills-html"
-                                    name="skills">
-                                    <p class="main__design--skills-html">HTML</p>
-                                </label>
-                                <label for="skills-css">
-                                    <input class="option-button" id="skills-css" type="radio" value="skills-css"
-                                    name="skills">
-                                    <p class="main__design--skills-css">CSS</p>
-                                </label>
-                                <label for="skills-react">
-                                    <input class="option-button" id="skills-react" type="radio" value="skills-react"
-                                    name="skills">
-                                    <p class="main__design--skills-react">react</p>
-                                </label>
-                            </div>
-                        </fieldset>
-                        <fieldset class="main__share">
-                            <button class="main__share--dropdown"> <span class="icon main__share--icon"></span>
-
-                                 <h2 class="main__share--title">comparte</h2>
- <span class="main__arrow main__share--arrow"></span>
-
-                            </button>
-                            <div class="main__share--container">
-                                <button class="main__share--create"> <span class="main__share--create-icon"></span>
- <span class="main__share--create-text">crear tarjeta</span>
+                    <div class="cards--form__container">
+                        <section class="main__preview">
+                            <div class="preview__container">
+                                <button class="preview__reset"> <span class="far fa-trash-alt"></span><span class="preview__reset-text">reset</span>
 
                                 </button>
+                                <div class="preview__card">
+                                    <div class="preview__title">
+                                        <div class="preview__decoration-rectangle preview__decoration-rectangle--green"></div>
+                                        <div class="preview__texts">
+                                            <p class="font-comic-sans preview__name preview__name--green">Nombre Apellido</p>
+                                            <p class="font-comic-sans preview__occupation">Front-end developer</p>
+                                        </div>
+                                    </div>
+                                    <div class="preview__image"></div>
+                                    <ul class="icons__container preview__social-icons">
+                                        <li class="li__email"></li>
+                                        <li class="li__phone"></li>
+                                        <li class="li__linkedin"></li>
+                                        <li class="li__github"></li>
+                                    </ul>
+                                    <div class="skills__container">
+                                        <ul class="icons__container icons__container--green preview__skills-icons"></ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="main__share--generated">
-                                 <h3 class="main__share--generated-text">la tarjeta ha sido creada:</h3>
+                        </section>
+                        <form class="main__form">
+                            <fieldset class="main__collapsable main__design">
+                                <div class=" dropdown dropdown__design">
+                                    <div class="dropdown-icon"> <span class="dropdown-icon icon far fa-object-ungroup"></span>
+
+                                         <h2 class="form__title main__design--title">diseña</h2>
+
+                                    </div>
+                                    <div class="dropdown-arrow"> <span class="main__arrow fas fa-angle-down"></span>
+
+                                    </div>
+                                </div>
+                                <div class="main__design--container hidden">
+                                    <p class="main__design--titles">colores</p>
+                                    <ul class="main__design--colors">
+                                        <li class="main__design--items">
+                                            <label for="color-green" class="main__design--palette">
+                                                <div class="main__design--input">
+                                                    <input checked="checked" class="option-button" id="color-green" type="radio"
+                                                    value="green-palette" name="color-selection">
+                                                </div>
+                                                <!--color squares go here-->
+                                                <div class="main__design--palette-green">
+                                                    <div class="green-dark"></div>
+                                                    <div class="green-medium"></div>
+                                                    <div class="green-light"></div>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="main__design--items">
+                                            <label for="color-red" class="main__design--palette">
+                                                <div class="main__design--input">
+                                                    <input class="option-button" id="color-red" type="radio" value="red-palette"
+                                                    name="color-selection">
+                                                </div>
+                                                <div class="main__design--palette-red">
+                                                    <div class="red-dark"></div>
+                                                    <div class="red-medium"></div>
+                                                    <div class="red-light"></div>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li class="main__design--items">
+                                            <label for="color-grey" class="main__design--palette">
+                                                <div class="main__design--input">
+                                                    <input class="option-button" id="color-grey" type="radio" value="grey-palette"
+                                                    name="color-selection">
+                                                </div>
+                                                <div class="main__design--palette-grey">
+                                                    <div class="grey-dark"></div>
+                                                    <div class="grey-medium"></div>
+                                                    <div class="grey-light"></div>
+                                                </div>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                    <!--fonts go here-->
+                                    <p class="main__design--titles">fuentes</p>
+                                    <ul class="main__design--fonts">
+                                        <li class="main__design--items ubuntu">
+                                            <label for="font-ubuntu">
+                                                <input class="option-button" id="font-ubuntu" type="radio" value="font-ubuntu"
+                                                name="font-selection">ubuntu</label>
+                                        </li>
+                                        <li class="main__design--items comic-sans">
+                                            <label for="font-comic-sans">
+                                                <input checked="checked" class="option-button" id="font-comic-sans" type="radio"
+                                                value="font-comic-sans" name="font-selection">comic sans</label>
+                                        </li>
+                                        <li class="main__design--items montserrat">
+                                            <label for="font-montserrat">
+                                                <input class="option-button" id="font-montserrat" type="radio" value="font-montserrat"
+                                                name="font-selection">montserrat</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </fieldset>
+                            <div class="border-section border-section-nomargin"></div>
+                            <fieldset class="main__collapsable main__fill">
+                                <div class="dropdown dropdown__fill">
+                                    <div class="dropdown-icon"> <span class="dropdown-icon icon far fa-keyboard"></span>
+
+                                         <h2 class="form__title main__fill--title">rellena</h2>
+
+                                    </div>
+                                    <div class="dropdown-arrow"> <span class="main__arrow fas fa-angle-down"></span>
+
+                                    </div>
+                                </div>
+                                <div class="main__fill--container hidden">
+                                    <label for="full-name">Nombre completo</label>
+                                    <input id="full-name" type="text" name="full-name"
+                                    class="input-container" placeholder="Ej: Paca Ramirez">
+                                    <label for="occupation">Puesto</label>
+                                    <input id="occupation" type="text" name="occupation" class="input-container"
+                                    placeholder="Ej: Web tester">
+                                    <label class="upload-image-label" for="upload-image">Añadir imagen</label>
+                                    <input class="upload-image input-container" id="upload-image"
+                                    type="file" name="upload-image">
+                                    <div class="upload-image__container">
+                                        <button type="button" class="fake__upload-image">Añadir imagen</button>
+                                        <div class="fake__check-upload-image"></div>
+                                    </div>
+                                    <label for="email">Email</label>
+                                    <input class="input-container" placeholder="Ej: PaquitaR@gmail.com"
+                                    id="email" type="email" name="email">
+                                    <label for="phone">Teléfono</label>
+                                    <input class="input-container" placeholder="Ej: 666-55-44-33"
+                                    id="phone" type="number" name="phone">
+                                    <label for="linkedin">Linkedin</label>
+                                    <input class="input-container" placeholder="Ej: linkedin.com/in/paqui.ram"
+                                    id="linkedin" type="text" name="linkedin">
+                                    <label for="github">Github</label>
+                                    <input class="input-container" placeholder="Ej: @paqui-ram"
+                                    id="github" type="text" name="github">
+                                    <p class="text--skills">Habilidades (máximo 3)</p>
+                                    <div class="container--skills"></div>
+                                </div>
+                            </fieldset>
+                            <div class="border-section border-section-nomargin"></div>
+                            <fieldset class="main__collapsable main__share">
+                                <div class="dropdown main__share--dropdown">
+                                    <div class="dropdown-icon"> <span class="dropdown-icon icon fas fa-share-alt"></span>
+
+                                         <h2 class="form__title main__share--title">comparte</h2>
+
+                                    </div>
+                                    <div class="dropdown-arrow"> <span class="main__arrow fas fa-angle-down"></span>
+
+                                    </div>
+                                </div>
+                                <div class="main__share--container hidden">
+                                    <button class="main__share--create" type="button"> <span class="main__share--create- far fa-address-card"></span>
+ <span class="main__share--create-text">crear tarjeta</span>
+
+                                    </button>
+                                </div>
+                                <div class="border-section"></div>
+                                <!-- <div class="main__share--generated">
+
+                <a class="main__share--generated-twitter" target="_blank" href="">Compartir en twitter</a>
+            </div> -->
+                                <div class="main__share--generated">
+                                     <h3 class="main__share--generated-text">La tarjeta ha sido creada:</h3>
  <a class="main__share--generated-link" href=""></a>
 
-                                <button class="main__share--generated-twitter"></button>
-                            </div>
-                        </fieldset>
-                    </form>
+                                    <div class="main__share--twitter-button"> <span class="main__share--generated-twitter- fab fa-twitter"></span>
+
+                                        <a
+                                        class="main__share--generated-twitter" target="_blank" href="">Compartir en twitter</a>
+                                    </div>
+                                    <div class="border-section"></div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
                 </main>
             </div>
             <footer class="page__footer">
                 <div class="footer__container">
-                    <p class="footer__text">Awesome profile-cards @2018</p>
-                    <img src="assets/images/logo-adalab-80px.png"
-                    alt="Logo Adalab" class="footer__logo">
+                    <p class="footer__text">Awesome profile-cards @2018</p> <a href="https://adalab.es/">
+            <img src="assets/images/logo-adalab-80px.png" alt="Logo Adalab" class="footer__logo">
+        </a>
+
                 </div>
             </footer>
         </div>
