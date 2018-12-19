@@ -163,7 +163,16 @@
 
 //////The container class in each UL is to give each of them display: flex and some other common elements in just one place///
 
-.icons__container {
+.preview__social-icons {
+  padding: 10px 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  list-style: none;
+  margin: 0;
+  min-height: 52px;
+}
+
+.preview__skills-icons {
     display: flex;
     flex-flow: row nowrap;
     list-style: none;
@@ -212,7 +221,9 @@
 .social__container--green{
   & li{
     border: 2px solid $color-hospital-green;
-    color: $color-dark-green-blue;
+    & a {
+      color: $color-dark-green-blue;
+    }
   }
   & .hidden{
     display:none;
@@ -222,7 +233,9 @@
 .social__container--red{
   & li{
     border: 2px solid $color-tomato;
-    color: $color-dried-blood;
+    & a {
+      color: $color-dried-blood;
+    }
   }
   & .hidden{
     display:none;
@@ -232,15 +245,13 @@
 .social__container--grey{
   & li{
     border: 2px solid $color-light-grey-blue;
-    color: $color-slate;
+    & a {
+      color: $color-slate;
+    }
   }
   & .hidden{
     display:none;
   }
-}
-
-.social-icon:first-child {
-    margin-left: 20px;
 }
 
 .preview__skills-icons {
