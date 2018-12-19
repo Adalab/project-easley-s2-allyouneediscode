@@ -22,6 +22,12 @@ const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 const shareButton = document.querySelector('.main__share--create');
 const responseURL = document.querySelector('.main__share--generated-link');
 
+const buttonDrop = document.querySelectorAll('.dropdown');
+const boxDesign = document.querySelector('.main__design--container');
+const boxFill = document.querySelector('.main__fill--container');
+const boxShare = document.querySelector('.main__share--container');
+const boxTwitter = document.querySelector('.main__share--generated');
+
 const jsonObject = {
     'palette': 1,
     'typography': 2,
@@ -404,28 +410,44 @@ function resetForm() {
 
     //Reset local storage
     localStorage.clear();
+
+    //Reset link
+    responseURL.href= '';
+
+    //Hidden twitter
+    boxTwitter.classList.add('hidden');
+
+    //Reset drop-down
+    boxDesign.classList.add('hidden');
+    boxFill.classList.add('hidden');
+    shareButton.classList.add('hidden');
+    boxShare.classList.add('hidden');
+
+
+
 }
 
 buttonReset.addEventListener('click', resetForm);
 
 /* dropdown */
-
-const buttonDrop = document.querySelectorAll('.dropdown');
-const boxDesign = document.querySelector('.main__design--container');
-const boxFill = document.querySelector('.main__fill--container');
-const boxShare = document.querySelector('.main__share--container');
-const boxTwitter = document.querySelector('.main__share--generated');
-
+const mainArrow = boxDesing.querySelector('.main__arrow');
 function dropDown(event) {
     const btnSelected = event.currentTarget;
     if (btnSelected.classList.contains('dropdown__design') === true) {
         boxDesign.classList.toggle('hidden');
+        mainArrow.classList.toggle('fa-angle-down');
+        mainArrow.classList.toggle('fa-angle-up');
     } else if (btnSelected.classList.contains('dropdown__fill') === true) {
         boxFill.classList.toggle('hidden');
+        mainArrow.classList.toggle('fa-angle-down');
+        mainArrow.classList.toggle('fa-angle-up');
     } else if (btnSelected.classList.contains('dropdown__share') === true){
         shareButton.classList.toggle('hidden');
         boxShare.classList.toggle('hidden');
+        mainArrow.classList.toggle('fa-angle-down');
+        mainArrow.classList.toggle('fa-angle-up');
     }
+
 }
 for (let i = 0; i < buttonDrop.length; i++) {
     buttonDrop[i].addEventListener('click', dropDown);
