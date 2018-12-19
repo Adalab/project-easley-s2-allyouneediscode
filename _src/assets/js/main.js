@@ -144,7 +144,8 @@ function choosePalette() {
 
         for (let i = 0; i < socialIconSelector.length; i++) {
             if(socialIconSelector[i].innerHTML !== '') {
-                socialIconSelector[i].classList.add('social-icon--red');
+                socialIconSelector[i].parentElement.classList.add('social__container--red');
+                socialIconSelector[i].parentElement.classList.remove('social__container--green');
             } else {
                 socialIconSelector[i].classList.add('hidden');
             }
