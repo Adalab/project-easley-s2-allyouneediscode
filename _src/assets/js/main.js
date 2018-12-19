@@ -322,9 +322,21 @@ const liGithub = document.querySelector('.li__github');
 fillEmailSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
+    if(writer.value === '') {
+
+        liEmail.innerHTML = '';
+
+        liEmail.classList.add('hidden');
+
+    } else {
+
+        liEmail.innerHTML = `<a class="socialicons-style" href="mailto:${writer.value}"><span class="far fa-envelope"></span></a>`;
+
+        liEmail.classList.remove('hidden');
+    }
+
     localStorage.setItem('email', writer.value);
-    liEmail.classList.add('social-icon--green');
-    liEmail.innerHTML = `<a class="socialicons-style" href="mailto:${writer.value}"><span class="far fa-envelope"></span></a>`;
+
     jsonObject.email = writer.value;
 });
 
@@ -334,11 +346,24 @@ fillEmailSelector.addEventListener('keyup', function(e) {
 const fillPhoneSelector = document.querySelector('#phone');
 
 fillPhoneSelector.addEventListener('keyup', function(e) {
+
     const writer = e.currentTarget;
 
+    if(writer.value === '') {
+
+        liPhone.innerHTML = '';
+
+        liPhone.classList.add('hidden');
+
+    } else {
+
+        liPhone.innerHTML = `<a class="socialicons-style" href="tel:${writer.value}"><span class="fas fa-mobile-alt"></span></a>`;
+
+        liPhone.classList.remove('hidden');
+    }
+
     localStorage.setItem('phone', writer.value);
-    liPhone.classList.add('social-icon--green');
-    liPhone.innerHTML = `<a class="socialicons-style" href="tel:${writer.value}"><span class="fas fa-mobile-alt"></span></a>`;
+
     jsonObject.phone = writer.value;
 });
 
@@ -350,9 +375,21 @@ const fillLinkedInSelector = document.querySelector('#linkedin');
 fillLinkedInSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
+
+    if(writer.value === '') {
+
+        liLinkedin.innerHTML = '';
+
+        liLinkedin.classList.add('hidden');
+
+    } else {
+
+        liLinkedin.innerHTML = `<a class="socialicons-style" href="https://www.linkedin.com/in/${writer.value}"><span class="fab fa-linkedin-in"></span></a>`;
+
+        liLinkedin.classList.remove('hidden');
+    }
+
     localStorage.setItem('linkedin', writer.value);
-    liLinkedin.classList.add('social-icon--green');
-    liLinkedin.innerHTML = `<a class="socialicons-style" href="https://www.linkedin.com/in/${writer.value}"><span class="fab fa-linkedin-in"></span></a>`;
     jsonObject.linkedin = writer.value;
 });
 
@@ -363,9 +400,21 @@ const fillGithubSelector = document.querySelector('#github');
 fillGithubSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
+    if(writer.value === '') {
+
+        liGithub.innerHTML = '';
+
+        liGithub.classList.add('hidden');
+
+    } else {
+
+        liGithub.innerHTML = `<a class="socialicons-style" href="https://github.com/${writer.value}"><span class="fab fa-github-alt"></span></a>`;
+
+        liGithub.classList.remove('hidden');
+    }
+
     localStorage.setItem('github', writer.value);
-    liGithub.classList.add('social-icon--green');
-    liGithub.innerHTML = `<a class="socialicons-style" href="https://github.com/${writer.value}"><span class="fab fa-github-alt"></span></a>`;
+
     jsonObject.github = writer.value;
 });
 
