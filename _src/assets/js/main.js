@@ -111,7 +111,11 @@ function choosePalette() {
         jsonObject.palette = 1;
 
         for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.add('social-icon--green');
+            if(socialIconSelector[i].innerHTML !== '') {
+                socialIconSelector[i].classList.add('social-icon--green');
+            } else {
+                socialIconSelector[i].classList.add('hidden');
+            }
         }
 
         for (let i = 0; i < skillIconSelector.length; i++) {
@@ -139,7 +143,11 @@ function choosePalette() {
         jsonObject.palette = 2;
 
         for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.add('social-icon--red');
+            if(socialIconSelector[i].innerHTML !== '') {
+                socialIconSelector[i].classList.add('social-icon--red');
+            } else {
+                socialIconSelector[i].classList.add('hidden');
+            }
         }
         for (let i = 0; i < skillIconSelector.length; i++) {
             skillIconSelector[i].classList.add('skill--red');
@@ -165,7 +173,11 @@ function choosePalette() {
         jsonObject.palette = 3;
 
         for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.add('social-icon--grey');
+            if(socialIconSelector[i].innerHTML !== '') {
+                socialIconSelector[i].classList.add('social-icon--grey');
+            } else {
+                socialIconSelector[i].classList.add('hidden');
+            }
         }
         for (let i = 0; i < skillIconSelector.length; i++) {
             skillIconSelector[i].classList.add('skill--grey');
