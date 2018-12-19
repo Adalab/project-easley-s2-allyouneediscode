@@ -22,6 +22,8 @@ const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 const containerSkills = document.querySelector('.container--skills');
 const skillContainer = document.querySelector('.preview__skills-icons');
 
+const socialIconsContainer = document.querySelector('.preview__social-icons');
+
 const jsonObject = {
     "palette": 0,
     "typography": 0,
@@ -142,14 +144,14 @@ function choosePalette() {
         localStorage.setItem('palette', '2');
         jsonObject.palette = 2;
 
-        for (let i = 0; i < socialIconSelector.length; i++) {
-            if(socialIconSelector[i].innerHTML !== '') {
-                socialIconSelector[i].parentElement.classList.add('social__container--red');
-                socialIconSelector[i].parentElement.classList.remove('social__container--green');
-            } else {
-                socialIconSelector[i].classList.add('hidden');
-            }
-        }
+        // for (let i = 0; i < socialIconSelector.length; i++) {
+        //     if(socialIconSelector[i].innerHTML === '') {
+
+        //         socialIconSelector[i].classList.add('hidden');
+        //     }
+            socialIconsContainer.classList.add('social__container--red');
+            socialIconsContainer.classList.remove('social__container--green', 'social__container--grey' );
+        // }
         for (let i = 0; i < skillIconSelector.length; i++) {
             skillIconSelector[i].classList.add('skill--red');
         }
