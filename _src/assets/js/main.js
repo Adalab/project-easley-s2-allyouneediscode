@@ -45,6 +45,12 @@ const jsonObject = {
     'skills': []
 };
 
+//Get info from local storage to put in the DOM
+
+if (localStorage.getItem('palette')) {
+    jsonObject.palette = JSON.parse(localStorage.getItem('palette'));
+}
+
 //Guión:
 
 //Llamamos al API con fetch y sus respectivas promesas
@@ -192,9 +198,9 @@ function choosePalette() {
     }
 }
 
-checkboxPaletteGreen.addEventListener('click', choosePalette);
-checkboxPaletteRed.addEventListener('click', choosePalette);
-checkboxPaletteGrey.addEventListener('click', choosePalette);
+checkboxPaletteGreen.addEventListener('change', choosePalette);
+checkboxPaletteRed.addEventListener('change', choosePalette);
+checkboxPaletteGrey.addEventListener('change', choosePalette);
 
 
 //When 'click'-ing checkbox, add the class corresponding to the selected typography and remove others
