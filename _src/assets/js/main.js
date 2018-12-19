@@ -19,6 +19,9 @@ const checkboxUbuntuSelector = document.querySelector('#font-ubuntu');
 const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
 const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 
+const shareButton = document.querySelector('.main__share--create');
+const responseURL = document.querySelector('.main__share--generated-link');
+
 const jsonObject = {
     'palette': 1,
     'typography': 2,
@@ -410,7 +413,7 @@ buttonReset.addEventListener('click', resetForm);
 const buttonDrop = document.querySelectorAll('.dropdown');
 const boxDesign = document.querySelector('.main__design--container');
 const boxFill = document.querySelector('.main__fill--container');
-const boxShare = document.querySelector('.main__share--generated');
+const boxShare = document.querySelector('.main__share--container');
 
 function dropDown(event) {
     const btnSelected = event.currentTarget;
@@ -419,7 +422,7 @@ function dropDown(event) {
     } else if (btnSelected.classList.contains('dropdown__fill') === true) {
         boxFill.classList.toggle('hidden');
     } else if (btnSelected.classList.contains('dropdown__share') === true){
-        boxShare.classList.toggle('hidden');
+        shareButton.classList.toggle('hidden');
     }
 }
 for (let i = 0; i < buttonDrop.length; i++) {
@@ -430,10 +433,6 @@ for (let i = 0; i < buttonDrop.length; i++) {
 /* Local Storage */
 
 //Share functionality
-
-
-const shareButton = document.querySelector('.main__share--create');
-const responseURL = document.querySelector('.main__share--generated-link');
 
 shareButton.addEventListener('click', sendRequest);
 
