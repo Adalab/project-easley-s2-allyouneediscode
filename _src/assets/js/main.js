@@ -19,6 +19,9 @@ const checkboxUbuntuSelector = document.querySelector('#font-ubuntu');
 const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
 const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 
+const containerSkills = document.querySelector('.container--skills');
+const skillContainer = document.querySelector('.preview__skills-icons');
+
 const jsonObject = {
     'palette': 1,
     'typography': 2,
@@ -100,6 +103,7 @@ function jsonCheckedItem(event) {
 function choosePalette() {
 
     if ((this.value) === 'green-palette') {
+
         cardNameSelector.classList.add('preview__name--green');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
 
@@ -107,14 +111,17 @@ function choosePalette() {
         jsonObject.palette = 1;
 
         for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.add('social-icon--green');
+            if(socialIconSelector[i].innerHTML !== '') {
+                socialIconSelector[i].classList.add('social-icon--green');
+            } else {
+                socialIconSelector[i].classList.add('hidden');
+            }
         }
 
         for (let i = 0; i < skillIconSelector.length; i++) {
             skillIconSelector[i].classList.add('skill--green');
         }
 
-        const skillContainer = document.querySelector('.preview__skills-icons');
         skillContainer.classList.add('icons__container--green');
         skillContainer.classList.remove('icons__container--red');
         skillContainer.classList.remove('icons__container--grey');
@@ -124,6 +131,8 @@ function choosePalette() {
         for (let i = 0; i < socialIconSelector.length; i++) {
             socialIconSelector[i].classList.remove('social-icon--red', 'social-icon--grey');
         }
+
+
     }
 
     else if ((this.value) === 'red-palette') {
@@ -134,7 +143,12 @@ function choosePalette() {
         jsonObject.palette = 2;
 
         for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.add('social-icon--red');
+            if(socialIconSelector[i].innerHTML !== '') {
+                socialIconSelector[i].parentElement.classList.add('social__container--red');
+                socialIconSelector[i].parentElement.classList.remove('social__container--green');
+            } else {
+                socialIconSelector[i].classList.add('hidden');
+            }
         }
         for (let i = 0; i < skillIconSelector.length; i++) {
             skillIconSelector[i].classList.add('skill--red');
@@ -160,7 +174,11 @@ function choosePalette() {
         jsonObject.palette = 3;
 
         for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.add('social-icon--grey');
+            if(socialIconSelector[i].innerHTML !== '') {
+                socialIconSelector[i].classList.add('social-icon--grey');
+            } else {
+                socialIconSelector[i].classList.add('hidden');
+            }
         }
         for (let i = 0; i < skillIconSelector.length; i++) {
             skillIconSelector[i].classList.add('skill--grey');
@@ -304,9 +322,21 @@ const liGithub = document.querySelector('.li__github');
 fillEmailSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
+    if(writer.value === '') {
+
+        liEmail.innerHTML = '';
+
+        liEmail.classList.add('hidden');
+
+    } else {
+
+        liEmail.innerHTML = `<a class="socialicons-style" href="mailto:${writer.value}"><span class="far fa-envelope"></span></a>`;
+
+        liEmail.classList.remove('hidden');
+    }
+
     localStorage.setItem('email', writer.value);
 
-    liEmail.innerHTML = `<a href="mailto:${writer.value}"><div class="social-icon social-icon--green icon__mail"><span class="far fa-envelope"></span></div></a>`;
     jsonObject.email = writer.value;
 });
 
@@ -316,11 +346,24 @@ fillEmailSelector.addEventListener('keyup', function(e) {
 const fillPhoneSelector = document.querySelector('#phone');
 
 fillPhoneSelector.addEventListener('keyup', function(e) {
+
     const writer = e.currentTarget;
+
+    if(writer.value === '') {
+
+        liPhone.innerHTML = '';
+
+        liPhone.classList.add('hidden');
+
+    } else {
+
+        liPhone.innerHTML = `<a class="socialicons-style" href="tel:${writer.value}"><span class="fas fa-mobile-alt"></span></a>`;
+
+        liPhone.classList.remove('hidden');
+    }
 
     localStorage.setItem('phone', writer.value);
 
-    liPhone.innerHTML = `<a href="tel:${writer.value}"><div class="social-icon social-icon--green icon__phone"><span class="fas fa-mobile-alt"></span></div></a>`;
     jsonObject.phone = writer.value;
 });
 
@@ -332,9 +375,21 @@ const fillLinkedInSelector = document.querySelector('#linkedin');
 fillLinkedInSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
-    localStorage.setItem('linkedin', writer.value);
 
-    liLinkedin.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><div class="social-icon social-icon--green icon__linkedin"><span class="fab fa-linkedin-in"></span></div></a>`;
+    if(writer.value === '') {
+
+        liLinkedin.innerHTML = '';
+
+        liLinkedin.classList.add('hidden');
+
+    } else {
+
+        liLinkedin.innerHTML = `<a class="socialicons-style" href="https://www.linkedin.com/in/${writer.value}"><span class="fab fa-linkedin-in"></span></a>`;
+
+        liLinkedin.classList.remove('hidden');
+    }
+
+    localStorage.setItem('linkedin', writer.value);
     jsonObject.linkedin = writer.value;
 });
 
@@ -345,9 +400,21 @@ const fillGithubSelector = document.querySelector('#github');
 fillGithubSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
 
+    if(writer.value === '') {
+
+        liGithub.innerHTML = '';
+
+        liGithub.classList.add('hidden');
+
+    } else {
+
+        liGithub.innerHTML = `<a class="socialicons-style" href="https://github.com/${writer.value}"><span class="fab fa-github-alt"></span></a>`;
+
+        liGithub.classList.remove('hidden');
+    }
+
     localStorage.setItem('github', writer.value);
 
-    liGithub.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;
     jsonObject.github = writer.value;
 });
 

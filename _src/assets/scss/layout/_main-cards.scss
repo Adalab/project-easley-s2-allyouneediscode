@@ -18,10 +18,6 @@
     background-image: none;
     overflow: overlay;
     height: 100%;
-
-    @media all and (min-width: 768px) {
-      width: 399px;
-    }
 }
 
 .preview__container {
@@ -30,10 +26,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    // background: green;
-    // border: dotted black;
-
-    //removed margin: left and re-added margin auto. Don't change it back, otherwise page isn't responsive!
 }
 
 .icon {
@@ -103,7 +95,6 @@
     background-color: $color-white;
     box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
     border-radius: 2px;
-    // background: fuchsia;
 }
 
 .preview__title {
@@ -116,7 +107,7 @@
     width: 5px;
 }
 
-//Creamos clases diferentes específicas para cada color, para poder seleccionar las clases más fácilemente con JS
+//Class for each color
 .preview__decoration-rectangle--green {
     background-color: $color-hospital-green;
 }
@@ -142,8 +133,6 @@
     line-height: 20px;
     margin: 0 0 5px;
 }
-
-//Creamos clases diferentes específicas para cada color, para poder seleccionar las clases más fácilemente con JS
 
 .preview__name--green {
     color: $color-dark-green-blue;
@@ -173,7 +162,7 @@
     height: 200px;
 }
 
-//////The conatiner class in each UL is to give each of them display: flex and some other common elements in just one place///
+//////The container class in each UL is to give each of them display: flex and some other common elements in just one place///
 
 .icons__container {
     display: flex;
@@ -185,47 +174,70 @@
 
 
 .icons__container--green {
-    & > li {
+    & li {
         background-color: $color-dirty-blue;
     }
 }
 
 .icons__container--red {
-    & > li {
+    & li {
         background-color: $color-rusty-red;
     }
 }
 
 .icons__container--grey {
-    & > li {
+    & li {
         background-color: $color-pale-grey-two;
     }
 }
 
+.socialicons-style{
+  text-decoration: none;
+  font-size: 18px;
+  text-align: center;
+}
+
+
+
 .social-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
     width: 32px;
     height: 32px;
     margin-right: 10px;
     border-radius: 16px;
 }
 
-//Creamos clases diferentes específicas para cada color, para poder seleccionar las clases más fácilemente con JS
-.social-icon--green {
+
+.social__container--green{
+  & li{
     border: 2px solid $color-hospital-green;
     color: $color-dark-green-blue;
+  }
+  & .hidden{
+    display:none;
+  }
 }
 
-.social-icon--red {
+.social__container--red{
+  & li{
     border: 2px solid $color-tomato;
     color: $color-dried-blood;
+  }
+  & .hidden{
+    display:none;
+  }
 }
 
-.social-icon--grey {
+.social__container--grey{
+  & li{
     border: 2px solid $color-light-grey-blue;
     color: $color-slate;
+  }
+  & .hidden{
+    display:none;
+  }
 }
 
 .social-icon:first-child {
@@ -270,8 +282,6 @@
     background-position: center;
     background-size: cover;
 }
-
-//Creamos clases diferentes específicas para cada color, para poder seleccionar las clases más fácilemente con JS
 
 .skill--green {
     background-color: $color-dirty-blue;
@@ -370,7 +380,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr auto;
     grid-gap: 27px;
-    //he tenido que meterlo aquí porque el display: grid lo sobreescribe
+
     &.hidden{
         display: none;
     }
@@ -436,13 +446,9 @@
     margin-top: 30px;
 }
 
-//hemos tenido que crear una subsección porque no cogía los last-child ni los first-child
 .border-section-nomargin{
   margin-top: 0px;
 }
-
-
-//Revisar para mejorar
 
 .input-container {
     border: 1px solid $color-hospital-green;
@@ -459,7 +465,7 @@
     flex-direction: column;
     width: 281px;
     margin-top:25px;
-    //he tenido que meterlo aquí porque el display: flex lo sobreescribe
+
     &.hidden{
         display: none;
     }
@@ -501,6 +507,7 @@
     flex-direction: row;
     align-items: center;
 }
+
 //position button and preview image
 
 .upload-image__container{
@@ -601,8 +608,9 @@ margin: 6px 9.5px 6px 10.5px;
   font-family: 'OpenSans', sans-serif;
   margin-bottom: 10px;
   margin-top:5px;
-
 }
+
+//Start the media queries
 
 @media all and (min-width: 768px) {
 
@@ -633,6 +641,9 @@ margin: 6px 9.5px 6px 10.5px;
     flex-grow: 1;
   }
 
+  .main__form{
+    width: 399px;
+  }
   .cards--form__container{
     margin-left: 40px;
     margin-right: 40px;
