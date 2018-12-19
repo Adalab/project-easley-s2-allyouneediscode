@@ -430,22 +430,26 @@ function resetForm() {
 buttonReset.addEventListener('click', resetForm);
 
 /* dropdown */
-const mainArrow = boxDesing.querySelector('.main__arrow');
+const mainArrow = document.querySelectorAll('.main__arrow');
+
 function dropDown(event) {
     const btnSelected = event.currentTarget;
     if (btnSelected.classList.contains('dropdown__design') === true) {
         boxDesign.classList.toggle('hidden');
-        mainArrow.classList.toggle('fa-angle-down');
-        mainArrow.classList.toggle('fa-angle-up');
+
+        mainArrow[0].classList.toggle('fa-angle-down');
+        mainArrow[0].classList.toggle('fa-angle-up');
     } else if (btnSelected.classList.contains('dropdown__fill') === true) {
         boxFill.classList.toggle('hidden');
-        mainArrow.classList.toggle('fa-angle-down');
-        mainArrow.classList.toggle('fa-angle-up');
+
+        mainArrow[1].classList.toggle('fa-angle-down');
+        mainArrow[1].classList.toggle('fa-angle-up');
     } else if (btnSelected.classList.contains('dropdown__share') === true){
         shareButton.classList.toggle('hidden');
         boxShare.classList.toggle('hidden');
-        mainArrow.classList.toggle('fa-angle-down');
-        mainArrow.classList.toggle('fa-angle-up');
+
+        mainArrow[2].classList.toggle('fa-angle-down');
+        mainArrow[2].classList.toggle('fa-angle-up');
     }
 
 }
