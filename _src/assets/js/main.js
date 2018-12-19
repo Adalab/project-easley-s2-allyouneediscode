@@ -414,6 +414,7 @@ const buttonDrop = document.querySelectorAll('.dropdown');
 const boxDesign = document.querySelector('.main__design--container');
 const boxFill = document.querySelector('.main__fill--container');
 const boxShare = document.querySelector('.main__share--container');
+const boxTwitter = document.querySelector('.main__share--generated');
 
 function dropDown(event) {
     const btnSelected = event.currentTarget;
@@ -423,10 +424,15 @@ function dropDown(event) {
         boxFill.classList.toggle('hidden');
     } else if (btnSelected.classList.contains('dropdown__share') === true){
         shareButton.classList.toggle('hidden');
+        boxShare.classList.toggle('hidden');
     }
 }
 for (let i = 0; i < buttonDrop.length; i++) {
     buttonDrop[i].addEventListener('click', dropDown);
+}
+shareButton.addEventListener('click',showLink);
+function showLink(){
+    boxTwitter.classList.toggle('hidden');
 }
 
 
