@@ -14,7 +14,7 @@
 
 .main__form {
     background-image: linear-gradient(to bottom, $color-white-three, $color-white 10%);
-    padding: 10px 20px 30px;
+    padding: 10px 30px 10px 40px;
     background-image: none;
     overflow: overlay;
     height: 100%;
@@ -37,6 +37,7 @@
 
 .fa-object-ungroup {
     margin: 0;
+    padding: 0;
 }
 
 .main__arrow {
@@ -245,6 +246,7 @@
 .social__container--grey{
   & li{
     border: 2px solid $color-light-grey-blue;
+
     & a {
       color: $color-slate;
     }
@@ -252,6 +254,13 @@
   & .hidden{
     display:none;
   }
+
+    color: $color-slate;
+}
+
+.social-icon:first-child {
+    // margin-left: 20px;
+
 }
 
 .preview__skills-icons {
@@ -372,9 +381,9 @@
     font-family: 'Open Sans';
     font-size: 18px;
     color: $color-gunmetal;
-    margin: 0;
-    margin-left: 10px;
-    padding: 10px 0px 7px;
+    // margin: 0 0 0 10px;
+    // padding: 10px 0px 7px;
+    padding-left: 10px;
 }
 
 .main__design--colors,
@@ -383,7 +392,7 @@
 }
 
 .main__design--container {
-    padding-left: 10px;
+    // padding-left: 10px;
     padding-right: 20px;
     padding-bottom: 30px;
     display: grid;
@@ -501,9 +510,11 @@
 .dropdown-icon {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: center;
     align-items: center;
+    margin-left: 0;
+    justify-content: flex-start;
 }
+
 
 //position skills checkbox
 
@@ -628,15 +639,20 @@ margin: 6px 9.5px 6px 10.5px;
   }
 
   .cards--form__container{
-    display:flex;
-    flex-direction: row-reverse;
-    justify-content: space-around;
-    border-radius: 6px;
-    height: 100vh;
+
+  display:flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  border-radius: 6px;
+  margin-right: 40px;
+  height: 100%;
+  height: 100vh;
+
   }
 
   .main__preview{
     padding: 0;
+    width: 329px;
     border-radius: 6px;
     display: flex;
     justify-content: center;
@@ -647,6 +663,7 @@ margin: 6px 9.5px 6px 10.5px;
   .main__form{
     width: 399px;
   }
+
   .cards--form__container{
     margin-left: 40px;
     margin-right: 40px;

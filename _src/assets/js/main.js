@@ -25,16 +25,16 @@ const skillContainer = document.querySelector('.preview__skills-icons');
 const socialIconsContainer = document.querySelector('.preview__social-icons');
 
 const jsonObject = {
-    "palette": 0,
-    "typography": 0,
-    "name" : "",
-    "job": "",
-    "phone": "",
-    "email": "",
-    "linkedin": "",
-    "github": "",
-    "photo": "",
-    "skills": []
+    'palette': 1,
+    'typography': 2,
+    'name' : '',
+    'job': '',
+    'phone': '',
+    'email': '',
+    'linkedin': '',
+    'github': '',
+    'photo': '',
+    'skills': []
 };
 
 //Guión:
@@ -391,6 +391,7 @@ fillGithubSelector.addEventListener('keyup', function(e) {
 
         liGithub.innerHTML = '';
 
+
         liGithub.classList.add('hidden');
 
     } else {
@@ -436,10 +437,25 @@ function resetForm() {
     }
     cardTextSelector.classList.add('comic-sans');
     cardTextSelector.classList.remove('ubuntu', 'montserrat');
-    htmlLabel.classList.add('hidden');
-    cssLabel.classList.add('hidden');
-    reactLabel.classList.add('hidden');
 
+    //Reset skills from preview and re-add event listener
+    const skillsContainer = document.querySelector('.preview__skills-icons');
+    skillsContainer.innerHTML = '';
+
+    //Reset jsonObject
+    jsonObject.palette = 1;
+    jsonObject.typography = 2;
+    jsonObject.name = '';
+    jsonObject.job = '';
+    jsonObject.phone = '';
+    jsonObject.email = '';
+    jsonObject.linkedin = '';
+    jsonObject.github = '';
+    jsonObject.photo = '';
+    jsonObject.skills.length = 0;
+
+    //Reset local storage
+    localStorage.clear();
 }
 
 buttonReset.addEventListener('click', resetForm);
@@ -468,7 +484,7 @@ for (let i = 0; i < buttonDrop.length; i++) {
 
 /* Local Storage */
 
-//////Share functionality/////
+//Share functionality
 
 
 const shareButton = document.querySelector('.main__share--create');
