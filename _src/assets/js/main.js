@@ -405,6 +405,7 @@ fillGithubSelector.addEventListener('keyup', function(e) {
 
         liGithub.innerHTML = '';
 
+
         liGithub.classList.add('hidden');
 
     } else {
@@ -481,9 +482,6 @@ function resetForm() {
     boxFill.classList.add('hidden');
     shareButton.classList.add('hidden');
     boxShare.classList.add('hidden');
-
-
-
 }
 
 buttonReset.addEventListener('click', resetForm);
@@ -525,10 +523,7 @@ function showLink(){
 /* Local Storage */
 
 //Share functionality
-
 shareButton.addEventListener('click', sendRequest);
-
-
 
 function sendRequest(){
     fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
