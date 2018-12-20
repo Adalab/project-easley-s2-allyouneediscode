@@ -19,6 +19,14 @@ const checkboxUbuntuSelector = document.querySelector('#font-ubuntu');
 const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
 const checkboxMontserratSelector = document.querySelector('#font-montserrat');
 
+const shareButton = document.querySelector('.main__share--create');
+const responseURL = document.querySelector('.main__share--generated-link');
+
+const buttonDrop = document.querySelectorAll('.dropdown');
+const boxDesign = document.querySelector('.main__design--container');
+const boxFill = document.querySelector('.main__fill--container');
+const boxShare = document.querySelector('.main__share--container');
+const boxTwitter = document.querySelector('.main__share--generated');
 const containerSkills = document.querySelector('.container--skills');
 const skillContainer = document.querySelector('.preview__skills-icons');
 
@@ -36,6 +44,12 @@ const jsonObject = {
     'photo': '',
     'skills': []
 };
+
+//Get info from local storage to put in the DOM
+
+if (localStorage.getItem('palette')) {
+    jsonObject.palette = JSON.parse(localStorage.getItem('palette'));
+}
 
 //Guión:
 
@@ -184,9 +198,9 @@ function choosePalette() {
     }
 }
 
-checkboxPaletteGreen.addEventListener('click', choosePalette);
-checkboxPaletteRed.addEventListener('click', choosePalette);
-checkboxPaletteGrey.addEventListener('click', choosePalette);
+checkboxPaletteGreen.addEventListener('change', choosePalette);
+checkboxPaletteRed.addEventListener('change', choosePalette);
+checkboxPaletteGrey.addEventListener('change', choosePalette);
 
 
 //When 'click'-ing checkbox, add the class corresponding to the selected typography and remove others
@@ -456,43 +470,60 @@ function resetForm() {
 
     //Reset local storage
     localStorage.clear();
+
+    //Reset link
+    responseURL.href= '';
+
+    //Hidden twitter
+    boxTwitter.classList.add('hidden');
+
+    //Reset drop-down
+    boxDesign.classList.add('hidden');
+    boxFill.classList.add('hidden');
+    shareButton.classList.add('hidden');
+    boxShare.classList.add('hidden');
 }
 
 buttonReset.addEventListener('click', resetForm);
 
 /* dropdown */
-
-const buttonDrop = document.querySelectorAll('.dropdown');
-const boxDesign = document.querySelector('.main__design--container');
-const boxFill = document.querySelector('.main__fill--container');
-const boxShare = document.querySelector('.main__share--container');
+const mainArrow = document.querySelectorAll('.main__arrow');
 
 function dropDown(event) {
     const btnSelected = event.currentTarget;
     if (btnSelected.classList.contains('dropdown__design') === true) {
         boxDesign.classList.toggle('hidden');
+
+        mainArrow[0].classList.toggle('fa-angle-down');
+        mainArrow[0].classList.toggle('fa-angle-up');
     } else if (btnSelected.classList.contains('dropdown__fill') === true) {
         boxFill.classList.toggle('hidden');
-    } else {
+
+        mainArrow[1].classList.toggle('fa-angle-down');
+        mainArrow[1].classList.toggle('fa-angle-up');
+    } else if (btnSelected.classList.contains('dropdown__share') === true){
+        shareButton.classList.toggle('hidden');
         boxShare.classList.toggle('hidden');
+        boxTwitter.classList.add('hidden');
+
+        mainArrow[2].classList.toggle('fa-angle-down');
+        mainArrow[2].classList.toggle('fa-angle-up');
     }
+
 }
 for (let i = 0; i < buttonDrop.length; i++) {
     buttonDrop[i].addEventListener('click', dropDown);
+}
+shareButton.addEventListener('click',showLink);
+function showLink(){
+    boxTwitter.classList.remove('hidden');
 }
 
 
 /* Local Storage */
 
 //Share functionality
-
-
-const shareButton = document.querySelector('.main__share--create');
-const responseURL = document.querySelector('.main__share--generated-link');
-
 shareButton.addEventListener('click', sendRequest);
-
-
 
 function sendRequest(){
     fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
