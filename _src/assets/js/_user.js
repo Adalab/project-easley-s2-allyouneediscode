@@ -1,126 +1,108 @@
 'use strict';
 
-/* Name field */
-
-const fillNameSelector = document.querySelector('#full-name');
-
+// name field
 fillNameSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
-
     localStorage.setItem('name', writer.value);
-
     cardNameSelector.innerHTML = writer.value;
     jsonObject.name = writer.value;
 });
 
-/* Occupation field */
-
-const fillOccupationSelector = document.querySelector('#occupation');
-
+// occupation field
 fillOccupationSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
-
     localStorage.setItem('ocuppation', writer.value);
-
     cardOccupationSelector.innerHTML = writer.value;
     jsonObject.job = writer.value;
 });
 
+/*profile image field*/
 
-////* IMAGE *////
-
-/* Profile image field */
-
-const fakeUploadImage = document.querySelector('.fake__upload-image');
-const uploadImage = document.querySelector('.upload-image');
-const fr = new FileReader();
-
-/* FakeUploadImage activates UploadImage */
-
+//fakeUploadImage activates UploadImage
 const uploadClick = () => {
     uploadImage.click();
 };
 
-/* Clicking fakeUploadImage event listener */
+//clicking fakeUploadImage event listener
 fakeUploadImage.addEventListener('click', uploadClick);
 
 
-/* UploadImage is drawn on previewImage */
+//UploadImage is drawn on previewImage
 const writeImage = () => {
     previewImage.style.backgroundImage = `url(${fr.result})`;
     fakeCheckUploadImage.style.backgroundImage = `url(${fr.result})`;
-    localStorage.setItem('image', JSON.stringify(fr.result));
     jsonObject.photo = fr.result;
+    localStorage.setItem('image', JSON.stringify(fr.result));
 };
 
-/* Obtaining the image via fakeCheckUploadImage */
+//obtaining the image via fakeCheckUploadImage
 function getImage(event) {
     const myFile = event.currentTarget.files[0];
-
     fr.addEventListener('load', writeImage);
     fr.readAsDataURL(myFile);
-
 }
 
-/* Upload complete event listener */
+//Upload complete event listener
 uploadImage.addEventListener('change', getImage);
 
-////* SOCIAL ICONS *////
+/* Social icons */
 
-/* Email field */
-
-const fillEmailSelector = document.querySelector('#email');
-const liEmail = document.querySelector('.li__email');
-const liPhone = document.querySelector('.li__phone');
-const liLinkedin = document.querySelector('.li__linkedin');
-const liGithub = document.querySelector('.li__github');
-
+// email field
 fillEmailSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
+    if(writer.value === '') {
+        liEmail.innerHTML = '';
+        liEmail.classList.add('hidden');
+    } else {
+        liEmail.innerHTML = `<a class="socialicons-style" href="mailto:${writer.value}"><span class="far fa-envelope"></span></a>`;
+        liEmail.classList.remove('hidden');
+    }
 
     localStorage.setItem('email', writer.value);
-
-    liEmail.innerHTML = `<a href="mailto:${writer.value}"><div class="social-icon social-icon--green icon__mail"><span class="far fa-envelope"></span></div></a>`;
     jsonObject.email = writer.value;
 });
 
-
-/* Phone number field */
-
-const fillPhoneSelector = document.querySelector('#phone');
-
+//phone number field
 fillPhoneSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
-
+    if(writer.value === '') {
+        liPhone.innerHTML = '';
+        liPhone.classList.add('hidden');
+    } else {
+        liPhone.innerHTML = `<a class="socialicons-style" href="tel:${writer.value}"><span class="fas fa-mobile-alt"></span></a>`;
+        liPhone.classList.remove('hidden');
+    }
     localStorage.setItem('phone', writer.value);
-
-    liPhone.innerHTML = `<a href="tel:${writer.value}"><div class="social-icon social-icon--green icon__phone"><span class="fas fa-mobile-alt"></span></div></a>`;
     jsonObject.phone = writer.value;
 });
 
 
-/* LinkedIn field */
-
-const fillLinkedInSelector = document.querySelector('#linkedin');
-
+//LinkedIn field
 fillLinkedInSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
+    if(writer.value === '') {
+        liLinkedin.innerHTML = '';
+        liLinkedin.classList.add('hidden');
+    } else {
+        liLinkedin.innerHTML = `<a class="socialicons-style" href="https://www.linkedin.com/in/${writer.value}"><span class="fab fa-linkedin-in"></span></a>`;
+        liLinkedin.classList.remove('hidden');
+    }
 
     localStorage.setItem('linkedin', writer.value);
-
-    liLinkedin.innerHTML = `<a href="https://www.linkedin.com/in/${writer.value}"><div class="social-icon social-icon--green icon__linkedin"><span class="fab fa-linkedin-in"></span></div></a>`;
     jsonObject.linkedin = writer.value;
 });
 
-/* Github field */
-
-const fillGithubSelector = document.querySelector('#github');
-
+//Github field
 fillGithubSelector.addEventListener('keyup', function(e) {
     const writer = e.currentTarget;
+    if(writer.value === '') {
+        liGithub.innerHTML = '';
+        liGithub.classList.add('hidden');
+    } else {
+        liGithub.innerHTML = `<a class="socialicons-style" href="https://github.com/${writer.value}"><span class="fab fa-github-alt"></span></a>`;
+        liGithub.classList.remove('hidden');
+    }
 
     localStorage.setItem('github', writer.value);
-
-    liGithub.innerHTML = `<a href="https://github.com/${writer.value}"><div class="social-icon social-icon--green icon__github"><span class="fab fa-github-alt"></span></div></a>`;
     jsonObject.github = writer.value;
 });

@@ -1,11 +1,6 @@
 'use strict';
 
-const checkboxUbuntuSelector = document.querySelector('#font-ubuntu');
-const checkboxComicSansSelector = document.querySelector('#font-comic-sans');
-const checkboxMontserratSelector = document.querySelector('#font-montserrat');
-
 //When 'click'-ing checkbox, add the class corresponding to the selected typography and remove others
-
 function chooseFont() {
 
     if ((this.value) === 'font-ubuntu') {
@@ -18,7 +13,7 @@ function chooseFont() {
     }
 
     else if ((this.value) === 'font-comic-sans') {
-        cardTextSelector.classList.add('comic-sans');b
+        cardTextSelector.classList.add('comic-sans');
         cardTextSelector.classList.remove('ubuntu');
         cardTextSelector.classList.remove('montserrat');
 

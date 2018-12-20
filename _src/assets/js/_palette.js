@@ -1,48 +1,24 @@
 'use strict';
 
-/*When 'click'-ing checkbox, add the class corresponding to the selected palette and remove others*/
-
-const cardNameSelector = document.querySelector('.preview__name');
-const decoRectangleSelector = document.querySelector('.preview__decoration-rectangle');
-const socialIconSelector = document.querySelectorAll('.social-icon');
-const skillIconSelector = document.querySelectorAll('.skill');
-const checkboxPaletteGreen = document.querySelector('#color-green');
-const checkboxPaletteRed = document.querySelector('#color-red');
-const checkboxPaletteGrey = document.querySelector('#color-grey');
-
-/*Este subrayado es porque ESlint considera que las strings van con comillas simples */
-
-const jsonObject = {
-    'palette': 0,
-    'typography': 0,
-    'name' : '',
-    'job': '',
-    'phone': '',
-    'email': '',
-    'linkedin': '',
-    'github': '',
-    'photo': '',
-    'skills': []
-};
+// When 'click'-ing checkbox, add the class corresponding to the selected palette and remove others
 
 function choosePalette() {
 
     if ((this.value) === 'green-palette') {
+
         cardNameSelector.classList.add('preview__name--green');
         decoRectangleSelector.classList.add('preview__decoration-rectangle--green');
 
         localStorage.setItem('palette', '1');
         jsonObject.palette = 1;
 
-        for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.add('social-icon--green');
-        }
+        socialIconsContainer.classList.add('social__container--green');
+        socialIconsContainer.classList.remove('social__container--red', 'social__container--grey' );
 
         for (let i = 0; i < skillIconSelector.length; i++) {
             skillIconSelector[i].classList.add('skill--green');
         }
 
-        const skillContainer = document.querySelector('.preview__skills-icons');
         skillContainer.classList.add('icons__container--green');
         skillContainer.classList.remove('icons__container--red');
         skillContainer.classList.remove('icons__container--grey');
@@ -61,9 +37,10 @@ function choosePalette() {
         localStorage.setItem('palette', '2');
         jsonObject.palette = 2;
 
-        for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.add('social-icon--red');
-        }
+
+        socialIconsContainer.classList.add('social__container--red');
+        socialIconsContainer.classList.remove('social__container--green', 'social__container--grey' );
+
         for (let i = 0; i < skillIconSelector.length; i++) {
             skillIconSelector[i].classList.add('skill--red');
         }
@@ -87,9 +64,9 @@ function choosePalette() {
         localStorage.setItem('palette', '3');
         jsonObject.palette = 3;
 
-        for (let i = 0; i < socialIconSelector.length; i++) {
-            socialIconSelector[i].classList.add('social-icon--grey');
-        }
+        socialIconsContainer.classList.add('social__container--grey');
+        socialIconsContainer.classList.remove('social__container--red', 'social__container--green' );
+
         for (let i = 0; i < skillIconSelector.length; i++) {
             skillIconSelector[i].classList.add('skill--grey');
         }
@@ -107,6 +84,6 @@ function choosePalette() {
     }
 }
 
-checkboxPaletteGreen.addEventListener('click', choosePalette);
-checkboxPaletteRed.addEventListener('click', choosePalette);
-checkboxPaletteGrey.addEventListener('click', choosePalette);
+checkboxPaletteGreen.addEventListener('change', choosePalette);
+checkboxPaletteRed.addEventListener('change', choosePalette);
+checkboxPaletteGrey.addEventListener('change', choosePalette);

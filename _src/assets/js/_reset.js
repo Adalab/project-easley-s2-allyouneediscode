@@ -2,14 +2,6 @@
 
 /* Reset button */
 
-const cardTextSelector = document.querySelector('.preview__texts');
-const cardSelector = document.querySelector('.preview__social-icons');
-const cardOccupationSelector = document.querySelector('.preview__occupation');
-const fakeCheckUploadImage = document.querySelector('.fake__check-upload-image');
-const previewImage = document.querySelector('.preview__image');
-const buttonReset = document.querySelector('.preview__reset');
-const formData = document.querySelector('.main__form');
-
 function resetForm() {
 
     formData.reset();
@@ -36,10 +28,37 @@ function resetForm() {
     }
     cardTextSelector.classList.add('comic-sans');
     cardTextSelector.classList.remove('ubuntu', 'montserrat');
-    htmlLabel.classList.add('hidden');
-    cssLabel.classList.add('hidden');
-    reactLabel.classList.add('hidden');
 
+    //Reset skills from preview and re-add event listener
+    const skillsContainer = document.querySelector('.preview__skills-icons');
+    skillsContainer.innerHTML = '';
+
+    //Reset jsonObject
+    jsonObject.palette = 1;
+    jsonObject.typography = 2;
+    jsonObject.name = '';
+    jsonObject.job = '';
+    jsonObject.phone = '';
+    jsonObject.email = '';
+    jsonObject.linkedin = '';
+    jsonObject.github = '';
+    jsonObject.photo = '';
+    jsonObject.skills.length = 0;
+
+    //Reset local storage
+    localStorage.clear();
+
+    //Reset link
+    responseURL.href= '';
+
+    //Hidden twitter
+    boxTwitter.classList.add('hidden');
+
+    //Reset drop-down
+    boxDesign.classList.add('hidden');
+    boxFill.classList.add('hidden');
+    shareButton.classList.add('hidden');
+    boxShare.classList.add('hidden');
 }
 
 buttonReset.addEventListener('click', resetForm);
