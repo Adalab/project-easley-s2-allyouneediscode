@@ -1,8 +1,6 @@
 'use strict';
 
 //Share functionality
-shareButton.addEventListener('click', sendRequest);
-
 function sendRequest(){
     fetch('https://us-central1-awesome-cards-cf6f0.cloudfunctions.net/card/', {
         method: 'POST',
@@ -31,3 +29,5 @@ function sendRequest(){
             twitterShare.addEventListener('click', shareOnTwitter);
         });
 }
+
+shareButton.addEventListener('click', sendRequest);
